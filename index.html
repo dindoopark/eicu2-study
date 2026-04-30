@@ -1,0 +1,3520 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KSCCM-ACCC 2026 Critical Care Integrated Review</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #f4f6f8; color: #172033; font-family: 'Source Sans 3', Arial, sans-serif; }
+  .topbar { background: #111827; color: white; border-bottom: 4px solid #c1272d; }
+  .topbar-inner { max-width: 1180px; margin: 0 auto; padding: 22px 28px 18px; display: flex; justify-content: space-between; gap: 20px; align-items: center; flex-wrap: wrap; }
+  .brand { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; line-height: 1.1; }
+  .brand span.red { color: #f4a3a6; }
+  .brand span.blue { color: #8cc6ff; }
+  .meta { color: rgba(255,255,255,0.68); font-size: 13px; line-height: 1.5; text-align: right; }
+  .switcher-wrap { background: white; border-bottom: 1px solid #d7dde6; position: sticky; top: 0; z-index: 10; }
+  .switcher { max-width: 1180px; margin: 0 auto; padding: 12px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .topic-tab { border: 1px solid #d7dde6; background: #fff; border-radius: 8px; padding: 13px 16px; cursor: pointer; text-align: left; transition: all 0.18s; }
+  .topic-tab:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(15,23,42,0.08); }
+  .topic-tab.active.red { border-color: #c1272d; background: #f5e6e7; }
+  .topic-tab.active.blue { border-color: #1769aa; background: #e6f1fb; }
+  .topic-label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: #667085; margin-bottom: 2px; }
+  .topic-title { display: block; font-size: 17px; font-weight: 700; color: #172033; }
+  .topic-desc { display: block; color: #667085; font-size: 13px; margin-top: 2px; }
+  .frame-panel { display: none; overflow-x: hidden; }
+  .frame-panel.active { display: block; }
+  iframe { width: 100%; max-width: 100%; height: calc(100dvh - 142px); border: 0; display: block; background: white; }
+  html { -webkit-text-size-adjust: 100%; }
+  main { width: 100%; overflow: hidden; }
+  @media (max-width: 760px) {
+    body { overflow-x: hidden; }
+    .topbar-inner { padding: 14px 16px 12px; gap: 8px; }
+    .brand { font-size: 21px; }
+    .meta { font-size: 11px; }
+    .switcher-wrap { top: 0; box-shadow: 0 8px 18px rgba(15,23,42,0.08); }
+    .switcher { grid-template-columns: 1fr 1fr; gap: 8px; padding: 8px 10px; }
+    .topic-tab { padding: 10px 9px; border-radius: 10px; }
+    .topic-label, .topic-desc { display: none; }
+    .topic-title { font-size: 14px; text-align: center; }
+    iframe { height: calc(100dvh - 134px); }
+  }
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner"><div class="brand">KSCCM-ACCC 2026<br><span class="red">Septic Shock</span> &amp; <span class="blue">ECMO</span> Review</div><div class="meta">Integrated final HTML · Red/Blue two-section site<br>Each section contains Part 1-3 lecture tabs, thresholds, and references.</div></div></header>
+<nav class="switcher-wrap"><div class="switcher" role="tablist" aria-label="Critical care topics"><button class="topic-tab red active" type="button" data-target="sepsis" onclick="switchTopic('sepsis')"><span class="topic-label">Red Section</span><span class="topic-title">Septic Shock</span><span class="topic-desc">Echo · Vasopressors · Refractory Shock</span></button><button class="topic-tab blue" type="button" data-target="ecmo" onclick="switchTopic('ecmo')"><span class="topic-label">Blue Section</span><span class="topic-title">ECMO</span><span class="topic-desc">Transfusion · Post-EOLIA VV · VA Rescue</span></button></div></nav>
+<main><section class="frame-panel active" id="panel-sepsis"><iframe title="Septic Shock 3-Part Review" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;title&gt;Septic Shock Hemodynamic Management — KSCCM-ACCC 2026&lt;/title&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&amp;family=Source+Sans+3:wght@300;400;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+  :root {
+    --red: #c1272d;
+    --red-dark: #8b1a1f;
+    --red-light: #f5e6e7;
+    --navy: #1a2744;
+    --navy-mid: #2d3f6b;
+    --gray-dark: #2c2c2c;
+    --gray-mid: #555;
+    --gray-light: #888;
+    --gray-border: #d0d0d0;
+    --gray-bg: #f7f7f7;
+    --white: #ffffff;
+    --cream: #fdfcfb;
+    --gold: #b8963e;
+    --green: #237b57;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: &#39;Source Serif 4&#39;, Georgia, serif;
+    background: var(--cream);
+    color: var(--gray-dark);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  .journal-banner {
+    background: var(--red);
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .journal-header {
+    background: var(--white);
+    border-bottom: 3px solid var(--red);
+    padding: 28px 40px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .journal-logo {
+    font-family: &#39;Playfair Display&#39;, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+  .journal-logo span { color: var(--red); }
+  .journal-meta {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 12px;
+    color: var(--gray-light);
+    text-align: right;
+    line-height: 1.6;
+  }
+  .journal-meta strong { color: var(--navy); }
+
+  .hero {
+    background: var(--navy);
+    color: white;
+    padding: 50px 60px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: &#39;&#39;;
+    position: absolute;
+    top: 0; right: 0;
+    width: 300px; height: 100%;
+    background: linear-gradient(135deg, transparent 40%, rgba(193,39,45,0.18) 100%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    margin-bottom: 18px;
+    border-radius: 2px;
+  }
+  .hero h1 {
+    font-family: &#39;Playfair Display&#39;, serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.22;
+    max-width: 820px;
+    margin-bottom: 14px;
+    letter-spacing: -0.3px;
+  }
+  .hero h1 em { font-style: italic; color: #f0a0a3; }
+  .hero-subtitle {
+    font-family: &#39;Source Serif 4&#39;, serif;
+    font-size: 16px;
+    color: rgba(255,255,255,0.72);
+    max-width: 720px;
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+  .hero-author {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    border-top: 1px solid rgba(255,255,255,0.18);
+    padding-top: 16px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  .hero-author span { display: flex; flex-direction: column; gap: 2px; }
+  .hero-author .label { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.45); }
+
+  .summary-box {
+    background: var(--red-light);
+    border-left: 4px solid var(--red);
+    margin: 0 40px;
+    padding: 22px 28px;
+    margin-top: -2px;
+  }
+  .summary-box h3 {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red-dark);
+    margin-bottom: 12px;
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .summary-item {
+    background: white;
+    border-radius: 4px;
+    padding: 14px 16px;
+    border-top: 3px solid var(--red);
+  }
+  .summary-num {
+    font-family: &#39;Playfair Display&#39;, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--red);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .summary-label {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .summary-val { font-size: 13px; color: var(--gray-mid); line-height: 1.4; }
+  .summary-val code {
+    background: var(--red-light);
+    color: var(--red-dark);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .main-content { max-width: 1060px; margin: 0 auto; padding: 0 40px 60px; }
+  .content-body {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 40px;
+    margin-top: 40px;
+  }
+
+  .part-divider {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 0 0 34px;
+    border-left: 6px solid var(--red);
+  }
+  .part-label {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.58);
+    margin-bottom: 8px;
+  }
+  .part-divider h2 {
+    font-family: &#39;Playfair Display&#39;, serif;
+    font-size: 25px;
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+  .part-divider p { color: rgba(255,255,255,0.82); font-size: 14px; line-height: 1.7; }
+
+  .section {
+    margin-bottom: 44px;
+    border-bottom: 1px solid var(--gray-border);
+    padding-bottom: 36px;
+  }
+  .section:last-child { border-bottom: none; }
+  .section-num {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 6px;
+  }
+  .section h2 {
+    font-family: &#39;Playfair Display&#39;, serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 14px;
+    line-height: 1.25;
+    letter-spacing: -0.2px;
+  }
+  .section h3 {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 14px;
+    color: var(--navy);
+    margin: 18px 0 8px;
+  }
+  .section p {
+    font-size: 15.5px;
+    color: var(--gray-dark);
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+  ul {
+    margin-left: 20px;
+    margin-top: 8px;
+    font-size: 15px;
+    line-height: 2;
+    color: var(--gray-dark);
+  }
+
+  .clinical-box {
+    background: var(--gray-bg);
+    border: 1px solid var(--gray-border);
+    border-radius: 6px;
+    padding: 20px 22px;
+    margin: 18px 0;
+    font-size: 14.5px;
+  }
+  .clinical-box-title {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy-mid);
+    margin-bottom: 8px;
+  }
+
+  .algorithm {
+    border: 2px solid var(--navy);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px 0;
+  }
+  .algorithm-header {
+    background: var(--navy);
+    color: white;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 10px 18px;
+  }
+  .algorithm-body { padding: 18px 20px; }
+  .algo-step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--gray-border);
+  }
+  .algo-step:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
+  .algo-badge {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    background: var(--red);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .algo-text { flex: 1; font-size: 14.5px; line-height: 1.6; }
+  .algo-text strong { color: var(--navy); font-family: &#39;Source Sans 3&#39;, sans-serif; font-size: 13px; font-weight: 700; display: block; margin-bottom: 2px; }
+
+  .drug-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin: 16px 0;
+  }
+  .drug-table th {
+    background: var(--navy);
+    color: white;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 12px;
+    text-align: left;
+  }
+  .drug-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--gray-border);
+    vertical-align: middle;
+  }
+  .drug-table tr:nth-child(even) td { background: var(--gray-bg); }
+  .drug-table tr:hover td { background: var(--red-light); }
+  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .dot-high { background: var(--red); }
+  .dot-mid { background: var(--gold); }
+  .dot-low { background: var(--gray-light); }
+  .rec-first { color: var(--red-dark); font-weight: 700; font-family: &#39;Source Sans 3&#39;, sans-serif; font-size: 12px; }
+  .rec-second { color: var(--gold); font-weight: 600; font-family: &#39;Source Sans 3&#39;, sans-serif; font-size: 12px; }
+  .rec-caution { color: var(--gray-light); font-family: &#39;Source Sans 3&#39;, sans-serif; font-size: 12px; }
+
+  .ref-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px; height: 18px;
+    background: var(--navy);
+    color: white;
+    border-radius: 50%;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    vertical-align: super;
+    margin-left: 2px;
+    transition: background 0.2s;
+    border: none;
+    line-height: 1;
+    text-decoration: none;
+    user-select: none;
+  }
+  .ref-btn:hover { background: var(--red); }
+
+  .sidebar { position: relative; }
+  .sidebar-sticky { position: sticky; top: 20px; }
+  .sidebar-block {
+    background: white;
+    border: 1px solid var(--gray-border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .sidebar-head {
+    background: var(--navy);
+    color: white;
+    padding: 10px 14px;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .ref-list { padding: 8px 0; }
+  .ref-item {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--gray-border);
+    font-size: 12.5px;
+    line-height: 1.45;
+    cursor: pointer;
+    transition: background 0.15s;
+    display: flex;
+    gap: 8px;
+  }
+  .ref-item:last-child { border-bottom: none; }
+  .ref-item:hover { background: var(--red-light); }
+  .ref-item-num {
+    flex-shrink: 0;
+    width: 18px; height: 18px;
+    background: var(--navy);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+  .ref-item-name { font-family: &#39;Source Sans 3&#39;, sans-serif; font-weight: 700; color: var(--navy); font-size: 12px; }
+  .ref-item-journal { color: var(--gray-light); font-size: 11px; }
+
+  .key-message {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    color: white;
+    border-radius: 6px;
+    padding: 18px 16px;
+    margin-bottom: 20px;
+  }
+  .key-message-label {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 8px;
+  }
+  .key-message p { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.88); font-style: italic; }
+  .key-message strong { color: #f0a0a3; font-style: normal; }
+
+  .threshold-card {
+    background: white;
+    border: 1px solid var(--gray-border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .threshold-head {
+    background: var(--red);
+    color: white;
+    padding: 10px 14px;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .threshold-body { padding: 14px; }
+  .threshold-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--gray-border);
+    font-size: 13px;
+  }
+  .threshold-row:last-child { border-bottom: none; }
+  .threshold-icon {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .threshold-icon.red { background: var(--red-light); }
+  .threshold-icon.blue { background: #e8edf8; }
+  .threshold-icon.gold { background: #fdf3e1; }
+  .threshold-label { font-family: &#39;Source Sans 3&#39;, sans-serif; font-weight: 700; font-size: 12px; color: var(--navy); }
+  .threshold-val { font-size: 13px; color: var(--gray-mid); }
+
+  .popup-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(26,39,68,0.5);
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+    animation: fadeIn 0.15s ease;
+  }
+  .popup-overlay.open { display: flex; align-items: center; justify-content: center; padding: 20px; }
+  .popup-card {
+    background: white;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.22);
+    overflow: hidden;
+    animation: slideUp 0.2s ease;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+  .popup-head {
+    background: var(--navy);
+    color: white;
+    padding: 18px 22px 16px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+  }
+  .popup-head-label {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 4px;
+  }
+  .popup-head-title {
+    font-family: &#39;Playfair Display&#39;, serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+  .popup-close {
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+    margin-top: 2px;
+  }
+  .popup-close:hover { background: var(--red); }
+  .popup-body { padding: 22px 24px; }
+  .popup-meta {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 12px;
+    color: var(--gray-light);
+    margin-bottom: 14px;
+    display: flex; gap: 16px; flex-wrap: wrap;
+  }
+  .popup-meta .tag {
+    background: var(--red-light);
+    color: var(--red-dark);
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 11px;
+  }
+  .popup-result {
+    background: var(--gray-bg);
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  .popup-result-label {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy-mid);
+    margin-bottom: 6px;
+  }
+  .popup-conclusion {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--gray-dark);
+    border-left: 3px solid var(--red);
+    padding-left: 14px;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+  .popup-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+    padding: 7px 14px;
+    border: 1.5px solid var(--navy);
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .popup-link:hover { background: var(--navy); color: white; }
+
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.55);
+    padding: 24px 40px;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 12px;
+    line-height: 1.6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+  footer a:hover { color: white; }
+
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideUp { from { transform: translateY(18px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+  @media (max-width: 820px) {
+    .hero { padding: 36px 24px 32px; }
+    .hero h1 { font-size: 26px; }
+    .summary-box { margin: 0 16px; }
+    .summary-grid { grid-template-columns: 1fr; }
+    .main-content { padding: 0 20px 40px; }
+    .content-body { grid-template-columns: 1fr; }
+    .journal-header { padding: 18px 20px 14px; flex-direction: column; }
+    .journal-meta { text-align: left; }
+    footer { flex-direction: column; }
+  }
+
+  .part-tabs {
+    max-width: 1060px;
+    margin: 24px auto 0;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .part-tab {
+    border: 1px solid var(--gray-border);
+    background: white;
+    color: var(--navy);
+    border-radius: 6px;
+    padding: 12px 14px;
+    cursor: pointer;
+    text-align: left;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    transition: all 0.2s;
+  }
+  .part-tab:hover { border-color: var(--red); background: var(--red-light); }
+  .part-tab.active { background: var(--navy); color: white; border-color: var(--navy); }
+  .part-tab-num { display:block; font-size:10px; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; opacity:0.65; margin-bottom:3px; }
+  .part-tab-title { display:block; font-size:14px; font-weight:700; line-height:1.25; }
+  .part-panel { display:none; }
+  .part-panel.active { display:block; }
+  .sidebar-part { display:none; }
+  .sidebar-part.active { display:block; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;journal-banner&quot;&gt;KSCCM-ACCC 2026 &#183; The 46th KSCCM Annual Congress &#183; Acute and Critical Care Conference&lt;/div&gt;
+
+&lt;div class=&quot;journal-header&quot;&gt;
+  &lt;div class=&quot;journal-logo&quot;&gt;Critical&lt;span&gt;Care&lt;/span&gt; Review&lt;/div&gt;
+  &lt;div class=&quot;journal-meta&quot;&gt;
+    &lt;strong&gt;KSCCM-ACCC 2026&lt;/strong&gt;&lt;br&gt;
+    제46회 대한중환자의학회 연수강좌&lt;br&gt;
+    April 2026 &#183; Seoul, Korea
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;hero&quot;&gt;
+  &lt;div class=&quot;hero-tag&quot;&gt;Septic Shock Section &#183; Red Tone Three-Part Lecture Review&lt;/div&gt;
+  &lt;h1&gt;Septic Shock Hemodynamic Management&lt;br&gt;&lt;em&gt;— Echo, Vasopressors &amp;amp; Refractory Shock —&lt;/em&gt;&lt;/h1&gt;
+  &lt;div class=&quot;hero-subtitle&quot;&gt;심장초음파 기반 혈역학 평가, 적절한 혈압상승제 선택, 난치성 패혈성 쇼크 보조치료를 한 번에 정리한 Sepsis 통합 강의록&lt;/div&gt;
+  &lt;div class=&quot;hero-author&quot;&gt;
+    &lt;span&gt;
+      &lt;span class=&quot;label&quot;&gt;Part 1&lt;/span&gt;
+      신용훈 교수 &#183; 패혈성 쇼크에서 심장초음파
+    &lt;/span&gt;
+    &lt;span&gt;
+      &lt;span class=&quot;label&quot;&gt;Part 2&lt;/span&gt;
+      현동곤 교수 &#183; Right Drug, Right Time
+    &lt;/span&gt;
+    &lt;span&gt;
+      &lt;span class=&quot;label&quot;&gt;Part 3&lt;/span&gt;
+      윤시몽 교수 &#183; Refractory Septic Shock
+    &lt;/span&gt;
+    &lt;span&gt;
+      &lt;span class=&quot;label&quot;&gt;학술대회&lt;/span&gt;
+      KSCCM-ACCC 2026 / 5th KSCCM-TSCCM/TSECCM Joint Congress
+    &lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;summary-box&quot;&gt;
+  &lt;h3&gt;⬛ 핵심 요약 — Three Key Messages&lt;/h3&gt;
+  &lt;div class=&quot;summary-grid&quot;&gt;
+    &lt;div class=&quot;summary-item&quot;&gt;
+      &lt;div class=&quot;summary-num&quot;&gt;1&lt;/div&gt;
+      &lt;div class=&quot;summary-label&quot;&gt;Part 1 &#183; Echo Monitoring&lt;/div&gt;
+      &lt;div class=&quot;summary-val&quot;&gt;POCUS/Echo로 쇼크 표현형을 감별하고 PLR&#183;LVOT VTI로 수액 반응성을 판단한다&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;summary-item&quot;&gt;
+      &lt;div class=&quot;summary-num&quot;&gt;2&lt;/div&gt;
+      &lt;div class=&quot;summary-label&quot;&gt;Part 2 &#183; Vasopressors&lt;/div&gt;
+      &lt;div class=&quot;summary-val&quot;&gt;Norepinephrine을 1차로 사용하고 DAP/DSI/PP와 쇼크 시간에 따라 vasopressin을 병용한다&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;summary-item&quot;&gt;
+      &lt;div class=&quot;summary-num&quot;&gt;3&lt;/div&gt;
+      &lt;div class=&quot;summary-label&quot;&gt;Part 3 &#183; Refractory Shock&lt;/div&gt;
+      &lt;div class=&quot;summary-val&quot;&gt;난치성 쇼크는 NE equivalent, 저관류, 수액 무반응, POCUS 확인 후 steroid와 rescue option을 선택한다&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;part-tabs&quot; role=&quot;tablist&quot; aria-label=&quot;Septic shock lecture parts&quot;&gt;
+  &lt;button class=&quot;part-tab active&quot; type=&quot;button&quot; data-target=&quot;part1&quot; onclick=&quot;switchPart(&#39;part1&#39;)&quot;&gt;
+    &lt;span class=&quot;part-tab-num&quot;&gt;Part 1&lt;/span&gt;
+    &lt;span class=&quot;part-tab-title&quot;&gt;Echo 기반 혈역학 모니터링&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;button class=&quot;part-tab&quot; type=&quot;button&quot; data-target=&quot;part2&quot; onclick=&quot;switchPart(&#39;part2&#39;)&quot;&gt;
+    &lt;span class=&quot;part-tab-num&quot;&gt;Part 2&lt;/span&gt;
+    &lt;span class=&quot;part-tab-title&quot;&gt;혈압상승제와 강심제 선택&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;button class=&quot;part-tab&quot; type=&quot;button&quot; data-target=&quot;part3&quot; onclick=&quot;switchPart(&#39;part3&#39;)&quot;&gt;
+    &lt;span class=&quot;part-tab-num&quot;&gt;Part 3&lt;/span&gt;
+    &lt;span class=&quot;part-tab-title&quot;&gt;난치성 패혈성 쇼크&lt;/span&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+&lt;div class=&quot;main-content&quot;&gt;
+&lt;div class=&quot;content-body&quot;&gt;
+
+&lt;div class=&quot;left-col&quot;&gt;
+
+  &lt;div class=&quot;part-panel active&quot; id=&quot;part1&quot;&gt;
+  &lt;div class=&quot;part-divider&quot; id=&quot;part1-divider&quot;&gt;
+    &lt;div class=&quot;part-label&quot;&gt;Part 01 &#183; Echocardiography &amp; Hemodynamic Monitoring&lt;/div&gt;
+    &lt;h2&gt;패혈성 쇼크에서 심장초음파와 혈역학적 모니터링&lt;/h2&gt;
+    &lt;p&gt;심장초음파는 단순한 진단 보조 검사가 아니라, 쇼크 표현형을 감별하고 수액&#183;혈압상승제&#183;강심제 전략을 결정하는 반복 평가 도구다.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 1 &#183; Section 01&lt;/div&gt;
+    &lt;h2&gt;모니터링 공백: CVP와 IVC 단독 평가의 한계&lt;/h2&gt;
+    &lt;p&gt;Surviving Sepsis Campaign은 폐동맥카테터(PAC)의 일상적 사용에 대해 명확한 이득이 부족하다고 보며, 최소침습 또는 비침습 심박출량 모니터링에 대해서도 보편적 권고를 내리기 어렵다고 본다. 그러나 최근 ESICM과 SCCM 가이드라인은 쇼크 감별과 치료 방향 설정에서 중환자 초음파의 역할을 강조한다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;esicm2025&#39;)&quot;&gt;1&lt;/button&gt; &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;sccmccus&#39;)&quot;&gt;2&lt;/button&gt;&lt;/p&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;🩺 Clinical Point&lt;/div&gt;
+      &lt;p&gt;CVP는 우심방압을 반영할 뿐 수액 반응성을 안정적으로 예측하지 못한다. IVC 직경과 허탈도도 기계환기, PEEP, RV 기능, 복압에 따라 해석이 달라진다.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p&gt;따라서 정적 지표 하나에 의존하기보다, 심장초음파와 동적 지표를 조합하여 반복적으로 환자의 혈역학 표현형을 확인해야 한다.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 1 &#183; Section 02&lt;/div&gt;
+    &lt;h2&gt;심장초음파의 첫 번째 역할: 쇼크 유형 감별&lt;/h2&gt;
+    &lt;p&gt;패혈성 쇼크라고 생각한 환자에게서 심장초음파는 치료 방향을 완전히 바꾸는 단서를 제공할 수 있다. 감염성 심내막염, 동적 LVOT 폐쇄, 저혈량성 쇼크, 패혈증성 심근병증, 우심실 기능장애는 모두 다른 치료 전략을 요구한다.&lt;/p&gt;
+    &lt;table class=&quot;drug-table&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;표현형&lt;/th&gt;
+          &lt;th&gt;Echo Clue&lt;/th&gt;
+          &lt;th&gt;치료 방향&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;분배성 쇼크&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;보존/과역동 LV, 낮은 SVR 추정&lt;/td&gt;
+          &lt;td&gt;NE 중심 혈관긴장도 회복&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;저혈량성 동반&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;작은 LV, 낮은 VTI, collapsible IVC&lt;/td&gt;
+          &lt;td&gt;PLR/소량 bolus 후 반응성 평가&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;패혈증성 심근병증&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;LV/RV 수축기 또는 이완기 기능장애&lt;/td&gt;
+          &lt;td&gt;과수액 회피, 강심제는 선별적 고려&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;동적 LVOT 폐쇄&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;LVOT gradient, 작은 hyperdynamic LV&lt;/td&gt;
+          &lt;td&gt;강심제 회피, preload/HR/afterload 조절&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 1 &#183; Section 03&lt;/div&gt;
+    &lt;h2&gt;패혈증성 심근병증: LVEF만으로는 부족하다&lt;/h2&gt;
+    &lt;p&gt;패혈증성 심근병증은 좌심실 수축기 기능장애만을 뜻하지 않는다. 좌심실 이완기 기능장애, 우심실 기능장애, 양심실 기능장애가 모두 포함될 수 있으며 시간에 따라 양상이 변한다. 단회 심장초음파보다 반복 평가가 중요하다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;sicmreview&#39;)&quot;&gt;3&lt;/button&gt;&lt;/p&gt;
+    &lt;p&gt;패혈성 쇼크에서는 SVR이 낮아 afterload가 감소하기 때문에 심근 억제가 있어도 LVEF가 정상처럼 보일 수 있다. 따라서 LVEF 대신 LVOT VTI, RV function, diastolic function, 심박수, 혈압상승제 용량, 젖산 및 말초관류를 함께 해석해야 한다.&lt;/p&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;⚠️ Interpretation Trap&lt;/div&gt;
+      &lt;p&gt;LVEF가 정상이라고 심기능이 정상이라는 뜻은 아니다. 낮은 afterload가 심근 억제를 가릴 수 있고, 매우 높은 LVEF도 나쁜 예후와 관련될 수 있다.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 1 &#183; Section 04&lt;/div&gt;
+    &lt;h2&gt;수액 반응성: PLR과 LVOT VTI 변화로 판단&lt;/h2&gt;
+    &lt;p&gt;수액 반응성은 정적 지표가 아니라 동적 지표로 판단해야 한다. PLR 또는 소량 fluid challenge 후 LVOT VTI, stroke volume, pulse pressure가 10-15% 이상 증가하는지 확인한다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;fresh&#39;)&quot;&gt;4&lt;/button&gt;&lt;/p&gt;
+    &lt;div class=&quot;algorithm&quot;&gt;
+      &lt;div class=&quot;algorithm-header&quot;&gt;📊 Echo 기반 수액 반응성 평가 알고리즘&lt;/div&gt;
+      &lt;div class=&quot;algorithm-body&quot;&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;1&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;
+            &lt;strong&gt;초기 POCUS/Echo&lt;/strong&gt;
+            LV/RV 기능, LVOT VTI, IVC, 폐초음파를 확인하여 쇼크 표현형을 감별한다.
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;2&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;
+            &lt;strong&gt;PLR 또는 소량 Fluid Challenge&lt;/strong&gt;
+            수액 투여 전후 또는 PLR 전후 VTI/stroke volume 변화를 측정한다.
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;3&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;
+            &lt;strong&gt;반응성 판단&lt;/strong&gt;
+            VTI 또는 stroke volume이 &lt;span style=&quot;font-family:&#39;Source Sans 3&#39;,sans-serif;font-weight:700;color:var(--red);&quot;&gt;10-15% 이상 증가&lt;/span&gt;하면 수액 반응성이 있다고 판단한다. 반응이 없으면 추가 수액보다 혈압상승제/강심제 전략을 재평가한다.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;part-panel&quot; id=&quot;part2&quot;&gt;
+&lt;div class=&quot;part-divider&quot; id=&quot;part2-divider&quot;&gt;
+    &lt;div class=&quot;part-label&quot;&gt;Part 02 &#183; Vasopressors &amp; Inotropes&lt;/div&gt;
+    &lt;h2&gt;패혈증 치료에서 적절한 시기와 올바른 혈압상승제&#183;강심제 선택&lt;/h2&gt;
+    &lt;p&gt;현동곤 교수 강의 파트. 핵심 메시지는 “Right Drug, Right Time”: 노르에피네프린을 기본으로 하되, 환자 표현형과 시간 경과에 따라 2차 약제와 강심제를 선별적으로 추가한다.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 2 &#183; Section 01&lt;/div&gt;
+    &lt;h2&gt;패혈성 쇼크의 병태생리와 치료 목표&lt;/h2&gt;
+    &lt;p&gt;패혈증에서는 내독소와 염증 반응으로 내피세포가 활성화되고, 전염증성 사이토카인 증가와 내피세포 손상이 발생한다. 혈관 투과성이 증가하면서 체액과 혈액 성분이 혈관 밖으로 이동하고, 동시에 산화질소(NO) 증가로 혈관 평활근 이완과 혈관확장이 나타난다.&lt;/p&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;🩺 증례 — Case Vignette&lt;/div&gt;
+      &lt;p&gt;59세 여성, 요로감염으로 응급실 내원. 내원 시 MAP 68 mmHg였으나 수 시간 후 MAP 49 mmHg로 감소하여 패혈성 쇼크가 발생하였다.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p&gt;치료 목표는 수액 소생술과 혈압상승제를 통해 MAP을 회복하고 조직 저관류를 개선하는 것이다.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 2 &#183; Section 02&lt;/div&gt;
+    &lt;h2&gt;1차 혈압상승제: 왜 노르에피네프린인가&lt;/h2&gt;
+    &lt;p&gt;노르에피네프린은 알파-1 아드레날린 수용체 친화도가 높아 동맥과 정맥을 수축시키고, 약한 베타-1 효과로 제한적 강심 효과를 제공한다. 결과적으로 preload, afterload, contractility를 동시에 보조한다.&lt;/p&gt;
+    &lt;table class=&quot;drug-table&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;약제&lt;/th&gt;
+          &lt;th&gt;주요 작용&lt;/th&gt;
+          &lt;th&gt;강의 핵심 해석&lt;/th&gt;
+          &lt;th&gt;권고&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Norepinephrine&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;α1 높음, β1 약함&lt;/td&gt;
+          &lt;td&gt;Preload/afterload/contractility를 동시에 지지&lt;/td&gt;
+          &lt;td class=&quot;rec-first&quot;&gt;★ 1차 선택&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Dopamine &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;soap2&#39;)&quot;&gt;5&lt;/button&gt;&lt;/td&gt;
+          &lt;td&gt;α/β/D 작용&lt;/td&gt;
+          &lt;td&gt;부정맥 증가, 사망률 불리한 경향&lt;/td&gt;
+          &lt;td class=&quot;rec-caution&quot;&gt;권고하지 않음&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Epinephrine &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;epi_rct&#39;)&quot;&gt;6&lt;/button&gt;&lt;/td&gt;
+          &lt;td&gt;강한 β, α 작용&lt;/td&gt;
+          &lt;td&gt;빈맥&#183;젖산 상승, 심기능 장애 시 고려&lt;/td&gt;
+          &lt;td class=&quot;rec-caution&quot;&gt;선별적&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Phenylephrine &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;phenyl&#39;)&quot;&gt;7&lt;/button&gt;&lt;/td&gt;
+          &lt;td&gt;순수 α1&lt;/td&gt;
+          &lt;td&gt;Afterload만 올려 심박출량 저하 가능&lt;/td&gt;
+          &lt;td class=&quot;rec-caution&quot;&gt;비선호&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Vasopressin &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;vasst&#39;)&quot;&gt;8&lt;/button&gt;&lt;/td&gt;
+          &lt;td&gt;V1 수용체&lt;/td&gt;
+          &lt;td&gt;카테콜아민 절약, NE 보조&lt;/td&gt;
+          &lt;td class=&quot;rec-second&quot;&gt;2차 병용&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;p&gt;최신 Surviving Sepsis Campaign 지침에서도 노르에피네프린은 패혈성 쇼크의 1차 혈압상승제로 유지된다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;ssc2026&#39;)&quot;&gt;9&lt;/button&gt;&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 2 &#183; Section 03&lt;/div&gt;
+    &lt;h2&gt;노르에피네프린 시작 시점: DAP, 맥압, DSI&lt;/h2&gt;
+    &lt;p&gt;전통적으로 노르에피네프린은 충분한 수액 소생술 후에도 쇼크가 지속될 때 시작했다. 그러나 혈관확장 표현형이 뚜렷한 환자에서는 조기 투여가 MAP 회복, 정맥환류 증가, 수액 과부하 감소에 도움이 될 수 있다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;sensor&#39;)&quot;&gt;10&lt;/button&gt;&lt;/p&gt;
+    &lt;div class=&quot;algorithm&quot;&gt;
+      &lt;div class=&quot;algorithm-header&quot;&gt;⏱ NE 조기 투여 판단 알고리즘&lt;/div&gt;
+      &lt;div class=&quot;algorithm-body&quot;&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;1&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;
+            &lt;strong&gt;DAP 확인&lt;/strong&gt;
+            DAP &amp;lt; 50 mmHg이면 혈관긴장도 저하와 vasoplegia를 의심한다.
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;2&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;
+            &lt;strong&gt;맥압과 DSI 보정&lt;/strong&gt;
+            넓은 맥압은 stroke volume이 어느 정도 보존된 vasoplegia를 시사한다. 빈맥이 있으면 DSI = HR/DAP로 보정한다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;dsi&#39;)&quot;&gt;11&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;3&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;
+            &lt;strong&gt;조기 NE 고려&lt;/strong&gt;
+            &lt;span style=&quot;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:15px;font-weight:700;color:var(--red);&quot;&gt;DAP &amp;lt; 50 mmHg + 넓은 PP + 조직 저관류&lt;/span&gt;이면 과도한 수액을 기다리지 말고 NE 조기 투여를 고려한다.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;CLOVERS 연구에서는 제한적 수액/조기 혈압상승제 전략이 자유로운 수액 전략보다 90일 사망률을 낮추지 못했다. 따라서 조기 NE는 모든 환자가 아니라, 이득이 예상되는 표현형에 선별적으로 적용해야 한다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;clovers&#39;)&quot;&gt;12&lt;/button&gt;&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 2 &#183; Section 04&lt;/div&gt;
+    &lt;h2&gt;2차 혈압상승제: Vasopressin과 Angiotensin II&lt;/h2&gt;
+    &lt;p&gt;노르에피네프린 고용량 사용 시 혈관 반응 저하와 카테콜아민 부작용이 문제가 된다. 이때 비카테콜아민계 2차 약제를 고려한다.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Vasopressin&lt;/strong&gt;은 명확한 사망률 개선은 일관되지 않지만, 노르에피네프린 요구량을 줄이는 catecholamine-sparing effect가 있어 2차 약제로 권고된다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;vasometa&#39;)&quot;&gt;13&lt;/button&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Angiotensin II&lt;/strong&gt;는 ATHOS-3 연구에서 초기 MAP 목표 달성과 혈압상승제 감량 효과를 보였지만 생존 이득은 명확하지 않아 3차 옵션으로 보는 것이 적절하다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;athos3&#39;)&quot;&gt;14&lt;/button&gt;&lt;/p&gt;
+    &lt;div class=&quot;algorithm&quot;&gt;
+      &lt;div class=&quot;algorithm-header&quot;&gt;📌 Vasopressin 추가 시점&lt;/div&gt;
+      &lt;div class=&quot;algorithm-body&quot;&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;1&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;
+            &lt;strong&gt;NE 용량만 보지 않는다&lt;/strong&gt;
+            NE 0.2-0.3 mcg/kg/min 전후, 젖산, SOFA, 쇼크 지속 시간, DAP/DSI를 함께 본다.
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;2&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;
+            &lt;strong&gt;쇼크 초기 악화 시 조기 병용&lt;/strong&gt;
+            쇼크 발생 6시간 이내, NE 증량 속도가 빠르고 질병 중증도가 높으면 Vasopressin 조기 추가를 고려한다.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 2 &#183; Section 05&lt;/div&gt;
+    &lt;h2&gt;강심제: 매우 선별적으로 사용&lt;/h2&gt;
+    &lt;p&gt;심기능 장애가 동반되고 적절한 혈압과 volume status에도 저관류가 지속되면 강심제를 고려할 수 있다. 그러나 패혈성 쇼크에서 강심제 근거는 매우 낮고, 빈맥&#183;부정맥&#183;혈압 저하 위험이 있다.&lt;/p&gt;
+    &lt;p&gt;레보시멘단은 이론적으로 매력적이나 LeoPARDS 연구에서 임상 이득이 없고 상심실성 빈맥이 증가하여 권고되지 않는다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;leopards&#39;)&quot;&gt;15&lt;/button&gt;&lt;/p&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;📋 Inotrope Decision&lt;/div&gt;
+      &lt;p&gt;강심제는 “낮은 심박출량이 확인되고, MAP과 volume이 교정된 뒤에도 조직 저관류가 지속되는 경우”에만 제한적으로 고려한다. 심장초음파로 LV/RV 기능과 LVOT VTI를 함께 확인해야 한다.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;part-panel&quot; id=&quot;part3&quot;&gt;
+&lt;div class=&quot;part-divider&quot; id=&quot;part3-divider&quot;&gt;
+    &lt;div class=&quot;part-label&quot;&gt;Part 03 &#183; Refractory Septic Shock&lt;/div&gt;
+    &lt;h2&gt;난치성 패혈성 쇼크의 정의와 보조치료&lt;/h2&gt;
+    &lt;p&gt;윤시몽 교수 강의의 핵심은 “언제 난치성이라고 부를 것인가”와 “표준 혈압상승제로 부족할 때 무엇을 더할 것인가”이다. 코르티코스테로이드, 안지오텐신 II, 메틸렌 블루, 비타민 C, 티아민과 HAT 요법을 최신 근거 중심으로 정리한다.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 3 &#183; Section 01&lt;/div&gt;
+    &lt;h2&gt;난치성 패혈성 쇼크: 정의가 먼저다&lt;/h2&gt;
+    &lt;p&gt;SCCM/ESICM 델파이 합의는 난치성 패혈성 쇼크를 단순히 “혈압상승제가 많이 필요한 상태”로 보지 않는다. 지속적인 조직 저관류, 수액 무반응성, 높은 노르에피네프린 등가 용량, 그리고 혼합형 쇼크 배제를 위한 중환자 초음파 평가가 함께 필요하다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;refractorydef&#39;)&quot;&gt;16&lt;/button&gt;&lt;/p&gt;
+    &lt;table class=&quot;drug-table&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;판단 영역&lt;/th&gt;
+          &lt;th&gt;강의 핵심 기준&lt;/th&gt;
+          &lt;th&gt;임상적 의미&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;조직 저관류&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;지속적 lactate 상승 또는 CRT &amp;gt; 3초&lt;/td&gt;
+          &lt;td&gt;혈압 수치보다 말초 관류와 대사 상태를 함께 본다.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;수액 무반응성&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;추가 수액으로 혈역학 개선 없음&lt;/td&gt;
+          &lt;td&gt;수액 과부하 대신 혈관긴장도&#183;심기능 평가로 전환한다.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;혈압상승제 용량&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;NE equivalent &amp;gt;0.5 mcg/kg/min&lt;/td&gt;
+          &lt;td&gt;보조치료와 rescue 전략을 체계적으로 검토할 시점이다.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;POCUS/CCUS&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;혼합형 쇼크 의심 시 확인&lt;/td&gt;
+          &lt;td&gt;심인성&#183;폐쇄성&#183;저혈량성 요소를 배제하거나 교정한다.&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;🧪 Dose Safety&lt;/div&gt;
+      &lt;p&gt;Norepinephrine 용량은 base equivalent로 표기해야 한다. Tartrate/salt 제형은 라벨상 용량과 실제 norepinephrine base 함량이 달라, 연구&#183;기록&#183;처방에서 용량 혼동이 생길 수 있다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;nebase&#39;)&quot;&gt;17&lt;/button&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 3 &#183; Section 02&lt;/div&gt;
+    &lt;h2&gt;코르티코스테로이드: 조기 다중 안정화 치료&lt;/h2&gt;
+    &lt;p&gt;코르티코스테로이드는 단순한 항염증제가 아니다. 나트륨&#183;수분 저류로 유효 순환혈액량을 보조하고, 혈관벽 통합성을 유지하며, α1 수용체 상향조절을 통해 norepinephrine 반응성을 회복시키고, 미세순환 안정화에도 관여한다.&lt;/p&gt;
+    &lt;p&gt;ADRENAL 연구는 hydrocortisone 200 mg/day가 사망률을 낮추지는 못했지만 쇼크 회복을 앞당겼고, APROCCHSS 연구는 hydrocortisone과 fludrocortisone 병용에서 90일 사망률 감소를 보였다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;adrenal&#39;)&quot;&gt;18&lt;/button&gt; &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;aprocchss&#39;)&quot;&gt;19&lt;/button&gt;&lt;/p&gt;
+    &lt;div class=&quot;algorithm&quot;&gt;
+      &lt;div class=&quot;algorithm-header&quot;&gt;📌 Steroid Practical Point&lt;/div&gt;
+      &lt;div class=&quot;algorithm-body&quot;&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;1&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;
+            &lt;strong&gt;시작 시점&lt;/strong&gt;
+            NE 요구량이 약 0.2-0.3 mcg/kg/min에 도달하거나 빠르게 증가하는 패혈성 쇼크에서 고려한다.
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;2&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;
+            &lt;strong&gt;대표 용법&lt;/strong&gt;
+            Hydrocortisone 50 mg IV q6h 또는 200 mg/day 지속주입을 주로 사용한다. Fludrocortisone은 근거가 있으나 실제 사용은 기관별 차이가 크다.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 3 &#183; Section 03&lt;/div&gt;
+    &lt;h2&gt;Angiotensin II: RAAS 결핍을 보완하는 비카테콜아민 옵션&lt;/h2&gt;
+    &lt;p&gt;패혈증에서는 RAAS 조절 장애와 상대적 angiotensin II 결핍이 발생할 수 있다. 외인성 angiotensin II는 AT1 수용체를 통한 직접 혈관수축뿐 아니라 ADH&#183;aldosterone 증가, 신장 혈류 및 GFR 보조, 면역 반응 조절 가능성을 가진다.&lt;/p&gt;
+    &lt;p&gt;ATHOS-3 연구에서 angiotensin II는 3시간 내 목표 MAP 도달률을 높이고 norepinephrine 요구량을 줄였다. 사후분석에서는 RRT를 받는 고위험군에서 생존과 신장 회복 신호가 관찰되었고, 낮은 NE equivalent 단계에서 시작할수록 생존 이득 가능성이 더 컸다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;athos3&#39;)&quot;&gt;14&lt;/button&gt; &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;ang2expert&#39;)&quot;&gt;20&lt;/button&gt;&lt;/p&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;🌐 Availability Note&lt;/div&gt;
+      &lt;p&gt;2024 전문가 프로토콜은 NED &amp;gt;0.2 mcg/kg/min이 6시간 이상 지속될 때 20 ng/kg/min으로 시작해 5 ng/kg/min 단위로 증량하는 접근을 제시한다. 다만 한국에서는 현재 사용 가능성이 제한적이다.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 3 &#183; Section 04&lt;/div&gt;
+    &lt;h2&gt;Methylene Blue: NO-sGC 경로를 막는 rescue 후보&lt;/h2&gt;
+    &lt;p&gt;패혈증에서는 전염증성 사이토카인으로 iNOS가 증가하고 NO가 과생성되며, soluble guanylate cyclase가 활성화되어 혈관마비성 혈관확장이 심해진다. Methylene blue는 NO synthase와 soluble guanylate cyclase를 억제해 이 경로를 차단한다.&lt;/p&gt;
+    &lt;p&gt;2023년 RCT에서는 methylene blue 100 mg을 6시간 동안 3일 투여했을 때 norepinephrine 요구량과 혈압상승제 중단 시간이 줄었다. 2024 메타분석도 MAP 상승과 혈압상승제 기간 단축 신호를 보였지만, 표본 수와 근거 확실성이 낮아 일상적 권고로 이어지지는 않는다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;mblue_rct&#39;)&quot;&gt;21&lt;/button&gt; &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;mblue_meta&#39;)&quot;&gt;22&lt;/button&gt;&lt;/p&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;⚠️ Current Position&lt;/div&gt;
+      &lt;p&gt;Methylene blue는 유망한 카테콜아민 절약 효과에도 불구하고, 현재는 routine therapy보다 rescue 또는 연구 맥락에서 신중히 고려할 약제에 가깝다.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 3 &#183; Section 05&lt;/div&gt;
+    &lt;h2&gt;비타민 C, 티아민, HAT 요법: 생물학적 근거와 임상 근거의 간극&lt;/h2&gt;
+    &lt;p&gt;비타민 C는 항산화 작용, 내피 장벽 보호, norepinephrine 합성 보조, vasopressin 생성&#183;분비 보조라는 매력적인 기전을 가진다. 그러나 CITRIS-ALI는 일차 평가변수를 충족하지 못했고, LOVIT은 사망 또는 지속 장기부전 복합 결과가 비타민 C군에서 더 높아 잠재적 위해 신호를 보였다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;citrisali&#39;)&quot;&gt;23&lt;/button&gt; &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;lovit&#39;)&quot;&gt;24&lt;/button&gt;&lt;/p&gt;
+    &lt;p&gt;티아민은 pyruvate가 Krebs cycle로 들어가는 데 필요한 핵심 보조인자다. 결핍 환자에서는 젖산 상승과 난치성 저혈압이 나타날 수 있지만, 전체 패혈성 쇼크 환자 대상 RCT에서는 일관된 이득이 확인되지 않았다. 결핍 하위군에서는 가능성이 남아 있다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;thiaminepilot&#39;)&quot;&gt;25&lt;/button&gt;&lt;/p&gt;
+    &lt;p&gt;Marik cocktail 또는 HAT 요법은 초기 후향 연구에서 극적인 사망률 감소를 보였지만, ACTS와 VITAMINS 같은 무작위 연구에서는 SOFA, 혈압상승제/인공호흡기 free days, 장기 사망률 이득을 재현하지 못했다. 따라서 정맥 비타민 C와 HAT 요법의 일상 사용은 권고되지 않는다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;acts&#39;)&quot;&gt;26&lt;/button&gt; &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;vitamins&#39;)&quot;&gt;27&lt;/button&gt;&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 3 &#183; Take Home&lt;/div&gt;
+    &lt;h2&gt;Take-Home Message&lt;/h2&gt;
+    &lt;p&gt;난치성 패혈성 쇼크는 NE equivalent &amp;gt;0.5 mcg/kg/min이라는 숫자만으로 정의하지 않는다. 지속 저관류, 수액 무반응성, POCUS를 통한 혼합형 쇼크 평가가 함께 필요하다. 코르티코스테로이드는 가장 실용적인 보조치료이며, angiotensin II는 가능한 환경에서 조기 비카테콜아민 옵션으로 고려할 수 있다. Methylene blue와 대사 소생술은 가능성은 있으나 아직 일상 적용을 뒷받침할 근거가 부족하다.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sidebar&quot;&gt;
+  &lt;div class=&quot;sidebar-sticky&quot;&gt;
+    &lt;div class=&quot;sidebar-part active&quot; id=&quot;sidebar-part1&quot;&gt;
+      &lt;div class=&quot;key-message&quot;&gt;
+        &lt;div class=&quot;key-message-label&quot;&gt;Part 1 핵심 메시지&lt;/div&gt;
+        &lt;p&gt;&lt;strong&gt;목표:&lt;/strong&gt; Echo로 쇼크 표현형을 확인한다.&lt;br&gt;&lt;strong&gt;판단:&lt;/strong&gt; CVP/IVC 단독보다 LV/RV, LVOT VTI, 동적 반응성을 함께 본다.&lt;br&gt;&lt;strong&gt;실무:&lt;/strong&gt; PLR 또는 소량 fluid challenge 후 VTI 변화로 수액 반응성을 평가한다.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;threshold-card&quot;&gt;
+        &lt;div class=&quot;threshold-head&quot;&gt;Part 1 Thresholds&lt;/div&gt;
+        &lt;div class=&quot;threshold-body&quot;&gt;
+          &lt;div class=&quot;threshold-row&quot;&gt;&lt;div class=&quot;threshold-icon red&quot;&gt;🫀&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;threshold-label&quot;&gt;Fluid Responsiveness&lt;/div&gt;&lt;div class=&quot;threshold-val&quot;&gt;PLR 후 LVOT VTI&lt;br&gt;10-15% 이상 증가&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;div class=&quot;threshold-row&quot;&gt;&lt;div class=&quot;threshold-icon blue&quot;&gt;📉&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;threshold-label&quot;&gt;Low Flow&lt;/div&gt;&lt;div class=&quot;threshold-val&quot;&gt;낮은 VTI + 저관류&lt;br&gt;심박출량 평가&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;div class=&quot;threshold-row&quot;&gt;&lt;div class=&quot;threshold-icon gold&quot;&gt;🔍&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;threshold-label&quot;&gt;Phenotype&lt;/div&gt;&lt;div class=&quot;threshold-val&quot;&gt;LV/RV/IVC/LVOT&lt;br&gt;반복 평가&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;sidebar-block&quot;&gt;&lt;div class=&quot;sidebar-head&quot;&gt;📚 주요 참고 문헌&lt;/div&gt;&lt;div class=&quot;ref-list&quot;&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;esicm2025&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;1&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;ESICM Shock Guideline&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;ICM 2025&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;sccmccus&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;2&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;SCCM CCUS Update&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;CCM 2025&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;sicmreview&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;3&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;Sepsis Cardiomyopathy&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;2025&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;fresh&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;4&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;FRESH Trial&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;CHEST 2022&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;sidebar-part&quot; id=&quot;sidebar-part2&quot;&gt;
+      &lt;div class=&quot;key-message&quot;&gt;
+        &lt;div class=&quot;key-message-label&quot;&gt;Part 2 핵심 메시지&lt;/div&gt;
+        &lt;p&gt;&lt;strong&gt;1차:&lt;/strong&gt; Norepinephrine이 기본이다.&lt;br&gt;&lt;strong&gt;시점:&lt;/strong&gt; DAP/DSI/PP와 저관류를 보고 조기 투여를 고려한다.&lt;br&gt;&lt;strong&gt;2차:&lt;/strong&gt; Vasopressin은 catecholamine-sparing 목적으로 조기 병용한다.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;threshold-card&quot;&gt;&lt;div class=&quot;threshold-head&quot;&gt;Part 2 Thresholds&lt;/div&gt;&lt;div class=&quot;threshold-body&quot;&gt;
+        &lt;div class=&quot;threshold-row&quot;&gt;&lt;div class=&quot;threshold-icon blue&quot;&gt;💉&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;threshold-label&quot;&gt;NE 조기 시작&lt;/div&gt;&lt;div class=&quot;threshold-val&quot;&gt;DAP &amp;lt;50 mmHg&lt;br&gt;PP/DSI 함께 판단&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;threshold-row&quot;&gt;&lt;div class=&quot;threshold-icon gold&quot;&gt;⏱&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;threshold-label&quot;&gt;Vasopressin 추가&lt;/div&gt;&lt;div class=&quot;threshold-val&quot;&gt;NE 0.2-0.3 전후&lt;br&gt;쇼크 6시간 이내 고려&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;threshold-row&quot;&gt;&lt;div class=&quot;threshold-icon red&quot;&gt;📋&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;threshold-label&quot;&gt;Inotrope&lt;/div&gt;&lt;div class=&quot;threshold-val&quot;&gt;저심박출 확인 후&lt;br&gt;매우 선별적 사용&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;sidebar-block&quot;&gt;&lt;div class=&quot;sidebar-head&quot;&gt;📚 주요 참고 문헌&lt;/div&gt;&lt;div class=&quot;ref-list&quot;&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;soap2&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;5&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;SOAP II&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;NEJM 2010&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;ssc2026&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;9&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;SSC Adult Guidelines&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;2026&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;sensor&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;10&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;Early NE&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;CHEST 2019&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;clovers&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;12&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;CLOVERS&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;NEJM 2023&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;vasometa&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;13&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;Adjunctive Vasopressors&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;Shock 2025&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;athos3&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;14&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;ATHOS-3&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;NEJM 2017&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;leopards&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;15&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;LeoPARDS&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;JAMA 2016&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;sidebar-part&quot; id=&quot;sidebar-part3&quot;&gt;
+      &lt;div class=&quot;key-message&quot;&gt;
+        &lt;div class=&quot;key-message-label&quot;&gt;Part 3 핵심 메시지&lt;/div&gt;
+        &lt;p&gt;&lt;strong&gt;정의:&lt;/strong&gt; NE equivalent &amp;gt;0.5와 저관류&#183;수액 무반응&#183;POCUS를 함께 본다.&lt;br&gt;&lt;strong&gt;치료:&lt;/strong&gt; Steroid가 가장 실용적인 보조치료다.&lt;br&gt;&lt;strong&gt;주의:&lt;/strong&gt; MB, 비타민 C, HAT는 routine use 근거가 부족하다.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;threshold-card&quot;&gt;&lt;div class=&quot;threshold-head&quot;&gt;Part 3 Thresholds&lt;/div&gt;&lt;div class=&quot;threshold-body&quot;&gt;
+        &lt;div class=&quot;threshold-row&quot;&gt;&lt;div class=&quot;threshold-icon red&quot;&gt;🧭&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;threshold-label&quot;&gt;Refractory Shock&lt;/div&gt;&lt;div class=&quot;threshold-val&quot;&gt;NE equivalent &amp;gt;0.5&lt;br&gt;저관류&#183;수액무반응 확인&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;threshold-row&quot;&gt;&lt;div class=&quot;threshold-icon blue&quot;&gt;💉&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;threshold-label&quot;&gt;Steroid Start&lt;/div&gt;&lt;div class=&quot;threshold-val&quot;&gt;NE 0.2-0.3 전후&lt;br&gt;빠른 증량 시 고려&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;threshold-row&quot;&gt;&lt;div class=&quot;threshold-icon gold&quot;&gt;🌐&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;threshold-label&quot;&gt;Ang II&lt;/div&gt;&lt;div class=&quot;threshold-val&quot;&gt;NED &amp;gt;0.2 지속 시&lt;br&gt;가능 환경에서 고려&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;sidebar-block&quot;&gt;&lt;div class=&quot;sidebar-head&quot;&gt;📚 주요 참고 문헌&lt;/div&gt;&lt;div class=&quot;ref-list&quot;&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;refractorydef&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;16&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;Refractory Definition&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;CCM 2026&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;nebase&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;17&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;NE Base Equivalent&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;Critical Care 2024&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;adrenal&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;18&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;ADRENAL&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;NEJM 2018&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;aprocchss&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;19&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;APROCCHSS&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;NEJM 2018&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;ang2expert&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;20&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;Ang II Protocol&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;Critical Care 2024&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;mblue_meta&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;22&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;Methylene Blue&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;Meta-analysis 2024&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;lovit&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;24&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;LOVIT&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;NEJM 2022&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;vitamins&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;27&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;VITAMINS&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;JAMA 2020&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;&lt;footer&gt;
+  &lt;div&gt;
+    &lt;div style=&quot;color:white; font-weight:700; margin-bottom:4px;&quot;&gt;KSCCM-ACCC 2026 Lecture Review&lt;/div&gt;
+    Septic shock integrated lecture review: Part 1 Echo monitoring &#183; Part 2 Vasopressors and inotropes &#183; Part 3 Refractory septic shock.
+  &lt;/div&gt;
+  &lt;div style=&quot;text-align:right;&quot;&gt;
+    Summarized with AI assistance &#183; EICU2care &#169; 2026&lt;br&gt;
+    &lt;a href=&quot;https://www.ksccm.org&quot; target=&quot;_blank&quot;&gt;www.ksccm.org&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;
+
+&lt;div class=&quot;popup-overlay&quot; id=&quot;popupOverlay&quot; onclick=&quot;closePopupOnBg(event)&quot;&gt;
+  &lt;div class=&quot;popup-card&quot; id=&quot;popupCard&quot;&gt;
+    &lt;div class=&quot;popup-head&quot;&gt;
+      &lt;div&gt;
+        &lt;div class=&quot;popup-head-label&quot; id=&quot;popupLabel&quot;&gt;연구 요약&lt;/div&gt;
+        &lt;div class=&quot;popup-head-title&quot; id=&quot;popupTitle&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;button class=&quot;popup-close&quot; onclick=&quot;closePopup()&quot;&gt;✕&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;popup-body&quot;&gt;
+      &lt;div class=&quot;popup-meta&quot; id=&quot;popupMeta&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;popup-result&quot; id=&quot;popupResult&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;popup-conclusion&quot; id=&quot;popupConclusion&quot;&gt;&lt;/div&gt;
+      &lt;a href=&quot;#&quot; class=&quot;popup-link&quot; id=&quot;popupLink&quot; target=&quot;_blank&quot;&gt;&lt;span&gt;🔗&lt;/span&gt; PubMed / 원문 링크&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+const references = {
+  esicm2025: {
+    label: &#39;Clinical Practice Guideline&#39;,
+    title: &#39;ESICM Guidelines on Circulatory Shock and Hemodynamic Monitoring 2025&#39;,
+    journal: &#39;Intensive Care Medicine&#39;,
+    year: &#39;2025&#39;,
+    author: &#39;Monnet et al.&#39;,
+    type: &#39;Guideline&#39;,
+    design: &#39;성인 중환자 쇼크의 진단과 혈역학 모니터링에 대한 ESICM 근거 기반 지침.&#39;,
+    result: &#39;조직관류 평가, 동적 수액 반응성, 표적 수액 투여, 심장초음파 기반 쇼크 유형 감별을 강조.&#39;,
+    conclusion: &#39;쇼크 유형 감별에서 심장초음파는 1차 영상 도구로 활용할 수 있다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/41236566/&#39;
+  },
+  sccmccus: {
+    label: &#39;Clinical Practice Guideline&#39;,
+    title: &#39;SCCM Adult Critical Care Ultrasonography Focused Update 2024&#39;,
+    journal: &#39;Critical Care Medicine&#39;,
+    year: &#39;2025&#39;,
+    author: &#39;D&#237;az-G&#243;mez et al.&#39;,
+    type: &#39;Guideline&#39;,
+    design: &#39;심정지, 패혈성 쇼크, 호흡부전, 수액 관리, 심인성 쇼크에서 CCUS 사용을 다룬 focused update.&#39;,
+    result: &#39;성인 패혈성 쇼크에서 CCUS 사용이 임상 결과 개선에 도움이 될 수 있다고 조건부 권고.&#39;,
+    conclusion: &#39;패혈성 쇼크에서 POCUS/CCUS는 감별진단과 표적 수액 관리에 유용하다.&#39;,
+    url: &#39;https://sccm.org/clinical-resources/guidelines/guidelines/guidelines-on-adult-critical-care-ultrasonography-focused-update-2024&#39;
+  },
+  sicmreview: {
+    label: &#39;Review&#39;,
+    title: &#39;Sepsis-Associated Cardiomyopathy: Prognosis and Management&#39;,
+    journal: &#39;Current Cardiology Reports&#39;,
+    year: &#39;2025&#39;,
+    author: &#39;Hollenberg&#39;,
+    type: &#39;Review&#39;,
+    design: &#39;패혈증성 심근병증의 정의, 이질성, 장기 예후와 관리 전략을 정리한 리뷰.&#39;,
+    result: &#39;정의와 진단 기준이 일관되지 않아 발생률과 예후 추정이 연구마다 크게 다름.&#39;,
+    conclusion: &#39;LVEF 단독 평가보다 표현형 기반 반복 평가가 필요하다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/39776326/&#39;
+  },
+  fresh: {
+    label: &#39;Trial Summary&#39;,
+    title: &#39;Fluid Response Evaluation in Sepsis Hypotension and Shock&#39;,
+    journal: &#39;CHEST&#39;,
+    year: &#39;2022&#39;,
+    author: &#39;FRESH Investigators&#39;,
+    type: &#39;Randomized Clinical Trial&#39;,
+    design: &#39;패혈성 쇼크 환자에서 PLR 유도 stroke volume 변화에 따라 수액/혈압상승제 처치를 안내.&#39;,
+    result: &#39;동적 수액 반응성 기반 처치는 72시간 양성 수액 균형을 줄이고 신장/호흡 부전 위험 감소와 관련.&#39;,
+    conclusion: &#39;PLR과 stroke volume 변화는 수액 투여 결정을 개인화하는 데 도움이 된다.&#39;,
+    url: &#39;https://pmc.ncbi.nlm.nih.gov/articles/PMC9490557/&#39;
+  },
+  soap2: {
+    label: &#39;Trial Summary &#183; SOAP II&#39;,
+    title: &#39;Dopamine vs. Norepinephrine in Shock&#39;,
+    journal: &#39;NEJM&#39;,
+    year: &#39;2010&#39;,
+    author: &#39;De Backer et al.&#39;,
+    type: &#39;Multicenter RCT&#39;,
+    design: &#39;쇼크 환자 1,679명에서 dopamine과 norepinephrine 비교.&#39;,
+    result: &#39;전체 28일 사망률 차이는 없었으나 dopamine군에서 부정맥이 유의하게 많았다.&#39;,
+    conclusion: &#39;Dopamine은 패혈성 쇼크 1차 약제로 선호되지 않는다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/20200382/&#39;
+  },
+  epi_rct: {
+    label: &#39;Trial Summary&#39;,
+    title: &#39;Norepinephrine vs. Epinephrine in Septic Shock&#39;,
+    journal: &#39;Lancet&#39;,
+    year: &#39;2007&#39;,
+    author: &#39;Annane et al.&#39;,
+    type: &#39;Multicenter RCT&#39;,
+    design: &#39;쇼크 환자에서 NE+dobutamine과 epinephrine 단독을 비교.&#39;,
+    result: &#39;사망률 차이는 명확하지 않았으나 epinephrine군에서 심박수와 젖산 상승이 두드러졌다.&#39;,
+    conclusion: &#39;Epinephrine은 특정 상황에서 고려 가능하지만 빈맥과 젖산 해석에 주의가 필요하다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/17418255/&#39;
+  },
+  phenyl: {
+    label: &#39;Observational Study&#39;,
+    title: &#39;Phenylephrine Use During Norepinephrine Shortage&#39;,
+    journal: &#39;AJRCCM&#39;,
+    year: &#39;2017&#39;,
+    author: &#39;Vail et al.&#39;,
+    type: &#39;Retrospective Study&#39;,
+    design: &#39;NE 부족 기간 동안 phenylephrine 대체 사용과 패혈성 쇼크 결과를 분석.&#39;,
+    result: &#39;Phenylephrine 사용 증가가 패혈성 쇼크 사망률 증가 경향과 관련.&#39;,
+    conclusion: &#39;순수 α1 작용제는 심박출량 저하 가능성 때문에 일반적 1차 선택지가 아니다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/27786573/&#39;
+  },
+  vasst: {
+    label: &#39;Trial Summary &#183; VASST&#39;,
+    title: &#39;Vasopressin vs. Norepinephrine in Septic Shock&#39;,
+    journal: &#39;NEJM&#39;,
+    year: &#39;2008&#39;,
+    author: &#39;Russell et al.&#39;,
+    type: &#39;Multicenter RCT&#39;,
+    design: &#39;NE 투여 중인 패혈성 쇼크 환자 778명에서 vasopressin 병용과 NE 증량 비교.&#39;,
+    result: &#39;전체 28일 사망률 차이는 없었으나 NE 요구량 감소와 일부 저용량 NE 하위군 신호가 관찰됨.&#39;,
+    conclusion: &#39;Vasopressin은 NE 대체보다 카테콜아민 절약을 위한 2차 병용 약제로 이해한다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/18354099/&#39;
+  },
+  ssc2026: {
+    label: &#39;Clinical Practice Guideline&#39;,
+    title: &#39;Surviving Sepsis Campaign Adult Guidelines 2026&#39;,
+    journal: &#39;SCCM / ESICM&#39;,
+    year: &#39;2026&#39;,
+    author: &#39;SSC Panel&#39;,
+    type: &#39;International Guideline&#39;,
+    design: &#39;성인 패혈증 및 패혈성 쇼크 관리에 대한 최신 국제 지침.&#39;,
+    result: &#39;초기 인식, 감염 치료, 혈역학적 소생술을 강화하고 46개 신규 권고를 포함.&#39;,
+    conclusion: &#39;NE 1차, 동적 지표 기반 수액 평가, 환자별 혈역학 접근을 최신 진료의 축으로 둔다.&#39;,
+    url: &#39;https://www.sccm.org/SurvivingSepsisCampaign/Guidelines/Adult-Patients&#39;
+  },
+  sensor: {
+    label: &#39;Trial Summary &#183; CENSER/SENSOR&#39;,
+    title: &#39;Early Norepinephrine in Septic Shock&#39;,
+    journal: &#39;CHEST&#39;,
+    year: &#39;2019&#39;,
+    author: &#39;Permpikul et al.&#39;,
+    type: &#39;Single-center RCT&#39;,
+    design: &#39;패혈성 쇼크 환자에서 조기 NE 투여군과 표준 치료군 비교.&#39;,
+    result: &#39;조기 NE군은 6시간 내 shock control이 더 많고 폐부종/부정맥이 적었으나 사망률 유의차는 없었다.&#39;,
+    conclusion: &#39;조기 NE는 선별된 환자에서 고려할 수 있다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/30807273/&#39;
+  },
+  dsi: {
+    label: &#39;Physiology Marker&#39;,
+    title: &#39;Diastolic Shock Index in Septic Shock&#39;,
+    journal: &#39;Critical Care / Related Literature&#39;,
+    year: &#39;2020-2026&#39;,
+    author: &#39;Multiple Studies&#39;,
+    type: &#39;Observational Evidence&#39;,
+    design: &#39;DAP와 HR/DAP 비율을 이용해 혈관확장성과 예후를 평가.&#39;,
+    result: &#39;높은 DSI는 혈관긴장도 저하와 높은 사망률, vasopressor 필요성과 연관.&#39;,
+    conclusion: &#39;DAP 단독보다 DSI와 맥압을 함께 보는 것이 조기 혈압상승제 판단에 유리하다.&#39;,
+    url: &#39;https://pmc.ncbi.nlm.nih.gov/articles/PMC7160223/&#39;
+  },
+  clovers: {
+    label: &#39;Trial Summary &#183; CLOVERS&#39;,
+    title: &#39;Early Restrictive or Liberal Fluid Management for Sepsis-Induced Hypotension&#39;,
+    journal: &#39;NEJM&#39;,
+    year: &#39;2023&#39;,
+    author: &#39;PETAL Network&#39;,
+    type: &#39;Multicenter RCT&#39;,
+    design: &#39;제한적 수액/조기 vasopressor 전략과 자유로운 수액 전략을 비교.&#39;,
+    result: &#39;90일 퇴원 전 사망률에 유의한 차이가 없었다.&#39;,
+    conclusion: &#39;조기 vasopressor 전략은 모든 환자에게 일괄 적용하기보다 표현형 기반으로 선별해야 한다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/36688507/&#39;
+  },
+  andromeda2: {
+    label: &#39;Trial Summary &#183; ANDROMEDA-SHOCK-2&#39;,
+    title: &#39;Personalized Hemodynamic Resuscitation Targeting Capillary Refill Time&#39;,
+    journal: &#39;JAMA&#39;,
+    year: &#39;2025&#39;,
+    author: &#39;ANDROMEDA-SHOCK-2 Investigators&#39;,
+    type: &#39;Multicenter RCT&#39;,
+    design: &#39;초기 패혈성 쇼크에서 CRT, pulse pressure, DAP, 기본 echo를 활용한 개인화 소생술과 usual care 비교.&#39;,
+    result: &#39;28일 계층적 복합 결과에서 개인화 소생술이 우수했고 win ratio는 1.16이었다.&#39;,
+    conclusion: &#39;표현형 기반의 개인화 혈역학 소생술을 지지하는 최신 근거다.&#39;,
+    url: &#39;https://jamanetwork.com/journals/jama/fullarticle/2840821&#39;
+  },
+  vasometa: {
+    label: &#39;Systematic Review &amp; Meta-analysis&#39;,
+    title: &#39;Adjunctive Vasopressors and Short-Term Mortality in Septic Shock&#39;,
+    journal: &#39;Shock&#39;,
+    year: &#39;2025&#39;,
+    author: &#39;Multiple Authors&#39;,
+    type: &#39;Meta-analysis&#39;,
+    design: &#39;패혈성 쇼크에서 보조 혈압상승제와 표준 치료를 비교한 RCT 17개 분석.&#39;,
+    result: &#39;단기 사망률과 신대체요법을 줄일 가능성이 있으나 말초허혈 등 위해 가능성도 관찰.&#39;,
+    conclusion: &#39;2차 vasopressor는 이득과 위해 균형을 고려해 사용해야 한다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/39965613/&#39;
+  },
+  athos3: {
+    label: &#39;Trial Summary &#183; ATHOS-3&#39;,
+    title: &#39;Angiotensin II in Vasodilatory Shock&#39;,
+    journal: &#39;NEJM&#39;,
+    year: &#39;2017&#39;,
+    author: &#39;Khanna et al.&#39;,
+    type: &#39;Phase 3 RCT&#39;,
+    design: &#39;혈관확장성 쇼크 환자에서 angiotensin II와 placebo 비교.&#39;,
+    result: &#39;3시간 내 MAP 목표 달성률이 높았으나 7일/28일 사망률 차이는 명확하지 않았다.&#39;,
+    conclusion: &#39;Angiotensin II는 불응성 혈관확장성 쇼크의 3차 옵션으로 고려할 수 있다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/28528561/&#39;
+  },
+  leopards: {
+    label: &#39;Trial Summary &#183; LeoPARDS&#39;,
+    title: &#39;Levosimendan in Septic Shock&#39;,
+    journal: &#39;JAMA&#39;,
+    year: &#39;2016&#39;,
+    author: &#39;Gordon et al.&#39;,
+    type: &#39;Multicenter RCT&#39;,
+    design: &#39;패혈성 쇼크에서 levosimendan 24시간 주입과 placebo 비교.&#39;,
+    result: &#39;SOFA 개선 이득이 없고 상심실성 빈맥이 더 많았으며 인공호흡기 이탈 성공률이 낮았다.&#39;,
+    conclusion: &#39;Levosimendan은 패혈성 쇼크에서 일상 사용이 권고되지 않는다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/27373324/&#39;
+  },
+  refractorydef: {
+    label: &#39;Consensus Definition&#39;,
+    title: &#39;Refractory Septic Shock: A Consensus Definition&#39;,
+    journal: &#39;Critical Care Medicine&#39;,
+    year: &#39;2026&#39;,
+    author: &#39;SCCM / ESICM Delphi Panel&#39;,
+    type: &#39;Delphi Consensus&#39;,
+    design: &#39;난치성 패혈성 쇼크의 진단, 예후 평가, 연구 표준화를 위해 국제 전문가 패널이 합의 기준을 제시.&#39;,
+    result: &#39;지속 조직 저관류, 수액 무반응성, NE equivalent &gt;0.5 mcg/kg/min, POCUS를 통한 혼합형 쇼크 평가를 핵심 영역으로 제안.&#39;,
+    conclusion: &#39;난치성 쇼크는 고용량 혈압상승제만으로 정의하지 말고 저관류와 표현형 평가를 함께 확인해야 한다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/40952922/&#39;
+  },
+  nebase: {
+    label: &#39;Position Paper&#39;,
+    title: &#39;International Consensus on Vasopressor Dose Reporting&#39;,
+    journal: &#39;Critical Care&#39;,
+    year: &#39;2024&#39;,
+    author: &#39;International Expert Panel&#39;,
+    type: &#39;Position Paper&#39;,
+    design: &#39;Norepinephrine base와 salt/tartrate 제형 차이로 인한 용량 혼동을 줄이기 위한 표준화 제안.&#39;,
+    result: &#39;임상 기록과 연구 보고에서 norepinephrine base equivalent를 사용하도록 권고.&#39;,
+    conclusion: &#39;혈압상승제 용량 기준을 해석할 때 제형과 base-equivalent 표기를 반드시 확인해야 한다.&#39;,
+    url: &#39;https://ccforum.biomedcentral.com/articles/10.1186/s13054-024-05179-7&#39;
+  },
+  adrenal: {
+    label: &#39;Trial Summary &#183; ADRENAL&#39;,
+    title: &#39;Adjunctive Glucocorticoid Therapy in Patients with Septic Shock&#39;,
+    journal: &#39;NEJM&#39;,
+    year: &#39;2018&#39;,
+    author: &#39;Venkatesh et al.&#39;,
+    type: &#39;Multicenter RCT&#39;,
+    design: &#39;패혈성 쇼크 환자에서 hydrocortisone 200 mg/day 지속주입과 placebo 비교.&#39;,
+    result: &#39;90일 사망률은 유의하게 감소하지 않았으나 쇼크 회복, 기계환기 이탈, ICU 퇴실은 빨라졌다.&#39;,
+    conclusion: &#39;Hydrocortisone은 생존 이득보다 쇼크 회복 촉진 효과가 뚜렷하다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/29347874/&#39;
+  },
+  aprocchss: {
+    label: &#39;Trial Summary &#183; APROCCHSS&#39;,
+    title: &#39;Hydrocortisone plus Fludrocortisone for Adults with Septic Shock&#39;,
+    journal: &#39;NEJM&#39;,
+    year: &#39;2018&#39;,
+    author: &#39;Annane et al.&#39;,
+    type: &#39;Multicenter RCT&#39;,
+    design: &#39;패혈성 쇼크 환자에서 hydrocortisone과 fludrocortisone 병용요법을 placebo와 비교.&#39;,
+    result: &#39;치료군에서 90일 사망률이 유의하게 낮았고 vasopressor-free days가 증가했다.&#39;,
+    conclusion: &#39;Hydrocortisone과 fludrocortisone 병용은 선택된 패혈성 쇼크 환자에서 중요한 근거를 제공한다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/29490185/&#39;
+  },
+  ang2expert: {
+    label: &#39;Expert Guidance&#39;,
+    title: &#39;Angiotensin II for Vasodilatory Shock: Practical Recommendations&#39;,
+    journal: &#39;Critical Care&#39;,
+    year: &#39;2024&#39;,
+    author: &#39;Expert Working Group&#39;,
+    type: &#39;Expert Recommendation&#39;,
+    design: &#39;ATHOS-3 근거와 실제 임상 적용을 바탕으로 angiotensin II 시작 시점과 증량법을 제시.&#39;,
+    result: &#39;NED &gt;0.2 mcg/kg/min이 지속될 때 20 ng/kg/min으로 시작하고 5 ng/kg/min 단위로 증량하는 접근을 제안.&#39;,
+    conclusion: &#39;Angiotensin II는 카테콜아민 부담을 줄이기 위한 조기 비카테콜아민 보조 옵션으로 고려할 수 있다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/38907398/&#39;
+  },
+  mblue_rct: {
+    label: &#39;Trial Summary&#39;,
+    title: &#39;Early Adjunctive Methylene Blue in Patients with Septic Shock&#39;,
+    journal: &#39;Critical Care&#39;,
+    year: &#39;2023&#39;,
+    author: &#39;Ibarra-Estrada et al.&#39;,
+    type: &#39;Randomized Controlled Trial&#39;,
+    design: &#39;패혈성 쇼크 환자에서 methylene blue 100 mg을 6시간 동안 3일 투여한 보조치료 연구.&#39;,
+    result: &#39;Norepinephrine 요구량이 감소하고 vasopressor 중단 시간이 빨라졌으며 중대한 이상반응 증가는 뚜렷하지 않았다.&#39;,
+    conclusion: &#39;Methylene blue는 카테콜아민 절약 효과가 유망하지만 대규모 검증이 필요하다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/36915146/&#39;
+  },
+  mblue_meta: {
+    label: &#39;Systematic Review &amp; Meta-analysis&#39;,
+    title: &#39;Methylene Blue for Distributive Shock: Systematic Review and Meta-analysis&#39;,
+    journal: &#39;Critical Care / Intensive Care Literature&#39;,
+    year: &#39;2024&#39;,
+    author: &#39;Multiple Authors&#39;,
+    type: &#39;Meta-analysis&#39;,
+    design: &#39;패혈성 쇼크를 포함한 distributive shock에서 methylene blue RCT를 종합 분석.&#39;,
+    result: &#39;단기 사망률 감소, 6시간 MAP 상승, vasopressor 사용 기간 단축 신호가 있었으나 표본 수가 작고 근거 확실성은 낮았다.&#39;,
+    conclusion: &#39;현재 근거는 유망하지만 routine use를 권고하기에는 부족하다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/38686901/&#39;
+  },
+  citrisali: {
+    label: &#39;Trial Summary &#183; CITRIS-ALI&#39;,
+    title: &#39;Effect of Vitamin C Infusion on Organ Failure and Biomarkers in Sepsis and ARDS&#39;,
+    journal: &#39;JAMA&#39;,
+    year: &#39;2019&#39;,
+    author: &#39;Fowler et al.&#39;,
+    type: &#39;Randomized Clinical Trial&#39;,
+    design: &#39;패혈증 관련 ARDS 환자에서 고용량 vitamin C와 placebo 비교.&#39;,
+    result: &#39;수정 SOFA 점수와 주요 염증 표지자는 유의하게 개선되지 않았다. 28일 사망률 감소는 탐색적 이차 결과였다.&#39;,
+    conclusion: &#39;Vitamin C의 생존 신호는 가설 생성 수준으로 해석해야 한다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/31573637/&#39;
+  },
+  lovit: {
+    label: &#39;Trial Summary &#183; LOVIT&#39;,
+    title: &#39;Intravenous Vitamin C in Adults with Sepsis in the Intensive Care Unit&#39;,
+    journal: &#39;NEJM&#39;,
+    year: &#39;2022&#39;,
+    author: &#39;Lamontagne et al.&#39;,
+    type: &#39;Multicenter RCT&#39;,
+    design: &#39;패혈증으로 ICU에 입원한 성인에서 고용량 vitamin C와 placebo 비교.&#39;,
+    result: &#39;28일 사망 또는 지속 장기기능장애 복합 결과가 vitamin C군에서 더 높았다.&#39;,
+    conclusion: &#39;패혈증에서 IV vitamin C의 일상 사용은 권고되지 않는다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/35704292/&#39;
+  },
+  thiaminepilot: {
+    label: &#39;Pilot RCT&#39;,
+    title: &#39;Randomized Trial of Thiamine in Septic Shock&#39;,
+    journal: &#39;Critical Care Medicine&#39;,
+    year: &#39;2016&#39;,
+    author: &#39;Donnino et al.&#39;,
+    type: &#39;Pilot Randomized Trial&#39;,
+    design: &#39;패혈성 쇼크 환자에서 thiamine 투여가 lactate와 임상 결과에 미치는 영향을 평가.&#39;,
+    result: &#39;전체 환자군에서는 lactate와 사망률 차이가 없었으나, thiamine 결핍 하위군에서 생존 이득 신호가 있었다.&#39;,
+    conclusion: &#39;Thiamine은 결핍이 의심되거나 확인된 환자에서 선별적 의미가 있을 수 있다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/26771781/&#39;
+  },
+  acts: {
+    label: &#39;Trial Summary &#183; ACTS&#39;,
+    title: &#39;Vitamin C, Thiamine, and Hydrocortisone in Septic Shock&#39;,
+    journal: &#39;JAMA&#39;,
+    year: &#39;2020&#39;,
+    author: &#39;Moskowitz et al.&#39;,
+    type: &#39;Randomized Clinical Trial&#39;,
+    design: &#39;패혈성 쇼크 환자에서 ascorbic acid, corticosteroids, thiamine 병용요법과 placebo 비교.&#39;,
+    result: &#39;72시간 SOFA 변화와 30일 사망률에서 유의한 차이가 없었다.&#39;,
+    conclusion: &#39;HAT 요법은 초기 후향 연구의 큰 효과를 RCT에서 재현하지 못했다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/32821945/&#39;
+  },
+  vitamins: {
+    label: &#39;Trial Summary &#183; VITAMINS&#39;,
+    title: &#39;Effect of Vitamin C, Hydrocortisone, and Thiamine vs Hydrocortisone Alone&#39;,
+    journal: &#39;JAMA&#39;,
+    year: &#39;2020&#39;,
+    author: &#39;Fujii et al.&#39;,
+    type: &#39;Randomized Clinical Trial&#39;,
+    design: &#39;패혈성 쇼크에서 vitamin C, hydrocortisone, thiamine 병용요법과 hydrocortisone 단독 비교.&#39;,
+    result: &#39;Vasopressor-free and ventilator-free days 개선이 없었고 180일 사망률 차이도 없었다.&#39;,
+    conclusion: &#39;Marik cocktail/HAT 요법의 routine use를 지지하지 않는다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/31950979/&#39;
+  }
+};
+
+function switchPart(partId) {
+  document.querySelectorAll(&#39;.part-panel&#39;).forEach(panel =&gt; {
+    panel.classList.toggle(&#39;active&#39;, panel.id === partId);
+  });
+  document.querySelectorAll(&#39;.sidebar-part&#39;).forEach(panel =&gt; {
+    panel.classList.toggle(&#39;active&#39;, panel.id === `sidebar-${partId}`);
+  });
+  document.querySelectorAll(&#39;.part-tab&#39;).forEach(tab =&gt; {
+    tab.classList.toggle(&#39;active&#39;, tab.dataset.target === partId);
+  });
+  window.scrollTo({ top: document.querySelector(&#39;.part-tabs&#39;).offsetTop - 12, behavior: &#39;smooth&#39; });
+}
+
+function openPopup(refKey) {
+  const ref = references[refKey];
+  if (!ref) return;
+  document.getElementById(&#39;popupLabel&#39;).textContent = ref.label;
+  document.getElementById(&#39;popupTitle&#39;).textContent = ref.title;
+  document.getElementById(&#39;popupMeta&#39;).innerHTML = `
+    &lt;span&gt;&lt;span class=&quot;tag&quot;&gt;${ref.type}&lt;/span&gt;&lt;/span&gt;
+    &lt;span&gt;📓 ${ref.journal} ${ref.year}&lt;/span&gt;
+    &lt;span&gt;✍️ ${ref.author}&lt;/span&gt;
+  `;
+  document.getElementById(&#39;popupResult&#39;).innerHTML = `
+    &lt;div class=&quot;popup-result-label&quot;&gt;연구 설계 &amp;amp; 결과&lt;/div&gt;
+    &lt;strong style=&quot;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:12px;color:var(--navy-mid);&quot;&gt;설계:&lt;/strong&gt; ${ref.design}&lt;br&gt;&lt;br&gt;
+    &lt;strong style=&quot;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:12px;color:var(--navy-mid);&quot;&gt;주요 결과:&lt;/strong&gt; ${ref.result}
+  `;
+  document.getElementById(&#39;popupConclusion&#39;).textContent = ref.conclusion;
+  const link = document.getElementById(&#39;popupLink&#39;);
+  if (ref.url &amp;&amp; ref.url !== &#39;#&#39;) {
+    link.href = ref.url;
+    link.style.display = &#39;inline-flex&#39;;
+  } else {
+    link.style.display = &#39;none&#39;;
+  }
+  document.getElementById(&#39;popupOverlay&#39;).classList.add(&#39;open&#39;);
+  document.body.style.overflow = &#39;hidden&#39;;
+}
+
+function closePopup() {
+  document.getElementById(&#39;popupOverlay&#39;).classList.remove(&#39;open&#39;);
+  document.body.style.overflow = &#39;&#39;;
+}
+
+function closePopupOnBg(e) {
+  if (e.target === document.getElementById(&#39;popupOverlay&#39;)) closePopup();
+}
+
+document.addEventListener(&#39;keydown&#39;, e =&gt; { if (e.key === &#39;Escape&#39;) closePopup(); });
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+"></iframe></section><section class="frame-panel" id="panel-ecmo"><iframe title="ECMO 3-Part Review" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;title&gt;ECMO Lecture Review — KSCCM-ACCC 2026&lt;/title&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&amp;family=Source+Sans+3:wght@300;400;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+  :root {
+    --red: #1769aa;
+    --red-dark: #0b4f86;
+    --red-light: #e6f1fb;
+    --navy: #12314f;
+    --navy-mid: #1e5d8f;
+    --gray-dark: #2c2c2c;
+    --gray-mid: #555;
+    --gray-light: #888;
+    --gray-border: #d0d0d0;
+    --gray-bg: #f7f7f7;
+    --white: #ffffff;
+    --cream: #fdfcfb;
+    --gold: #2a9d8f;
+    --green: #237b57;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: &#39;Source Serif 4&#39;, Georgia, serif;
+    background: var(--cream);
+    color: var(--gray-dark);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  .journal-banner {
+    background: var(--red);
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .journal-header {
+    background: var(--white);
+    border-bottom: 3px solid var(--red);
+    padding: 28px 40px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .journal-logo {
+    font-family: &#39;Playfair Display&#39;, serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+  .journal-logo span { color: var(--red); }
+  .journal-meta {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 12px;
+    color: var(--gray-light);
+    text-align: right;
+    line-height: 1.6;
+  }
+  .journal-meta strong { color: var(--navy); }
+
+  .hero {
+    background: var(--navy);
+    color: white;
+    padding: 50px 60px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: &#39;&#39;;
+    position: absolute;
+    top: 0; right: 0;
+    width: 300px; height: 100%;
+    background: linear-gradient(135deg, transparent 40%, rgba(193,39,45,0.18) 100%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    margin-bottom: 18px;
+    border-radius: 2px;
+  }
+  .hero h1 {
+    font-family: &#39;Playfair Display&#39;, serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.22;
+    max-width: 820px;
+    margin-bottom: 14px;
+    letter-spacing: -0.3px;
+  }
+  .hero h1 em { font-style: italic; color: #f0a0a3; }
+  .hero-subtitle {
+    font-family: &#39;Source Serif 4&#39;, serif;
+    font-size: 16px;
+    color: rgba(255,255,255,0.72);
+    max-width: 720px;
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+  .hero-author {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    border-top: 1px solid rgba(255,255,255,0.18);
+    padding-top: 16px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  .hero-author span { display: flex; flex-direction: column; gap: 2px; }
+  .hero-author .label { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: rgba(255,255,255,0.45); }
+
+  .summary-box {
+    background: var(--red-light);
+    border-left: 4px solid var(--red);
+    margin: 0 40px;
+    padding: 22px 28px;
+    margin-top: -2px;
+  }
+  .summary-box h3 {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red-dark);
+    margin-bottom: 12px;
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .summary-item {
+    background: white;
+    border-radius: 4px;
+    padding: 14px 16px;
+    border-top: 3px solid var(--red);
+  }
+  .summary-num {
+    font-family: &#39;Playfair Display&#39;, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--red);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .summary-label {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .summary-val { font-size: 13px; color: var(--gray-mid); line-height: 1.4; }
+  .summary-val code {
+    background: var(--red-light);
+    color: var(--red-dark);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .main-content { max-width: 1060px; margin: 0 auto; padding: 0 40px 60px; }
+  .content-body {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 40px;
+    margin-top: 40px;
+  }
+
+  .part-divider {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin: 0 0 34px;
+    border-left: 6px solid var(--red);
+  }
+  .part-label {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.58);
+    margin-bottom: 8px;
+  }
+  .part-divider h2 {
+    font-family: &#39;Playfair Display&#39;, serif;
+    font-size: 25px;
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+  .part-divider p { color: rgba(255,255,255,0.82); font-size: 14px; line-height: 1.7; }
+
+  .section {
+    margin-bottom: 44px;
+    border-bottom: 1px solid var(--gray-border);
+    padding-bottom: 36px;
+  }
+  .section:last-child { border-bottom: none; }
+  .section-num {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 6px;
+  }
+  .section h2 {
+    font-family: &#39;Playfair Display&#39;, serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 14px;
+    line-height: 1.25;
+    letter-spacing: -0.2px;
+  }
+  .section h3 {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 14px;
+    color: var(--navy);
+    margin: 18px 0 8px;
+  }
+  .section p {
+    font-size: 15.5px;
+    color: var(--gray-dark);
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+  ul {
+    margin-left: 20px;
+    margin-top: 8px;
+    font-size: 15px;
+    line-height: 2;
+    color: var(--gray-dark);
+  }
+
+  .clinical-box {
+    background: var(--gray-bg);
+    border: 1px solid var(--gray-border);
+    border-radius: 6px;
+    padding: 20px 22px;
+    margin: 18px 0;
+    font-size: 14.5px;
+  }
+  .clinical-box-title {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy-mid);
+    margin-bottom: 8px;
+  }
+
+  .algorithm {
+    border: 2px solid var(--navy);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px 0;
+  }
+  .algorithm-header {
+    background: var(--navy);
+    color: white;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 10px 18px;
+  }
+  .algorithm-body { padding: 18px 20px; }
+  .algo-step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--gray-border);
+  }
+  .algo-step:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
+  .algo-badge {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    background: var(--red);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .algo-text { flex: 1; font-size: 14.5px; line-height: 1.6; }
+  .algo-text strong { color: var(--navy); font-family: &#39;Source Sans 3&#39;, sans-serif; font-size: 13px; font-weight: 700; display: block; margin-bottom: 2px; }
+
+  .drug-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin: 16px 0;
+  }
+  .drug-table th {
+    background: var(--navy);
+    color: white;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 12px;
+    text-align: left;
+  }
+  .drug-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--gray-border);
+    vertical-align: middle;
+  }
+  .drug-table tr:nth-child(even) td { background: var(--gray-bg); }
+  .drug-table tr:hover td { background: var(--red-light); }
+  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .dot-high { background: var(--red); }
+  .dot-mid { background: var(--gold); }
+  .dot-low { background: var(--gray-light); }
+  .rec-first { color: var(--red-dark); font-weight: 700; font-family: &#39;Source Sans 3&#39;, sans-serif; font-size: 12px; }
+  .rec-second { color: var(--gold); font-weight: 600; font-family: &#39;Source Sans 3&#39;, sans-serif; font-size: 12px; }
+  .rec-caution { color: var(--gray-light); font-family: &#39;Source Sans 3&#39;, sans-serif; font-size: 12px; }
+
+  .ref-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px; height: 18px;
+    background: var(--navy);
+    color: white;
+    border-radius: 50%;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    vertical-align: super;
+    margin-left: 2px;
+    transition: background 0.2s;
+    border: none;
+    line-height: 1;
+    text-decoration: none;
+    user-select: none;
+  }
+  .ref-btn:hover { background: var(--red); }
+
+  .sidebar { position: relative; }
+  .sidebar-sticky { position: sticky; top: 20px; }
+  .sidebar-block {
+    background: white;
+    border: 1px solid var(--gray-border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .sidebar-head {
+    background: var(--navy);
+    color: white;
+    padding: 10px 14px;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .ref-list { padding: 8px 0; }
+  .ref-item {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--gray-border);
+    font-size: 12.5px;
+    line-height: 1.45;
+    cursor: pointer;
+    transition: background 0.15s;
+    display: flex;
+    gap: 8px;
+  }
+  .ref-item:last-child { border-bottom: none; }
+  .ref-item:hover { background: var(--red-light); }
+  .ref-item-num {
+    flex-shrink: 0;
+    width: 18px; height: 18px;
+    background: var(--navy);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+  .ref-item-name { font-family: &#39;Source Sans 3&#39;, sans-serif; font-weight: 700; color: var(--navy); font-size: 12px; }
+  .ref-item-journal { color: var(--gray-light); font-size: 11px; }
+
+  .key-message {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    color: white;
+    border-radius: 6px;
+    padding: 18px 16px;
+    margin-bottom: 20px;
+  }
+  .key-message-label {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 8px;
+  }
+  .key-message p { font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.88); font-style: italic; }
+  .key-message strong { color: #f0a0a3; font-style: normal; }
+
+  .threshold-card {
+    background: white;
+    border: 1px solid var(--gray-border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .threshold-head {
+    background: var(--red);
+    color: white;
+    padding: 10px 14px;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .threshold-body { padding: 14px; }
+  .threshold-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--gray-border);
+    font-size: 13px;
+  }
+  .threshold-row:last-child { border-bottom: none; }
+  .threshold-icon {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .threshold-icon.red { background: var(--red-light); }
+  .threshold-icon.blue { background: #e8edf8; }
+  .threshold-icon.gold { background: #fdf3e1; }
+  .threshold-label { font-family: &#39;Source Sans 3&#39;, sans-serif; font-weight: 700; font-size: 12px; color: var(--navy); }
+  .threshold-val { font-size: 13px; color: var(--gray-mid); }
+
+  .popup-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(26,39,68,0.5);
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+    animation: fadeIn 0.15s ease;
+  }
+  .popup-overlay.open { display: flex; align-items: center; justify-content: center; padding: 20px; }
+  .popup-card {
+    background: white;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.22);
+    overflow: hidden;
+    animation: slideUp 0.2s ease;
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+  .popup-head {
+    background: var(--navy);
+    color: white;
+    padding: 18px 22px 16px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+  }
+  .popup-head-label {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 4px;
+  }
+  .popup-head-title {
+    font-family: &#39;Playfair Display&#39;, serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+  .popup-close {
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+    margin-top: 2px;
+  }
+  .popup-close:hover { background: var(--red); }
+  .popup-body { padding: 22px 24px; }
+  .popup-meta {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 12px;
+    color: var(--gray-light);
+    margin-bottom: 14px;
+    display: flex; gap: 16px; flex-wrap: wrap;
+  }
+  .popup-meta .tag {
+    background: var(--red-light);
+    color: var(--red-dark);
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 11px;
+  }
+  .popup-result {
+    background: var(--gray-bg);
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  .popup-result-label {
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--navy-mid);
+    margin-bottom: 6px;
+  }
+  .popup-conclusion {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--gray-dark);
+    border-left: 3px solid var(--red);
+    padding-left: 14px;
+    font-style: italic;
+    margin-bottom: 14px;
+  }
+  .popup-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+    padding: 7px 14px;
+    border: 1.5px solid var(--navy);
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .popup-link:hover { background: var(--navy); color: white; }
+
+  .part-tabs {
+    max-width: 1060px;
+    margin: 24px auto 0;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .part-tab {
+    border: 1px solid var(--gray-border);
+    background: white;
+    color: var(--navy);
+    border-radius: 6px;
+    padding: 12px 14px;
+    cursor: pointer;
+    text-align: left;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    transition: all 0.2s;
+  }
+  .part-tab:hover { border-color: var(--red); background: var(--red-light); }
+  .part-tab.active {
+    background: var(--navy);
+    color: white;
+    border-color: var(--navy);
+  }
+  .part-tab-num {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    opacity: 0.65;
+    margin-bottom: 3px;
+  }
+  .part-tab-title {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+  .part-panel { display: none; }
+  .part-panel.active { display: block; }
+  .sidebar-part { display: none; }
+  .sidebar-part.active { display: block; }
+
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.55);
+    padding: 24px 40px;
+    font-family: &#39;Source Sans 3&#39;, sans-serif;
+    font-size: 12px;
+    line-height: 1.6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+  footer a:hover { color: white; }
+
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes slideUp { from { transform: translateY(18px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+  @media (max-width: 820px) {
+    .hero { padding: 36px 24px 32px; }
+    .hero h1 { font-size: 26px; }
+    .summary-box { margin: 0 16px; }
+    .summary-grid { grid-template-columns: 1fr; }
+    .part-tabs { grid-template-columns: 1fr; padding: 0 20px; }
+    .main-content { padding: 0 20px 40px; }
+    .content-body { grid-template-columns: 1fr; }
+    .journal-header { padding: 18px 20px 14px; flex-direction: column; }
+    .journal-meta { text-align: left; }
+    footer { flex-direction: column; }
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;journal-banner&quot;&gt;KSCCM-ACCC 2026 &#183; The 46th KSCCM Annual Congress &#183; ECMO Section&lt;/div&gt;
+
+&lt;div class=&quot;journal-header&quot;&gt;
+  &lt;div class=&quot;journal-logo&quot;&gt;Critical&lt;span&gt;Care&lt;/span&gt; Review&lt;/div&gt;
+  &lt;div class=&quot;journal-meta&quot;&gt;
+    &lt;strong&gt;KSCCM-ACCC 2026&lt;/strong&gt;&lt;br&gt;
+    제46회 대한중환자의학회 연수강좌&lt;br&gt;
+    ECMO Section &#183; Blue Edition
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;hero&quot;&gt;
+  &lt;div class=&quot;hero-tag&quot;&gt;ECMO Section &#183; Blue Tone Multi-Part Lecture Review&lt;/div&gt;
+  &lt;h1&gt;Modern ECMO Management&lt;br&gt;&lt;em&gt;— Transfusion, VV-ECMO &amp;amp; VA-ECMO Rescue —&lt;/em&gt;&lt;/h1&gt;
+  &lt;div class=&quot;hero-subtitle&quot;&gt;수혈 최적화, EOLIA 이후 VV-ECMO 관리, 고위험 폐혈전색전증에서 VA-ECMO 구조 전략을 한 번에 정리한 ECMO 통합 강의록&lt;/div&gt;
+  &lt;div class=&quot;hero-author&quot;&gt;
+    &lt;span&gt;
+      &lt;span class=&quot;label&quot;&gt;Speaker&lt;/span&gt;
+      김희중 교수 &#183; 고려대학교 안암병원 심장외과
+    &lt;/span&gt;
+    &lt;span&gt;
+      &lt;span class=&quot;label&quot;&gt;Speaker&lt;/span&gt;
+      이수환 선생님 &#183; Post-EOLIA VV-ECMO
+    &lt;/span&gt;
+    &lt;span&gt;
+      &lt;span class=&quot;label&quot;&gt;Focus&lt;/span&gt;
+      장우진 교수 &#183; High-Risk PTE VA-ECMO
+    &lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;summary-box&quot;&gt;
+  &lt;h3&gt;⬛ 핵심 요약 — Three Key Messages&lt;/h3&gt;
+  &lt;div class=&quot;summary-grid&quot;&gt;
+    &lt;div class=&quot;summary-item&quot;&gt;
+      &lt;div class=&quot;summary-num&quot;&gt;1&lt;/div&gt;
+      &lt;div class=&quot;summary-label&quot;&gt;Part 1 &#183; ECMO Transfusion&lt;/div&gt;
+      &lt;div class=&quot;summary-val&quot;&gt;안정 환자는 제한적 수혈을 기본으로 하되 출혈&#183;저산소전달&#183;심근허혈 표현형에서는 목표를 조정한다&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;summary-item&quot;&gt;
+      &lt;div class=&quot;summary-num&quot;&gt;2&lt;/div&gt;
+      &lt;div class=&quot;summary-label&quot;&gt;Part 2 &#183; Post-EOLIA VV-ECMO&lt;/div&gt;
+      &lt;div class=&quot;summary-val&quot;&gt;EOLIA 기준 severe ARDS에서 조기 논의하고, ECMO 후 ultra-protective ventilation으로 폐 손상을 줄인다&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;summary-item&quot;&gt;
+      &lt;div class=&quot;summary-num&quot;&gt;3&lt;/div&gt;
+      &lt;div class=&quot;summary-label&quot;&gt;Part 3 &#183; VA-ECMO for PTE&lt;/div&gt;
+      &lt;div class=&quot;summary-val&quot;&gt;고위험 폐혈전색전증의 RV failure와 obstructive shock에서 VA-ECMO를 재관류 또는 회복의 가교로 사용한다&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;part-tabs&quot; role=&quot;tablist&quot; aria-label=&quot;ECMO lecture parts&quot;&gt;
+  &lt;button class=&quot;part-tab active&quot; type=&quot;button&quot; data-target=&quot;part1&quot; onclick=&quot;switchPart(&#39;part1&#39;)&quot;&gt;
+    &lt;span class=&quot;part-tab-num&quot;&gt;Part 1&lt;/span&gt;
+    &lt;span class=&quot;part-tab-title&quot;&gt;수혈 전략 최적화&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;button class=&quot;part-tab&quot; type=&quot;button&quot; data-target=&quot;part2&quot; onclick=&quot;switchPart(&#39;part2&#39;)&quot;&gt;
+    &lt;span class=&quot;part-tab-num&quot;&gt;Part 2&lt;/span&gt;
+    &lt;span class=&quot;part-tab-title&quot;&gt;Post-EOLIA VV-ECMO&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;button class=&quot;part-tab&quot; type=&quot;button&quot; data-target=&quot;part3&quot; onclick=&quot;switchPart(&#39;part3&#39;)&quot;&gt;
+    &lt;span class=&quot;part-tab-num&quot;&gt;Part 3&lt;/span&gt;
+    &lt;span class=&quot;part-tab-title&quot;&gt;High-Risk PTE VA-ECMO&lt;/span&gt;
+  &lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;main-content&quot;&gt;
+&lt;div class=&quot;content-body&quot;&gt;
+
+&lt;div class=&quot;left-col&quot;&gt;
+
+&lt;div class=&quot;part-panel active&quot; id=&quot;part1&quot;&gt;
+
+  &lt;div class=&quot;part-divider&quot; id=&quot;ecmo&quot;&gt;
+    &lt;div class=&quot;part-label&quot;&gt;ECMO Section &#183; Patient Blood Management&lt;/div&gt;
+    &lt;h2&gt;ECMO 지원 중 수혈 전략 최적화&lt;/h2&gt;
+    &lt;p&gt;ECMO 환자는 빈혈, 혈소판 감소, 응고장애, 항응고요법, 회로 관련 용혈과 염증을 동시에 가진다. 따라서 수혈은 흔하지만, 감염&#183;TRALI/TACO&#183;혈전증&#183;면역조절&#183;용적 과부하 위험을 함께 만든다. 이번 강의의 메시지는 “수혈을 줄이자”가 아니라 “필요한 환자에게, 필요한 성분을, 생리학적 근거로 투여하자”이다.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;ECMO &#183; Section 01&lt;/div&gt;
+    &lt;h2&gt;왜 ECMO에서 환자 혈액 관리가 중요한가&lt;/h2&gt;
+    &lt;p&gt;ECMO 환자는 출혈과 혈전증 위험이 동시에 높다. 항응고가 필요하지만 혈소판 감소와 응고인자 소모가 흔하고, 회로와 산소화막은 혈액성분 손상과 염증 반응을 유발한다. 수혈은 산소 운반능을 올릴 수 있지만, 단위 수가 늘어날수록 합병증 노출도 함께 증가한다.&lt;/p&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;EICU2 Practical Note&lt;/div&gt;
+      &lt;p&gt;ECMO 환자에서 Hb 7.2 g/dL만 보고 자동 수혈하지 않는다. 같은 Hb라도 VV-ECMO 안정 환자, VA-ECMO 심근허혈 환자, cannula site bleeding 환자, severe hypoxemia 환자는 전혀 다른 의사결정이 필요하다. 수혈 전에는 “지금 문제는 산소전달 부족인가, 출혈인가, 회로 문제인가, 단순 lab abnormality인가?”를 먼저 확인한다.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;ECMO &#183; Section 02&lt;/div&gt;
+    &lt;h2&gt;문제의 규모: ECMO는 고수혈 집단이다&lt;/h2&gt;
+    &lt;p&gt;국내 ECMO 시행 건수는 증가하고 있으며, 매년 약 3,000명 규모의 환자가 ECMO 치료를 받는 것으로 제시되었다. ECMO 환자는 심장수술 환자보다 입원 중 혈액 사용량이 훨씬 많고, 특히 VA-ECMO에서 VV-ECMO보다 일일 적혈구&#183;혈소판&#183;동결침전제 사용량이 많다.&lt;/p&gt;
+    &lt;table class=&quot;drug-table&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;상황&lt;/th&gt;
+          &lt;th&gt;강의 내용&lt;/th&gt;
+          &lt;th&gt;실무 해석&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;VA-ECMO&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;일일 수혈량이 VV보다 많음&lt;/td&gt;
+          &lt;td&gt;심인성 쇼크, 수술 후 출혈, limb ischemia, LV distension 등 복합 요인을 동반한다.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;VV-ECMO&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;상대적으로 RBC 요구량이 낮음&lt;/td&gt;
+          &lt;td&gt;산소화와 ECMO flow가 충분하면 제한적 RBC 전략이 더 잘 맞는다.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;수혈량 증가&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;취약성&#183;사망률 증가와 연관&lt;/td&gt;
+          &lt;td&gt;관찰연구는 confounding by indication을 고려해야 하나, 불필요 수혈을 줄이라는 신호는 일관된다.&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;Cross-Check&lt;/div&gt;
+      &lt;p&gt;수혈량과 사망률의 관련성은 중증 환자일수록 더 많이 수혈받는다는 교란을 완전히 제거하기 어렵다. 따라서 “수혈이 나쁘다”보다 “불필요한 노출은 줄이고, physiologic indication이 있을 때만 명확히 쓰자”로 해석하는 것이 안전하다.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;ECMO &#183; Section 03&lt;/div&gt;
+    &lt;h2&gt;가이드라인의 공백: ECMO 전용 숫자는 충분하지 않다&lt;/h2&gt;
+    &lt;p&gt;ELSO 2021 항응고 지침, ESICM 수혈 지침, EACTS/EACTAIC 2024 성인 심장수술 patient blood management 지침은 모두 중요한 문서이지만, VA-ECMO와 VV-ECMO 각각에 대해 하나의 확정적 Hb trigger를 제시하지는 못한다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;elso2021&#39;)&quot;&gt;1&lt;/button&gt; &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;esicm2020&#39;)&quot;&gt;2&lt;/button&gt; &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;eacts2024&#39;)&quot;&gt;3&lt;/button&gt;&lt;/p&gt;
+    &lt;p&gt;ESICM 문헌에서는 ECMO 환자에서 7.5 g/dL 정도의 제한적 전략을 지지하는 방향의 권고가 있으나, 실제 ECMO 환자는 mode와 병태가 매우 다양하다. 그러므로 현장에서는 가이드라인 숫자와 환자 표현형을 결합해야 한다.&lt;/p&gt;
+    &lt;div class=&quot;algorithm&quot;&gt;
+      &lt;div class=&quot;algorithm-header&quot;&gt;Bedside Interpretation&lt;/div&gt;
+      &lt;div class=&quot;algorithm-body&quot;&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;1&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;&lt;strong&gt;Guideline&lt;/strong&gt; 안정적 비출혈 환자에서는 제한적 수혈을 기본값으로 둔다.&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;2&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;&lt;strong&gt;Physiology&lt;/strong&gt; SvO2, lactate, vasopressor, ECMO flow, arterial saturation, active ischemia를 함께 본다.&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;3&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;&lt;strong&gt;Phenotype&lt;/strong&gt; 안정 VV, 안정 VA, bleeding, oxygen delivery failure, MI/ischemia, flow-limited hypoxemia로 나누어 결정한다.&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;ECMO &#183; Section 04&lt;/div&gt;
+    &lt;h2&gt;RBC 근거: VV는 제한적, VA는 초기 맥락을 더 본다&lt;/h2&gt;
+    &lt;p&gt;PROTECMO 연구는 41개 센터의 VV-ECMO 환자 1,604명을 포함한 대규모 전향 관찰연구이다. 대부분의 환자가 수혈을 받았지만, 사망률 감소와 관련된 수혈 이득은 Hb &amp;lt;7 g/dL에서 수혈한 경우에 주로 관찰되었다. Hb 7 g/dL 이상에서는 수혈 이득이 명확하지 않았다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;protecmmo&#39;)&quot;&gt;4&lt;/button&gt;&lt;/p&gt;
+    &lt;p&gt;반면 VA-ECMO에서는 OBLEX 자료를 활용한 target trial emulation에서 초기 2-3일 동안 liberal transfusion strategy가 생존 이득 신호를 보였다. 그러나 이 이득은 초기 기간에 국한되었고, 관찰자료 기반 분석이라는 한계가 있다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;oblex&#39;)&quot;&gt;5&lt;/button&gt;&lt;/p&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;EICU2 Practical Note&lt;/div&gt;
+      &lt;p&gt;VV-ECMO에서 oxygenator와 flow가 충분하고 lactate가 안정적이면 Hb 7 g/dL 전후 제한 전략을 우선한다. VA-ECMO 초기 심인성 쇼크, ongoing ischemia, high-dose vasopressor, 낮은 pulsatility, lactate 상승이 있으면 Hb 7 하나로 버티지 말고 산소전달 목표를 다시 계산한다.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;ECMO &#183; Section 05&lt;/div&gt;
+    &lt;h2&gt;한국형 델파이 합의: 숫자보다 표현형&lt;/h2&gt;
+    &lt;p&gt;국제 지침의 공백을 보완하기 위해 국내 ECMO 전문가를 대상으로 수정 델파이 합의가 수행되었다. 안정 성인 ECMO에서는 제한적 전략을 선호하되, 수혈 결정은 Hb 단독이 아니라 혈역학, 혼합정맥산소포화도, lactate, 출혈과 시술 맥락을 통합해야 한다는 점에 강한 합의가 있었다.&lt;/p&gt;
+    &lt;table class=&quot;drug-table&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;항목&lt;/th&gt;
+          &lt;th&gt;권고 방향&lt;/th&gt;
+          &lt;th&gt;EICU2 적용&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;안정 VA-ECMO&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Hb 7-8 g/dL 기준 선호&lt;/td&gt;
+          &lt;td&gt;심근허혈&#183;저심박출&#183;고젖산이면 더 높은 목표를 고려한다.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;안정 VV-ECMO&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;Hb 7 g/dL 기준 선호&lt;/td&gt;
+          &lt;td&gt;ECMO flow와 SaO2가 충분하고 lactate가 안정적일 때 적용한다.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;FFP&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;비출혈, INR &amp;lt;2.5에서는 routine FFP 회피&lt;/td&gt;
+          &lt;td&gt;출혈 또는 고위험 시술에서 INR ≥1.5이면 고려한다.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Platelet&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;비출혈 환자에서 50,000 미만만으로 예방 수혈은 지지 부족&lt;/td&gt;
+          &lt;td&gt;출혈&#183;시술이면 50,000-100,000 범위 목표를 고려한다.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Cryoprecipitate&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;출혈&#183;시술 시 fibrinogen &amp;gt;150 mg/dL 유지&lt;/td&gt;
+          &lt;td&gt;대량출혈에서는 fibrinogen을 초기에 확인하고 보충한다.&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;Cross-Check&lt;/div&gt;
+      &lt;p&gt;국내 델파이는 실무 공백을 메우는 데 유용하지만, RCT가 아니라 전문가 합의다. 따라서 병원 프로토콜로 가져올 때는 perfusionist, 흉부외과, 심장내과, EICU2, 혈액은행이 함께 “기본값과 예외 조건”을 명시해야 한다.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;ECMO &#183; Section 06&lt;/div&gt;
+    &lt;h2&gt;응고 성분 수혈: lab correction보다 bleeding phenotype&lt;/h2&gt;
+    &lt;p&gt;출혈이 없는 ECMO 환자에서 INR이나 혈소판 수치만 교정하기 위한 혈장&#183;혈소판 수혈은 피해야 한다. 반대로 활동성 출혈, cannulation site bleeding, 수술 또는 고위험 시술 전후에는 더 적극적인 보충 전략이 필요하다.&lt;/p&gt;
+    &lt;div class=&quot;algorithm&quot;&gt;
+      &lt;div class=&quot;algorithm-header&quot;&gt;ECMO Bleeding Checklist&lt;/div&gt;
+      &lt;div class=&quot;algorithm-body&quot;&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;1&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;&lt;strong&gt;먼저 원인 확인&lt;/strong&gt; Cannula position, surgical bleeding, GI bleeding, acquired von Willebrand syndrome, oxygenator/circuit thrombosis를 본다.&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;2&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;&lt;strong&gt;항응고 재평가&lt;/strong&gt; aPTT/anti-Xa, ACT, heparin dose, renal/hepatic function, recent procedure를 함께 검토한다.&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;3&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;&lt;strong&gt;성분별 보충&lt;/strong&gt; RBC, platelet, FFP, cryoprecipitate를 “수치 교정”이 아니라 출혈 조절과 산소전달 목표에 맞춘다.&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;ECMO &#183; Section 07&lt;/div&gt;
+    &lt;h2&gt;HIT, VET, AT III, 용혈과 철분: 놓치면 안 되는 주변 의사결정&lt;/h2&gt;
+    &lt;p&gt;HIT가 의심되면 즉시 heparin을 중단하고 PF4 검사를 시행하며 비헤파린 항응고제로 전환한다는 강한 합의가 제시되었다. 점탄성 검사(VET)는 모든 환자에게 routine으로 시행하기보다 과도한 출혈 또는 복합 응고장애가 있을 때 선택적으로 활용하는 접근이 더 현실적이다.&lt;/p&gt;
+    &lt;p&gt;AT III 검사는 heparin resistance가 있고 AT III가 80% 미만일 때 보조 지표로 유용할 수 있다. 용혈은 plasma free hemoglobin, LDH, haptoglobin, indirect bilirubin을 포함한 프로토콜로 감시한다. 철분 검사와 IV iron은 아직 논쟁적이며, 급성 ECMO-EICU2 상황에서는 우선순위가 낮다.&lt;/p&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;EICU2 Practical Note&lt;/div&gt;
+      &lt;p&gt;갑자기 Hb가 떨어졌는데 overt bleeding이 없으면 hemolysis와 circuit 문제를 동시에 확인한다. LDH 상승만으로 결론내리지 말고 plasma free Hb, 색소뇨, oxygenator pressure gradient, pump head/cannula 문제를 perfusion team과 같이 본다.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;ECMO &#183; Section 08&lt;/div&gt;
+    &lt;h2&gt;표현형 기반 수혈 알고리즘&lt;/h2&gt;
+    &lt;p&gt;강의의 결론은 하나의 숫자 트리거가 모든 ECMO 환자에게 맞지 않는다는 것이다. 안정 저위험군은 제한 전략을 기본값으로 삼고, 출혈&#183;산소전달부전&#183;심근허혈&#183;flow limitation이 있으면 목표를 조정한다.&lt;/p&gt;
+    &lt;table class=&quot;drug-table&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;표현형&lt;/th&gt;
+          &lt;th&gt;우선 질문&lt;/th&gt;
+          &lt;th&gt;수혈 방향&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Stable VV/VA&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;관류와 산소전달이 안정적인가?&lt;/td&gt;
+          &lt;td&gt;제한적 RBC 전략, routine FFP/platelet 회피&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Active Bleeding&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;출혈 원인과 항응고 강도는?&lt;/td&gt;
+          &lt;td&gt;원인 조절 + 성분별 보충 + fibrinogen/platelet 목표 설정&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;O2 Delivery Failure&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;SvO2 낮고 lactate가 오르는가?&lt;/td&gt;
+          &lt;td&gt;Flow, SaO2, cardiac output 교정과 RBC 수혈을 함께 판단&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;MI / Myocardial Ischemia&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;심근 산소공급이 제한되는가?&lt;/td&gt;
+          &lt;td&gt;과도한 제한 전략은 피하고 더 높은 Hb 목표를 고려&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Flow-limited Hypoxemia&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;ECMO flow 또는 native lung oxygenation 한계인가?&lt;/td&gt;
+          &lt;td&gt;회로&#183;캐뉼라&#183;환기 설정 확인 후 RBC 이득 재평가&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;p&gt;MI와 빈혈 환자의 개별 환자자료 메타분석에서는 제한적 수혈 전략에서 심장사와 6개월 사망이 더 높을 가능성이 제시되었다. 이는 ECMO-VA 심근허혈 환자에서 Hb 7 g/dL 기준을 기계적으로 적용하지 말아야 하는 중요한 교차 근거다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;mintmeta&#39;)&quot;&gt;6&lt;/button&gt;&lt;/p&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class=&quot;part-panel&quot; id=&quot;part2&quot;&gt;
+
+  &lt;div class=&quot;part-divider&quot;&gt;
+    &lt;div class=&quot;part-label&quot;&gt;Part 02 &#183; VV-ECMO After EOLIA&lt;/div&gt;
+    &lt;h2&gt;EOLIA 이후 시대의 VV-ECMO 관리&lt;/h2&gt;
+    &lt;p&gt;이수환 선생님 강의의 핵심은 “ECMO를 할 것인가”에서 “누구에게, 언제, 어떤 방식으로 VV-ECMO를 적용할 것인가”로 질문이 이동했다는 점이다. EOLIA 이후 VV-ECMO는 단순한 마지막 구제요법이 아니라, severe ARDS에서 폐 손상을 줄이고 회복 시간을 벌어주는 체계적 치료 플랫폼으로 이해된다.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 2 &#183; Section 01&lt;/div&gt;
+    &lt;h2&gt;CESAR에서 EOLIA까지: VV-ECMO 근거의 전환&lt;/h2&gt;
+    &lt;p&gt;ECMO는 1972년 외상성 호흡부전에서 성공적으로 사용된 뒤 중증 호흡부전 치료로 연구되어 왔다. 초기 연구들은 현대적 폐 보호 환기 전략을 충분히 반영하지 못했으며, ARDSNet 이후 low tidal volume ventilation이 ARDS 표준이 되면서 ECMO의 역할은 다시 재정의되었다.&lt;/p&gt;
+    &lt;p&gt;2009년 H1N1 팬데믹과 CESAR 연구는 중증 호흡부전에서 ECMO 센터 기반 치료의 가능성을 다시 부각시켰다. 이후 EOLIA는 CESAR의 한계를 보완해, 최적화된 표준 치료와 조기 VV-ECMO를 severe ARDS에서 직접 비교했다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;cesar&#39;)&quot;&gt;8&lt;/button&gt; &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;eolia&#39;)&quot;&gt;9&lt;/button&gt;&lt;/p&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;Cross-Check&lt;/div&gt;
+      &lt;p&gt;CESAR는 “ECMO 자체”보다 “ECMO 가능 전문센터로 이송하는 전략”을 평가한 성격이 강하다. EOLIA는 더 엄격한 ARDS 기준과 표준 치료를 적용했지만, 예상한 20% 절대 사망률 감소를 입증하기에는 과감한 power assumption을 사용했다. 따라서 EOLIA를 음성 연구로만 읽기보다, 효과 크기와 crossover 구조를 함께 해석해야 한다.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 2 &#183; Section 02&lt;/div&gt;
+    &lt;h2&gt;EOLIA 적응증: 객관적 생리 기준&lt;/h2&gt;
+    &lt;p&gt;EOLIA는 AECC ARDS 정의에 따라 severe ARDS를 등록했고, 다음 기준 중 하나를 만족하면 조기 VV-ECMO 대상으로 보았다. PaO2/FiO2 &amp;lt;50 mmHg가 3시간 이상, PaO2/FiO2 &amp;lt;80 mmHg가 6시간 이상, 또는 pH &amp;lt;7.25 및 PaCO2 ≥60 mmHg가 6시간 이상 지속되는 경우다.&lt;/p&gt;
+    &lt;table class=&quot;drug-table&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;기준&lt;/th&gt;
+          &lt;th&gt;EOLIA threshold&lt;/th&gt;
+          &lt;th&gt;EICU2 적용 멘트&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;극심한 저산소혈증&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;P/F &amp;lt;50 for &amp;gt;3h&lt;/td&gt;
+          &lt;td&gt;FiO2 1.0, PEEP 최적화, paralysis/prone 이후에도 지속되면 ECMO team call을 늦추지 않는다.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;지속 저산소혈증&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;P/F &amp;lt;80 for &amp;gt;6h&lt;/td&gt;
+          &lt;td&gt;“조금 더 기다려 보자”가 ventilator-induced lung injury를 늘릴 수 있다.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;불응성 고탄산혈증&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;pH &amp;lt;7.25 + PaCO2 ≥60 for &amp;gt;6h&lt;/td&gt;
+          &lt;td&gt;plateau/driving pressure를 올려 pH를 맞추는 전략은 폐 손상 비용을 만든다.&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;EICU2 Practical Note&lt;/div&gt;
+      &lt;p&gt;EOLIA 기준은 cannulation 결정 버튼이 아니라 “전문 ECMO 팀과 즉시 논의해야 하는 기준”으로 쓰는 것이 실무적이다. 환자가 이미 고압&#183;고FiO2&#183;심한 acidosis로 6시간 이상 버티고 있다면, referral delay 자체가 예후를 악화시킬 수 있다.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 2 &#183; Section 03&lt;/div&gt;
+    &lt;h2&gt;EOLIA의 결과: 음성인가, 신호인가&lt;/h2&gt;
+    &lt;p&gt;EOLIA는 249명을 등록한 뒤 futility로 조기 중단되었다. 60일 사망률은 ECMO군 35%, 대조군 46%로 ECMO군에서 낮았지만 통계적 유의성에는 도달하지 못했다. 그러나 치료 실패는 ECMO군에서 더 낮았고, 대조군의 rescue ECMO crossover가 결과 해석을 복잡하게 만들었다.&lt;/p&gt;
+    &lt;p&gt;사후 Bayesian 분석은 EOLIA 자료만으로도 ECMO가 사망률을 낮출 posterior probability가 높다는 해석을 제시했다. 이는 “모든 ARDS에 ECMO”가 아니라, 엄격히 선별된 very severe ARDS에서 조기 VV-ECMO의 임상적 타당성을 지지한다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;eolia_bayes&#39;)&quot;&gt;10&lt;/button&gt;&lt;/p&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;Cross-Check&lt;/div&gt;
+      &lt;p&gt;EOLIA는 routine ECMO를 증명한 연구가 아니다. 동시에 severe ARDS에서 ECMO를 포기하게 만드는 연구도 아니다. EICU2에서는 “EOLIA 기준에 들어오는 환자인가”, “이미 prone/paralysis/LPV가 충분히 적용되었는가”, “전문 ECMO center에서 관리 가능한가”를 묶어서 판단해야 한다.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 2 &#183; Section 04&lt;/div&gt;
+    &lt;h2&gt;COVID-19 팬데믹: ECMO 근거의 스트레스 테스트&lt;/h2&gt;
+    &lt;p&gt;COVID-19 팬데믹은 EOLIA 이후 VV-ECMO 원칙을 대규모 바이러스성 ARDS 환자에게 적용해 본 실제 임상 시험대였다. 초기 프랑스 코호트에서는 ECMO 치료 COVID-19 ARDS 환자의 60일 사망률이 약 31%로 보고되었고, ELSO registry 국제 코호트에서는 90일 병원 사망률이 37.4%로 보고되었다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;covid_france&#39;)&quot;&gt;11&lt;/button&gt; &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;covid_elso&#39;)&quot;&gt;12&lt;/button&gt;&lt;/p&gt;
+    &lt;p&gt;이 데이터는 pandemic strain, center volume, resource saturation, 환자 선별 기준에 따라 결과가 크게 달라질 수 있음을 동시에 보여준다.&lt;/p&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;EICU2 Practical Note&lt;/div&gt;
+      &lt;p&gt;COVID-19 경험의 가장 큰 교훈은 ECMO 자체보다 “선별과 시스템”이다. ECMO bed가 부족한 상황에서는 나이, frailty, irreversible lung disease, multiorgan failure, ventilation duration, transfer time을 더 엄격히 봐야 한다. ECMO는 장비가 아니라 프로그램이다.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 2 &#183; Section 05&lt;/div&gt;
+    &lt;h2&gt;VV-ECMO가 바꾼 환기 전략: Ultra-Protective Ventilation&lt;/h2&gt;
+    &lt;p&gt;EOLIA에서 ECMO 시작 후 환자들은 표준 폐 보호 환기보다 더 낮은 tidal volume, plateau pressure, driving pressure로 관리되었다. 이후 국제 전향 코호트 연구에서도 ECMO 시작 뒤 tidal volume ≤4 mL/kg, driving pressure &amp;lt;15 cmH2O 적용 비율이 크게 증가했다.&lt;/p&gt;
+    &lt;p&gt;VV-ECMO의 진짜 이득은 산소포화도를 올리는 데서 끝나지 않는다. 폐가 더 이상 가스교환을 전부 떠맡지 않아도 되므로, ventilator intensity를 줄이고 VILI를 줄일 수 있다.&lt;/p&gt;
+    &lt;div class=&quot;algorithm&quot;&gt;
+      &lt;div class=&quot;algorithm-header&quot;&gt;Ultra-Protective Ventilation Targets&lt;/div&gt;
+      &lt;div class=&quot;algorithm-body&quot;&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;1&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;&lt;strong&gt;Volume&lt;/strong&gt; VT 3-4 mL/kg PBW 수준까지 낮추되 atelectasis와 derecruitment를 함께 감시한다.&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;2&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;&lt;strong&gt;Pressure&lt;/strong&gt; Plateau pressure와 driving pressure를 적극적으로 낮추고, spontaneous effort가 강하면 P-SILI를 확인한다.&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;3&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;&lt;strong&gt;Power&lt;/strong&gt; Mechanical power를 낮추는 방향으로 RR, VT, pressure, flow를 종합 조정한다.&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 2 &#183; Section 06&lt;/div&gt;
+    &lt;h2&gt;Mechanical Power: ECMO 중에도 ventilator는 중요하다&lt;/h2&gt;
+    &lt;p&gt;ECMO 중 mechanical power와 driving pressure를 낮추는 것은 생존과 연관된다. 한 후향 연구에서는 ECMO 첫 3일 평균 mechanical power가 14.4 J/min 이하인 환자에서 90일 생존이 더 좋았고, 높은 mechanical power는 병원 사망과 독립적으로 연관되었다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;mech_power&#39;)&quot;&gt;13&lt;/button&gt;&lt;/p&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;EICU2 Practical Note&lt;/div&gt;
+      &lt;p&gt;VV-ECMO를 시작했다고 ventilator를 방치하면 ECMO의 절반만 사용한 것이다. 매일 회진에서 “sweep/flow는 충분한가?”와 동시에 “driving pressure, RR, VT, patient effort, mechanical power가 줄었는가?”를 확인해야 한다.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 2 &#183; Section 07&lt;/div&gt;
+    &lt;h2&gt;ECMO 중 복와위: 가능하고 안전하지만 대상 선별이 핵심&lt;/h2&gt;
+    &lt;p&gt;EOLIA에서는 ECMO군의 일부가 치료 중 복와위를 시행받았지만, 연구 자체가 ECMO 중 prone 여부를 비교하도록 설계되지는 않았다. PRONECMO RCT는 VV-ECMO 중 조기 반복 prone이 ECMO weaning 성공을 유의하게 개선하지 못했으나 심각한 안전성 문제는 크지 않음을 보여주었다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;pronecmmo&#39;)&quot;&gt;14&lt;/button&gt;&lt;/p&gt;
+    &lt;p&gt;반면 다른 소규모 RCT와 메타분석들은 28일 및 병원 사망률 감소 가능성을 시사한다. 최근 메타분석은 VV-ECMO 중 prone이 사망률 개선과 연관될 수 있다고 보고했지만, 포함 연구의 이질성과 COVID-19 비중, immortal time bias 가능성을 고려해야 한다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;prone_meta&#39;)&quot;&gt;15&lt;/button&gt;&lt;/p&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;EICU2 Practical Note&lt;/div&gt;
+      &lt;p&gt;ECMO 중 prone은 “산소가 안 좋아서 하는 절박한 조치”만은 아니다. dorsal lung recruitment, secretion drainage, VILI 감소를 노릴 수 있다. 다만 cannula security, manpower, pressure injury, obesity, hemodynamic instability, 최근 cannulation 부위 출혈을 체크리스트로 확인해야 한다.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 2 &#183; Section 08&lt;/div&gt;
+    &lt;h2&gt;항응고와 수혈: 낮은 강도와 개별화로 이동&lt;/h2&gt;
+    &lt;p&gt;EOLIA는 aPTT 42-55초 또는 anti-Xa 0.2-0.3 IU/mL를 목표로 하는 비교적 낮은 강도의 heparin 전략을 사용했다. PROTECMO 분석에서는 VV-ECMO 환자 52.5%가 한 번 이상 출혈을 경험했고, aPTT가 첫 출혈 사건과 관련된 중요한 요인으로 확인되었다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;protecmmo_bleed&#39;)&quot;&gt;16&lt;/button&gt;&lt;/p&gt;
+    &lt;p&gt;최근 문헌은 VV-ECMO에서 저강도 항응고가 출혈을 줄이면서 혈전 사건을 크게 늘리지 않을 가능성을 제시하지만, 근거 대부분은 관찰연구와 파일럿 연구다. 따라서 회로 혈전, 산소화막 압력차, D-dimer, plasma free Hb, 환자 혈전 위험과 출혈 위험을 함께 보며 조정해야 한다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;low_anticoag&#39;)&quot;&gt;17&lt;/button&gt;&lt;/p&gt;
+    &lt;p&gt;수혈 역시 ELSO는 최적 기준이 불확실하다고 보며, 많은 VV-ECMO 환자에서 Hb 7-9 g/dL 범위가 실무적으로 허용된다. PROTECMO 수혈 연구는 Hb &amp;lt;7 g/dL에서 수혈 이득 신호가 가장 뚜렷하다는 점을 보여준다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;protecmmo&#39;)&quot;&gt;4&lt;/button&gt;&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 2 &#183; Take Home&lt;/div&gt;
+    &lt;h2&gt;Take-Home Message&lt;/h2&gt;
+    &lt;p&gt;EOLIA 이후 VV-ECMO는 마지막 rescue가 아니라, 엄격히 선별된 severe ARDS에서 조기 논의해야 할 치료 옵션이다. ECMO 시작 후에는 ultra-protective ventilation, mechanical power 감소, 선별적 prone, 낮은 강도 항응고, 개별화 수혈이 함께 따라와야 한다. EICU2 실무에서는 cannulation 자체보다 “ECMO가 lung rest와 회복을 실제로 만들고 있는가”를 매일 확인하는 것이 핵심이다.&lt;/p&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class=&quot;part-panel&quot; id=&quot;part3&quot;&gt;
+  &lt;div class=&quot;part-divider&quot;&gt;
+    &lt;div class=&quot;part-label&quot;&gt;Part 03 &#183; VA-ECMO for High-Risk PTE&lt;/div&gt;
+    &lt;h2&gt;고위험 폐혈전색전증에서 구조 전략으로서의 VA-ECMO&lt;/h2&gt;
+    &lt;p&gt;중앙대학교병원 장우진 교수 강의의 핵심은 고위험 폐혈전색전증(PTE)에서 혈역학적 붕괴를 조기에 인식하고, VA-ECMO를 단독 치료가 아니라 재관류 치료를 가능하게 하는 전략적 가교로 배치하는 것이다.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 3 &#183; Section 01&lt;/div&gt;
+    &lt;h2&gt;고위험 PTE는 폐 문제가 아니라 RV-순환 붕괴 문제다&lt;/h2&gt;
+    &lt;p&gt;고위험 폐혈전색전증은 단순한 저산소증이 아니라 급성 우심실 후부하 증가, 우심실 확장, 중격 좌측 편위, 좌심실 전부하 감소, 전신 저관류가 연쇄적으로 발생하는 폐쇄성 쇼크다. 심정지로 진행하면 사망률은 급격히 상승하며, 이때 치료 지연은 곧 RV 허혈과 다장기부전으로 이어진다.&lt;/p&gt;
+    &lt;table class=&quot;drug-table&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;병태생리 축&lt;/th&gt;
+          &lt;th&gt;주요 변화&lt;/th&gt;
+          &lt;th&gt;EICU2 해석&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;RV afterload&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;폐혈관 폐색으로 급격히 상승&lt;/td&gt;
+          &lt;td&gt;RV가 갑자기 감당할 수 없는 압력 부하를 받는다.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;LV preload&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;중격 편위와 RV 확장으로 감소&lt;/td&gt;
+          &lt;td&gt;혈압 저하는 volume 부족이 아니라 obstructive physiology일 수 있다.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;RV ischemia&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;관상동맥 관류 저하와 벽장력 증가&lt;/td&gt;
+          &lt;td&gt;고용량 catecholamine만으로 버티면 RV 산소수요가 더 증가한다.&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Venous congestion&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;RAP/CVP 상승&lt;/td&gt;
+          &lt;td&gt;간&#183;신장 울혈과 젖산 상승이 동반되면 window가 짧다.&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;EICU2 Practical Note&lt;/div&gt;
+      &lt;p&gt;High-risk PE에서 hypotension은 “pressor를 더 올릴 문제”가 아니라 “RV를 unloading하고 폐혈관 폐색을 제거해야 하는 문제”다. Echo에서 RV/LV ratio 증가, McConnell sign, septal flattening, IVC plethora가 보이고 lactate가 오르면 PERT와 ECMO team을 동시에 호출한다.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 3 &#183; Section 02&lt;/div&gt;
+    &lt;h2&gt;위험 분류: AHA 2026 Category D-E에서 시간이 갈린다&lt;/h2&gt;
+    &lt;p&gt;2026 AHA/ACC PE guideline은 A-E clinical category를 제시해 저위험부터 쇼크와 extremis까지 세분화한다. 강의에서 강조된 전환점은 악화되는 쇼크에 해당하는 Category D와, 난치성 쇼크 또는 심정지에 해당하는 Category E다. 이 구간에서는 항응고만으로 기다릴 시간이 없다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;aha2026pe&#39;)&quot;&gt;18&lt;/button&gt;&lt;/p&gt;
+    &lt;div class=&quot;algorithm&quot;&gt;
+      &lt;div class=&quot;algorithm-header&quot;&gt;High-Risk PE Deterioration Check&lt;/div&gt;
+      &lt;div class=&quot;algorithm-body&quot;&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;1&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;&lt;strong&gt;Shock marker&lt;/strong&gt; 지속 저혈압, vasopressor 요구량 증가, lactate 상승, 의식 저하를 확인한다.&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;2&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;&lt;strong&gt;RV failure marker&lt;/strong&gt; Echo/CT에서 RV dilation, RV/LV ratio 증가, septal bowing, 높은 CVP를 확인한다.&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;3&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;&lt;strong&gt;Action marker&lt;/strong&gt; Category D-E로 보이면 thrombolysis, catheter/surgical reperfusion, VA-ECMO 가능성을 병렬로 논의한다.&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 3 &#183; Section 03&lt;/div&gt;
+    &lt;h2&gt;치료 격차: 혈전용해, 수술, 카테터 치료 사이의 빈 공간&lt;/h2&gt;
+    &lt;p&gt;고위험 PE에서 전신 혈전용해술은 여전히 표준 1차 재관류 치료로 권고된다. 그러나 출혈 위험이 높거나 혈전용해 실패가 발생하면 수술적 혈전제거술 또는 카테터 기반 치료가 필요하다. 문제는 가장 불안정한 환자일수록 전신 혈전용해술 후 대구경 동맥 삽관과 수술이 더 위험해진다는 점이다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;esc2019pe&#39;)&quot;&gt;19&lt;/button&gt; &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;thrombolysis_meta&#39;)&quot;&gt;20&lt;/button&gt;&lt;/p&gt;
+    &lt;p&gt;수술적 혈전제거술은 폐동맥압, 중심정맥압, RV/LV ratio를 빠르게 개선할 수 있지만, 개흉 수술 자체가 극심한 쇼크 환자에게는 큰 생리학적 부담이다. 카테터 기반 치료는 약물 치료와 수술 사이의 최소침습 가교로 부상했으며, 특히 large-bore aspiration은 전신 혈전용해 없이 혈전 부담을 즉시 줄일 수 있다는 장점이 있다.&lt;/p&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;Cross-Check&lt;/div&gt;
+      &lt;p&gt;카테터 흡인술과 기계적 혈전제거술의 사용은 빠르게 늘고 있지만, high-risk PE에서 사망률 이득을 확정한 무작위 근거는 아직 부족하다. 따라서 “기술이 가능하다”와 “예후를 개선한다”를 구분해야 하며, PERT 안에서 환자별 출혈위험, 혈전 위치, RV failure 단계, 기관 경험을 함께 본다.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 3 &#183; Section 04&lt;/div&gt;
+    &lt;h2&gt;VA-ECMO의 역할: 단독 치료가 아니라 bridge strategy&lt;/h2&gt;
+    &lt;p&gt;ESC 지침은 high-risk PE에서 순환 붕괴 또는 심정지가 있을 때 VA-ECMO를 고려할 수 있다고 제시한다. 중요한 점은 VA-ECMO가 혈전을 제거하지는 않는다는 것이다. 대신 전신 관류를 회복하고 RV 허혈 악순환을 끊어, 항응고에 의한 자가 회복 또는 수술&#183;카테터 재관류를 시행할 시간을 확보한다.&lt;/p&gt;
+    &lt;table class=&quot;drug-table&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;전략&lt;/th&gt;
+          &lt;th&gt;정의&lt;/th&gt;
+          &lt;th&gt;적합한 상황&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Bridge-to-Recovery&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;VA-ECMO + 항응고, 내인성 fibrinolysis 기대&lt;/td&gt;
+          &lt;td&gt;재관류 금기, ECMO 후 빠른 RV 회복, 혈전 부담 감소가 예상되는 경우&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Bridge-to-Reperfusion&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;VA-ECMO로 안정화 후 수술 또는 카테터 혈전 제거&lt;/td&gt;
+          &lt;td&gt;근위부 clot burden, persistent RV failure, weaning 실패, 심정지/ECPR&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;Decision Bridge&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;쇼크를 멈추고 팀 의사결정 시간을 확보&lt;/td&gt;
+          &lt;td&gt;혈전용해 금기 여부, 수술/IR 가능성, neurologic prognosis 평가가 필요한 경우&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;EICU2 Practical Note&lt;/div&gt;
+      &lt;p&gt;VA-ECMO를 “걸었으니 끝”으로 보면 위험하다. Cannulation 직후부터 1) 항응고 가능 여부, 2) thrombolysis 금기, 3) surgical embolectomy 가능성, 4) catheter aspiration 가능성, 5) neurologic prognosis, 6) limb ischemia 예방을 동시에 정리해야 한다.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 3 &#183; Section 05&lt;/div&gt;
+    &lt;h2&gt;ECMO와 재관류: 최신 데이터는 신중한 해석이 필요하다&lt;/h2&gt;
+    &lt;p&gt;강의에서는 VA-ECMO와 외과적 혈전제거술의 시너지 가능성을 강조했다. 실제로 여러 관찰연구는 ECPR 또는 난치성 쇼크에서 VA-ECMO가 즉각적인 혈역학 안정화 수단이 될 수 있음을 보여준다. 다만 2026년 대규모 국제 코호트에서는 VA-ECMO 후 조기 기계적 재관류가 90일 사망률 감소와 명확히 연관되지는 않았다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;vaecmo_reperf2026&#39;)&quot;&gt;21&lt;/button&gt;&lt;/p&gt;
+    &lt;p&gt;이 결과는 재관류가 불필요하다는 뜻이 아니라, 가장 중증도가 높은 환자들이 재관류를 받는 confounding, early death exclusion, 시술 시점, 기관 경험, 혈전 위치가 결과를 크게 좌우한다는 의미에 가깝다.&lt;/p&gt;
+    &lt;div class=&quot;clinical-box&quot;&gt;
+      &lt;div class=&quot;clinical-box-title&quot;&gt;Cross-Check&lt;/div&gt;
+      &lt;p&gt;“ECMO 단독 vs ECMO+재관류”는 단순 비교가 어렵다. EICU2에서는 문헌의 평균 효과보다 bedside phenotype이 중요하다. ECMO flow가 안정적인데도 RV가 회복되지 않고, lactate가 유지되며, proximal clot burden이 크면 적극적 재관류 논의가 타당하다.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 3 &#183; Section 06&lt;/div&gt;
+    &lt;h2&gt;30분 알고리즘과 PERT: 시스템이 예후를 만든다&lt;/h2&gt;
+    &lt;p&gt;강의에서 제시된 알고리즘의 핵심 변곡점은 빠른 ECMO 접근 가능성이다. 난치성 쇼크 또는 심정지로 진행하는 고위험 PE에서는 30분 단위로 치료 전략이 바뀐다. ECMO 접근성이 있으면 VA-ECMO가 우선 안정화 수단이 되고, 이후 bridge-to-recovery 또는 bridge-to-reperfusion을 PERT가 결정한다.&lt;/p&gt;
+    &lt;p&gt;PERT는 중환자의학, 심장내과, 흉부외과, 인터벤션, 응급의학, 영상의학, 마취, perfusion team을 묶어 빠른 위험 분류와 맞춤형 치료 결정을 가능하게 하는 프레임워크다. &lt;button class=&quot;ref-btn&quot; onclick=&quot;openPopup(&#39;pert&#39;)&quot;&gt;22&lt;/button&gt;&lt;/p&gt;
+    &lt;div class=&quot;algorithm&quot;&gt;
+      &lt;div class=&quot;algorithm-header&quot;&gt;EICU2 High-Risk PE Workflow&lt;/div&gt;
+      &lt;div class=&quot;algorithm-body&quot;&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;1&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;&lt;strong&gt;Recognize&lt;/strong&gt; PE + shock/RV failure/lactate 상승이면 high-risk PE로 취급한다.&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;2&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;&lt;strong&gt;Activate&lt;/strong&gt; PERT, ECMO team, IR/cardiology, CT surgery를 동시에 호출한다.&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;3&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;&lt;strong&gt;Stabilize&lt;/strong&gt; VA-ECMO 가능성이 있으면 cannulation과 출혈위험 평가를 병행한다.&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;algo-step&quot;&gt;
+          &lt;div class=&quot;algo-badge&quot;&gt;4&lt;/div&gt;
+          &lt;div class=&quot;algo-text&quot;&gt;&lt;strong&gt;Definitive plan&lt;/strong&gt; 항응고 단독, systemic lysis, catheter therapy, surgical embolectomy 중 목표 전략을 확정한다.&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;div class=&quot;section-num&quot;&gt;Part 3 &#183; Take Home&lt;/div&gt;
+    &lt;h2&gt;Take-Home Message&lt;/h2&gt;
+    &lt;p&gt;고위험 PTE에서 VA-ECMO는 혈전을 녹이는 치료가 아니라, RV failure와 전신 저관류의 악순환을 끊는 구조 플랫폼이다. 가장 중요한 실무 포인트는 deterioration을 조기에 인식하고, VA-ECMO를 decision bridge, bridge-to-reperfusion, 또는 bridge-to-recovery 중 어디에 둘지 PERT 안에서 즉시 결정하는 것이다.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;div class=&quot;sidebar&quot;&gt;
+  &lt;div class=&quot;sidebar-sticky&quot;&gt;
+
+    &lt;div class=&quot;sidebar-part active&quot; id=&quot;sidebar-part1&quot;&gt;
+    &lt;div class=&quot;key-message&quot;&gt;
+      &lt;div class=&quot;key-message-label&quot;&gt;Part 1 핵심 메시지&lt;/div&gt;
+      &lt;p&gt;&lt;strong&gt;기본값:&lt;/strong&gt; 안정 ECMO는 제한적 수혈.&lt;br&gt;&lt;strong&gt;예외:&lt;/strong&gt; 출혈, 심근허혈, 낮은 SvO2, 젖산 상승, severe hypoxemia.&lt;br&gt;&lt;strong&gt;실무:&lt;/strong&gt; Hb 숫자보다 표현형과 산소전달을 먼저 본다.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;threshold-card&quot;&gt;
+      &lt;div class=&quot;threshold-head&quot;&gt;Part 1 Thresholds&lt;/div&gt;
+      &lt;div class=&quot;threshold-body&quot;&gt;
+        &lt;div class=&quot;threshold-row&quot;&gt;
+          &lt;div class=&quot;threshold-icon blue&quot;&gt;🫁&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;threshold-label&quot;&gt;Stable VV-ECMO&lt;/div&gt;
+            &lt;div class=&quot;threshold-val&quot;&gt;Hb 약 7 g/dL&lt;br&gt;제한 전략 우선&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;threshold-row&quot;&gt;
+          &lt;div class=&quot;threshold-icon gold&quot;&gt;🫀&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;threshold-label&quot;&gt;Stable VA-ECMO&lt;/div&gt;
+            &lt;div class=&quot;threshold-val&quot;&gt;Hb 7-8 g/dL&lt;br&gt;허혈 시 예외&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;threshold-row&quot;&gt;
+          &lt;div class=&quot;threshold-icon red&quot;&gt;🩸&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;threshold-label&quot;&gt;Bleeding / Procedure&lt;/div&gt;
+            &lt;div class=&quot;threshold-val&quot;&gt;Platelet 50-100K&lt;br&gt;Fibrinogen &amp;gt;150&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;threshold-row&quot;&gt;
+          &lt;div class=&quot;threshold-icon blue&quot;&gt;⚙️&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;threshold-label&quot;&gt;Hemolysis Monitor&lt;/div&gt;
+            &lt;div class=&quot;threshold-val&quot;&gt;Free Hb, LDH&lt;br&gt;Haptoglobin, indirect bilirubin&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;sidebar-block&quot;&gt;
+      &lt;div class=&quot;sidebar-head&quot;&gt;📚 주요 참고 문헌&lt;/div&gt;
+      &lt;div class=&quot;ref-list&quot;&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;elso2021&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;1&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;ELSO Anticoagulation&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;ASAIO 2022&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;esicm2020&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;2&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;ESICM Transfusion&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;ICM 2020&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;eacts2024&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;3&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;EACTS PBM&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;EJCTS 2024&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;protecmmo&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;4&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;PROTECMO&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;Lancet Resp Med 2023&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;oblex&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;5&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;OBLEX VA-ECMO&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;2025&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;mint&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;6&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;MINT Trial&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;NEJM 2023&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;mintmeta&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;7&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;MI IPD Meta-analysis&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;NEJM Evid 2024&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;sidebar-part&quot; id=&quot;sidebar-part2&quot;&gt;
+    &lt;div class=&quot;key-message&quot;&gt;
+      &lt;div class=&quot;key-message-label&quot;&gt;Part 2 핵심 메시지&lt;/div&gt;
+      &lt;p&gt;&lt;strong&gt;선별:&lt;/strong&gt; EOLIA 기준 severe ARDS는 조기 ECMO team call.&lt;br&gt;&lt;strong&gt;목표:&lt;/strong&gt; VV-ECMO 후 ultra-protective ventilation과 mechanical power 감소.&lt;br&gt;&lt;strong&gt;실무:&lt;/strong&gt; prone, 항응고, 수혈은 환자 위험에 맞춰 개별화한다.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;threshold-card&quot;&gt;
+      &lt;div class=&quot;threshold-head&quot;&gt;Part 2 Thresholds&lt;/div&gt;
+      &lt;div class=&quot;threshold-body&quot;&gt;
+        &lt;div class=&quot;threshold-row&quot;&gt;
+          &lt;div class=&quot;threshold-icon gold&quot;&gt;🌊&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;threshold-label&quot;&gt;EOLIA Criteria&lt;/div&gt;
+            &lt;div class=&quot;threshold-val&quot;&gt;P/F &amp;lt;50 for 3h&lt;br&gt;or P/F &amp;lt;80 for 6h&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;threshold-row&quot;&gt;
+          &lt;div class=&quot;threshold-icon blue&quot;&gt;🫁&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;threshold-label&quot;&gt;Hypercapnia&lt;/div&gt;
+            &lt;div class=&quot;threshold-val&quot;&gt;pH &amp;lt;7.25&lt;br&gt;PaCO2 ≥60 for 6h&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;threshold-row&quot;&gt;
+          &lt;div class=&quot;threshold-icon blue&quot;&gt;⚙️&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;threshold-label&quot;&gt;Lung Rest&lt;/div&gt;
+            &lt;div class=&quot;threshold-val&quot;&gt;VT 3-4 mL/kg&lt;br&gt;DP &amp;lt;15 목표&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;threshold-row&quot;&gt;
+          &lt;div class=&quot;threshold-icon red&quot;&gt;🩸&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;threshold-label&quot;&gt;Low Anticoag&lt;/div&gt;
+            &lt;div class=&quot;threshold-val&quot;&gt;aPTT 42-55s&lt;br&gt;anti-Xa 0.2-0.3&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;sidebar-block&quot;&gt;
+      &lt;div class=&quot;sidebar-head&quot;&gt;📚 주요 참고 문헌&lt;/div&gt;
+      &lt;div class=&quot;ref-list&quot;&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;cesar&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;8&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;CESAR Trial&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;Lancet 2009&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;eolia&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;9&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;EOLIA Trial&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;NEJM 2018&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;eolia_bayes&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;10&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;EOLIA Bayesian&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;JAMA 2018&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;covid_france&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;11&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;COVID-19 France&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;Lancet Resp Med 2020&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;covid_elso&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;11&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;COVID-19 ELSO&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;Lancet 2020&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;mech_power&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;12&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;Mechanical Power&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;Crit Care 2020&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;pronecmmo&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;13&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;PRONECMO&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;JAMA 2023&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;prone_meta&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;14&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;Prone ECMO Meta&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;ICM 2025&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;protecmmo_bleed&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;15&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;PROTECMO Bleeding&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;AJRCCM 2024&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;low_anticoag&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;16&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;Low Anticoagulation&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;Meta-analysis 2021&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;sidebar-part&quot; id=&quot;sidebar-part3&quot;&gt;
+    &lt;div class=&quot;key-message&quot;&gt;
+      &lt;div class=&quot;key-message-label&quot;&gt;Part 3 핵심 메시지&lt;/div&gt;
+      &lt;p&gt;&lt;strong&gt;문제:&lt;/strong&gt; High-risk PTE는 RV failure와 obstructive shock이다.&lt;br&gt;&lt;strong&gt;전략:&lt;/strong&gt; VA-ECMO는 혈전 제거가 아니라 decision/reperfusion/recovery bridge다.&lt;br&gt;&lt;strong&gt;실무:&lt;/strong&gt; PERT와 ECMO team을 동시에 호출한다.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;threshold-card&quot;&gt;
+      &lt;div class=&quot;threshold-head&quot;&gt;Part 3 Thresholds&lt;/div&gt;
+      &lt;div class=&quot;threshold-body&quot;&gt;
+        &lt;div class=&quot;threshold-row&quot;&gt;
+          &lt;div class=&quot;threshold-icon red&quot;&gt;⚠️&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;threshold-label&quot;&gt;Category E&lt;/div&gt;
+            &lt;div class=&quot;threshold-val&quot;&gt;난치성 쇼크&lt;br&gt;또는 심정지&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;threshold-row&quot;&gt;
+          &lt;div class=&quot;threshold-icon gold&quot;&gt;🫀&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;threshold-label&quot;&gt;RV Failure&lt;/div&gt;
+            &lt;div class=&quot;threshold-val&quot;&gt;RV/LV 증가&lt;br&gt;septal shift, high CVP&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;threshold-row&quot;&gt;
+          &lt;div class=&quot;threshold-icon blue&quot;&gt;⏱&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;threshold-label&quot;&gt;ECMO Window&lt;/div&gt;
+            &lt;div class=&quot;threshold-val&quot;&gt;30분 단위&lt;br&gt;PERT+ECMO call&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;threshold-row&quot;&gt;
+          &lt;div class=&quot;threshold-icon blue&quot;&gt;🔁&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;threshold-label&quot;&gt;Bridge Choice&lt;/div&gt;
+            &lt;div class=&quot;threshold-val&quot;&gt;Recovery vs&lt;br&gt;Reperfusion&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;sidebar-block&quot;&gt;
+      &lt;div class=&quot;sidebar-head&quot;&gt;📚 주요 참고 문헌&lt;/div&gt;
+      &lt;div class=&quot;ref-list&quot;&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;aha2026pe&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;18&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;AHA/ACC PE Guideline&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;2026&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;esc2019pe&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;19&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;ESC PE Guideline&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;EHJ 2019&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;thrombolysis_meta&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;20&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;Thrombolysis Bleeding&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;Meta-analysis&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;vaecmo_reperf2026&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;21&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;VA-ECMO + Reperfusion&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;AJRCCM 2026&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;surg_embolectomy&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;22&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;Surgical Embolectomy&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;State of Art&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class=&quot;ref-item&quot; onclick=&quot;openPopup(&#39;pert&#39;)&quot;&gt;&lt;div class=&quot;ref-item-num&quot;&gt;23&lt;/div&gt;&lt;div&gt;&lt;div class=&quot;ref-item-name&quot;&gt;PERT Consortium&lt;/div&gt;&lt;div class=&quot;ref-item-journal&quot;&gt;Consensus&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;footer&gt;
+  &lt;div&gt;
+    &lt;div style=&quot;color:white; font-weight:700; margin-bottom:4px;&quot;&gt;KSCCM-ACCC 2026 Lecture Review &#183; ECMO Section&lt;/div&gt;
+    ECMO integrated lecture review: Part 1 transfusion strategy &#183; Part 2 post-EOLIA VV-ECMO management &#183; Part 3 reserved. 본 요약은 학술 교육 목적이며 임상 의사결정을 대체하지 않습니다.
+  &lt;/div&gt;
+  &lt;div style=&quot;text-align:right;&quot;&gt;
+    Blue tone template &#183; EICU2care &#169; 2026&lt;br&gt;
+    &lt;a href=&quot;https://www.ksccm.org&quot; target=&quot;_blank&quot;&gt;www.ksccm.org&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;
+
+&lt;div class=&quot;popup-overlay&quot; id=&quot;popupOverlay&quot; onclick=&quot;closePopupOnBg(event)&quot;&gt;
+  &lt;div class=&quot;popup-card&quot; id=&quot;popupCard&quot;&gt;
+    &lt;div class=&quot;popup-head&quot;&gt;
+      &lt;div&gt;
+        &lt;div class=&quot;popup-head-label&quot; id=&quot;popupLabel&quot;&gt;연구 요약&lt;/div&gt;
+        &lt;div class=&quot;popup-head-title&quot; id=&quot;popupTitle&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;button class=&quot;popup-close&quot; onclick=&quot;closePopup()&quot;&gt;✕&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;popup-body&quot;&gt;
+      &lt;div class=&quot;popup-meta&quot; id=&quot;popupMeta&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;popup-result&quot; id=&quot;popupResult&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;popup-conclusion&quot; id=&quot;popupConclusion&quot;&gt;&lt;/div&gt;
+      &lt;a href=&quot;#&quot; class=&quot;popup-link&quot; id=&quot;popupLink&quot; target=&quot;_blank&quot;&gt;&lt;span&gt;🔗&lt;/span&gt; PubMed / 원문 링크&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+const references = {
+  elso2021: {
+    label: &#39;Guideline&#39;,
+    title: &#39;2021 ELSO Adult and Pediatric Anticoagulation Guidelines&#39;,
+    journal: &#39;ASAIO Journal&#39;,
+    year: &#39;2022&#39;,
+    author: &#39;ELSO Guideline Panel&#39;,
+    type: &#39;Guideline&#39;,
+    design: &#39;성인 및 소아 ECMO 항응고와 혈액성분 관리에 대한 ELSO 지침.&#39;,
+    result: &#39;ECMO 항응고, 출혈, 혈전, 혈액성분 보충의 변동성이 크며 환자별 접근이 필요함을 강조.&#39;,
+    conclusion: &#39;ECMO에서 transfusion trigger는 회로, 출혈, 항응고 상태와 함께 해석해야 한다.&#39;,
+    url: &#39;https://journals.lww.com/asaiojournal/fulltext/2022/03000/2021_elso_adult_and_pediatric_anticoagulation.1.aspx&#39;
+  },
+  esicm2020: {
+    label: &#39;Clinical Practice Guideline&#39;,
+    title: &#39;Transfusion Strategies in Non-Bleeding Critically Ill Adults&#39;,
+    journal: &#39;Intensive Care Medicine&#39;,
+    year: &#39;2020&#39;,
+    author: &#39;ESICM Task Force&#39;,
+    type: &#39;Guideline&#39;,
+    design: &#39;비출혈 중환자에서 제한적 대 자유 수혈 전략을 다룬 국제 지침.&#39;,
+    result: &#39;대부분의 안정 중환자에서 제한적 RBC 전략을 지지하며 ECMO 영역에서는 근거 공백과 개별화 필요성을 인정.&#39;,
+    conclusion: &#39;ECMO 환자도 안정적이면 제한 전략을 기본값으로 삼되, 허혈과 산소전달 부전을 예외로 본다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/31912207/&#39;
+  },
+  eacts2024: {
+    label: &#39;Guideline&#39;,
+    title: &#39;2024 EACTS/EACTAIC Guidelines on Patient Blood Management in Adult Cardiac Surgery&#39;,
+    journal: &#39;European Journal of Cardio-Thoracic Surgery&#39;,
+    year: &#39;2024&#39;,
+    author: &#39;EACTS/EACTAIC/EBCP Task Force&#39;,
+    type: &#39;Guideline&#39;,
+    design: &#39;성인 심장수술 환자의 출혈, 응고, 수혈, patient blood management 지침.&#39;,
+    result: &#39;수혈 노출을 줄이되 출혈과 허혈 위험을 통합하여 goal-directed hemostatic management를 권고.&#39;,
+    conclusion: &#39;VA-ECMO와 수술 후 심인성 쇼크 환자에서는 심장수술 PBM 원칙을 함께 참고해야 한다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/40410063/&#39;
+  },
+  protecmmo: {
+    label: &#39;Prospective Cohort &#183; PROTECMO&#39;,
+    title: &#39;Transfusion Practice in Patients Receiving VV ECMO&#39;,
+    journal: &#39;The Lancet Respiratory Medicine&#39;,
+    year: &#39;2023&#39;,
+    author: &#39;PROTECMO Investigators&#39;,
+    type: &#39;Prospective Multicenter Observational Study&#39;,
+    design: &#39;전 세계 41개 ECMO 센터의 성인 VV-ECMO 환자 1,604명 수혈 관행과 예후 분석.&#39;,
+    result: &#39;Hb &lt;7 g/dL은 ICU 사망 위험 증가와 관련되었고, RBC 수혈 이득은 Hb &lt;7 g/dL에서 투여한 경우에 주로 관찰됨.&#39;,
+    conclusion: &#39;안정 VV-ECMO에서는 Hb 7 g/dL 기반 제한적 RBC 전략을 지지한다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/36240836/&#39;
+  },
+  oblex: {
+    label: &#39;Target Trial Emulation&#39;,
+    title: &#39;Liberal or Restrictive Transfusion for VA-ECMO Patients Using OBLEX Data&#39;,
+    journal: &#39;Critical Care / ECMO Literature&#39;,
+    year: &#39;2025&#39;,
+    author: &#39;OBLEX Investigators&#39;,
+    type: &#39;Observational Target Trial Emulation&#39;,
+    design: &#39;12개 병원 VA-ECMO 환자 534명에서 Hb 7 g/dL 제한 전략과 Hb 9 g/dL 자유 전략 비교를 모사.&#39;,
+    result: &#39;Liberal strategy는 ECMO 초기 2-3일 동안 생존 이득 신호를 보였으나 이후 이득은 명확하지 않았다.&#39;,
+    conclusion: &#39;VA-ECMO 초기 심인성 쇼크에서는 VV-ECMO와 다른 산소전달 목표가 필요할 수 있다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/40826421/&#39;
+  },
+  mint: {
+    label: &#39;Trial Summary &#183; MINT&#39;,
+    title: &#39;Restrictive or Liberal Transfusion Strategy in Myocardial Infarction and Anemia&#39;,
+    journal: &#39;NEJM&#39;,
+    year: &#39;2023&#39;,
+    author: &#39;Carson et al.&#39;,
+    type: &#39;Randomized Clinical Trial&#39;,
+    design: &#39;급성 MI와 빈혈 환자 3,504명에서 제한적 전략과 자유 전략 비교.&#39;,
+    result: &#39;30일 사망 또는 재발 MI에서 자유 전략이 통계적으로 우월하다고 증명되지는 않았으나, 제한 전략의 위해 가능성을 배제하기 어려웠다.&#39;,
+    conclusion: &#39;심근허혈 표현형에서는 Hb 7 g/dL 기준을 기계적으로 적용하지 않아야 한다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/37952133/&#39;
+  },
+  mintmeta: {
+    label: &#39;Individual Patient Data Meta-analysis&#39;,
+    title: &#39;Restrictive versus Liberal Transfusion in Myocardial Infarction&#39;,
+    journal: &#39;NEJM Evidence&#39;,
+    year: &#39;2024&#39;,
+    author: &#39;MINT Collaborative Group&#39;,
+    type: &#39;Patient-Level Meta-analysis&#39;,
+    design: &#39;MI와 빈혈 환자 대상 4개 RCT, 4,300명 이상 개별 환자자료 메타분석.&#39;,
+    result: &#39;제한적 전략에서 심장사와 6개월 모든 원인 사망 증가 신호가 관찰됨.&#39;,
+    conclusion: &#39;VA-ECMO에서 MI 또는 심근허혈이 동반되면 더 높은 Hb 목표를 고려할 생리학적 근거가 있다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/39714935/&#39;
+  },
+  cesar: {
+    label: &#39;Trial Summary &#183; CESAR&#39;,
+    title: &#39;Conventional Ventilatory Support versus ECMO for Severe Adult Respiratory Failure&#39;,
+    journal: &#39;Lancet&#39;,
+    year: &#39;2009&#39;,
+    author: &#39;Peek et al.&#39;,
+    type: &#39;Multicenter RCT&#39;,
+    design: &#39;중증 가역성 호흡부전 성인에서 ECMO 기반 관리 센터 이송 전략과 conventional management 비교.&#39;,
+    result: &#39;ECMO 기반 관리 센터로 이송한 전략이 중증 장애 없는 생존을 개선했다.&#39;,
+    conclusion: &#39;CESAR는 ECMO 기술 자체보다 전문센터 기반 치료체계의 중요성을 보여준 연구로 해석해야 한다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/19762075/&#39;
+  },
+  eolia: {
+    label: &#39;Trial Summary &#183; EOLIA&#39;,
+    title: &#39;Extracorporeal Membrane Oxygenation for Severe Acute Respiratory Distress Syndrome&#39;,
+    journal: &#39;NEJM&#39;,
+    year: &#39;2018&#39;,
+    author: &#39;Combes et al.&#39;,
+    type: &#39;International RCT&#39;,
+    design: &#39;Very severe ARDS에서 조기 VV-ECMO와 최적화 표준 치료를 비교. P/F &lt;50 for 3h, P/F &lt;80 for 6h, 또는 pH &lt;7.25 + PaCO2 ≥60 for 6h 기준 사용.&#39;,
+    result: &#39;60일 사망률은 ECMO군 35%, 대조군 46%였으나 통계적 유의성에는 도달하지 못했고, 연구는 futility로 조기 중단됨.&#39;,
+    conclusion: &#39;엄격히 선별된 severe ARDS에서 VV-ECMO의 임상적 신호와 객관적 적응증을 제공했다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/29791822/&#39;
+  },
+  eolia_bayes: {
+    label: &#39;Post Hoc Bayesian Analysis&#39;,
+    title: &#39;Posterior Probability of Mortality Benefit in the EOLIA Trial&#39;,
+    journal: &#39;JAMA&#39;,
+    year: &#39;2018&#39;,
+    author: &#39;Goligher et al.&#39;,
+    type: &#39;Bayesian Reanalysis&#39;,
+    design: &#39;EOLIA 자료를 이용해 severe ARDS에서 조기 ECMO의 사망률 이득 가능성을 Bayesian 방식으로 재평가.&#39;,
+    result: &#39;사망률 감소의 posterior probability가 높게 추정되어, 고전적 p-value만으로는 놓칠 수 있는 임상적 신호를 제시.&#39;,
+    conclusion: &#39;EOLIA는 완전한 음성 연구라기보다 적절한 환자에서 ECMO 이득 가능성을 지지하는 자료로 읽을 수 있다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/30347031/&#39;
+  },
+  covid_france: {
+    label: &#39;COVID-19 ECMO Cohort&#39;,
+    title: &#39;ECMO for COVID-19-associated ARDS in France&#39;,
+    journal: &#39;Lancet Respiratory Medicine&#39;,
+    year: &#39;2020&#39;,
+    author: &#39;Schmidt et al.&#39;,
+    type: &#39;Multicenter Cohort&#39;,
+    design: &#39;프랑스 중환자실 COVID-19 ARDS 환자 중 ECMO 치료를 받은 초기 코호트 분석.&#39;,
+    result: &#39;ECMO 치료 환자에서 60일 사망률이 약 31%로 추정되어 기존 ARDS ECMO 연구와 비교 가능한 결과를 보임.&#39;,
+    conclusion: &#39;엄격히 선별된 COVID-19 ARDS에서 VV-ECMO는 실현 가능하고 잠재적으로 효과적이었다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/32798468/&#39;
+  },
+  covid_elso: {
+    label: &#39;International Registry Cohort&#39;,
+    title: &#39;ECMO Support in COVID-19: An International ELSO Registry Cohort&#39;,
+    journal: &#39;Lancet&#39;,
+    year: &#39;2020&#39;,
+    author: &#39;Barbaro et al.&#39;,
+    type: &#39;International Cohort&#39;,
+    design: &#39;36개국 213개 경험 많은 센터에서 COVID-19 환자 ECMO 결과를 ELSO registry로 분석.&#39;,
+    result: &#39;ECMO 시작 후 90일 병원 사망률이 37.4%로 보고됨.&#39;,
+    conclusion: &#39;Pandemic 상황에서도 경험 많은 센터와 적절한 선별이 있으면 ECMO 결과는 기존 ARDS와 비교 가능했다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/32987008/&#39;
+  },
+  mech_power: {
+    label: &#39;Observational Study&#39;,
+    title: &#39;Mechanical Power during ECMO and Mortality in ARDS&#39;,
+    journal: &#39;Critical Care&#39;,
+    year: &#39;2020&#39;,
+    author: &#39;Serpa Neto et al. / Related ECMO Cohort&#39;,
+    type: &#39;Retrospective Cohort&#39;,
+    design: &#39;ARDS ECMO 환자에서 ECMO 첫 3일 mechanical power와 사망률의 연관성을 분석.&#39;,
+    result: &#39;평균 mechanical power &gt;14.4 J/min은 병원 사망 증가와 독립적으로 연관되었다.&#39;,
+    conclusion: &#39;VV-ECMO 중에도 ventilator intensity를 낮추는 것이 치료 목표가 되어야 한다.&#39;,
+    url: &#39;https://pmc.ncbi.nlm.nih.gov/articles/PMC7787230/&#39;
+  },
+  pronecmmo: {
+    label: &#39;Trial Summary &#183; PRONECMO&#39;,
+    title: &#39;Prone Positioning during VV-ECMO in Severe ARDS&#39;,
+    journal: &#39;JAMA&#39;,
+    year: &#39;2023&#39;,
+    author: &#39;Guervilly et al.&#39;,
+    type: &#39;Multicenter RCT&#39;,
+    design: &#39;VV-ECMO 48시간 이내 severe ARDS 환자에서 반복 prone positioning과 supine management 비교.&#39;,
+    result: &#39;ECMO weaning 성공이나 사망률에서 명확한 이득은 없었으나 중대한 안전성 문제는 크지 않았다.&#39;,
+    conclusion: &#39;ECMO 중 prone은 가능하고 비교적 안전하지만, routine 적용보다 선별 적용과 추가 근거가 필요하다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/38038395/&#39;
+  },
+  prone_meta: {
+    label: &#39;Systematic Review &amp; Meta-analysis&#39;,
+    title: &#39;Prone Positioning during V-V ECMO&#39;,
+    journal: &#39;Intensive Care Medicine&#39;,
+    year: &#39;2025&#39;,
+    author: &#39;Systematic Review Authors&#39;,
+    type: &#39;Meta-analysis&#39;,
+    design: &#39;VV-ECMO 중 prone positioning과 no prone을 비교한 RCT 및 비무작위 연구 종합.&#39;,
+    result: &#39;Prone positioning은 28일 및 병원 사망률 감소와 연관되었으나 연구 이질성과 bias 가능성이 남아 있다.&#39;,
+    conclusion: &#39;초기 ECMO 중 prone은 유망하지만 환자 선별, 시행 시점, 안전 체크리스트가 중요하다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/40298974/&#39;
+  },
+  protecmmo_bleed: {
+    label: &#39;Prospective Cohort &#183; PROTECMO&#39;,
+    title: &#39;Anticoagulation and Bleeding during VV ECMO&#39;,
+    journal: &#39;AJRCCM&#39;,
+    year: &#39;2024&#39;,
+    author: &#39;Martucci et al.&#39;,
+    type: &#39;International Prospective Observational Study&#39;,
+    design: &#39;41개 센터 VV-ECMO 성인에서 항응고 방식과 출혈 사건을 분석.&#39;,
+    result: &#39;환자 52.5%가 한 번 이상 출혈을 경험했고, aPTT가 첫 출혈 사건과 관련된 주요 요인으로 확인됨.&#39;,
+    conclusion: &#39;VV-ECMO 항응고는 고정 목표보다 출혈&#183;혈전&#183;회로 상태에 따른 동적 조정이 필요하다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/37943110/&#39;
+  },
+  low_anticoag: {
+    label: &#39;Systematic Review &amp; Meta-analysis&#39;,
+    title: &#39;Low vs Standardized Dose Anticoagulation for ECMO&#39;,
+    journal: &#39;Thrombosis / ECMO Literature&#39;,
+    year: &#39;2021&#39;,
+    author: &#39;Lv et al.&#39;,
+    type: &#39;Meta-analysis&#39;,
+    design: &#39;ECMO 중 저용량 항응고와 표준 항응고 전략을 비교한 연구 종합.&#39;,
+    result: &#39;사망, ECMO weaning, 폐색전, 두개내출혈 등 주요 결과에서 명확한 차이는 크지 않았고 저강도 전략의 가능성을 제시.&#39;,
+    conclusion: &#39;저강도 항응고는 특히 출혈 위험이 높은 VV-ECMO 환자에서 검토할 수 있으나 대규모 RCT가 필요하다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/33831104/&#39;
+  },
+  aha2026pe: {
+    label: &#39;Clinical Practice Guideline&#39;,
+    title: &#39;2026 AHA/ACC Guideline for Acute Pulmonary Embolism in Adults&#39;,
+    journal: &#39;AHA / ACC / Multisociety Guideline&#39;,
+    year: &#39;2026&#39;,
+    author: &#39;AHA/ACC Joint Committee&#39;,
+    type: &#39;Guideline&#39;,
+    design: &#39;급성 PE 성인 환자 평가와 치료를 위한 다학회 지침. A-E clinical category를 도입해 중증도와 치료 결정을 세분화.&#39;,
+    result: &#39;Category E1에서는 systemic thrombolysis, catheter therapy, mechanical thrombectomy, surgical embolectomy 등 advanced therapy가 합리적이며 Category D에서도 고려 가능.&#39;,
+    conclusion: &#39;악화 쇼크와 extremis 단계에서는 항응고 단독보다 빠른 재관류 및 기계순환 보조를 병렬 검토해야 한다.&#39;,
+    url: &#39;https://professional.heart.org/en/science-news/2026-guideline-for-the-evaluation-and-management-of-acute-pulmonary-embolism-in-adults/top-things-to-know&#39;
+  },
+  esc2019pe: {
+    label: &#39;Clinical Practice Guideline&#39;,
+    title: &#39;2019 ESC Guidelines for Acute Pulmonary Embolism&#39;,
+    journal: &#39;European Heart Journal&#39;,
+    year: &#39;2019&#39;,
+    author: &#39;Konstantinides et al.&#39;,
+    type: &#39;Guideline&#39;,
+    design: &#39;급성 PE 진단, 위험분류, 항응고, 혈전용해, 수술 및 catheter therapy, 기계순환 보조를 다룬 ESC/ERS 지침.&#39;,
+    result: &#39;High-risk PE에서 circulatory collapse 또는 cardiac arrest가 있으면 VA-ECMO 같은 temporary mechanical cardiopulmonary support가 도움이 될 수 있다고 제시.&#39;,
+    conclusion: &#39;VA-ECMO는 high-risk PE에서 Class IIb 수준의 보조 전략으로 이해해야 한다.&#39;,
+    url: &#39;https://academic.oup.com/eurheartj/article/41/4/543/5556136&#39;
+  },
+  thrombolysis_meta: {
+    label: &#39;Systematic Review &amp; Meta-analysis&#39;,
+    title: &#39;Systemic Thrombolytic Therapy for Acute Pulmonary Embolism&#39;,
+    journal: &#39;European Heart Journal&#39;,
+    year: &#39;2014&#39;,
+    author: &#39;Chatterjee et al. / Related Meta-analysis&#39;,
+    type: &#39;Meta-analysis&#39;,
+    design: &#39;급성 PE에서 전신 혈전용해술과 항응고 단독을 비교한 15개 임상시험 메타분석.&#39;,
+    result: &#39;혈전용해술은 사망 또는 치료 실패 감소 신호가 있으나 major hemorrhage와 fatal/intracranial bleeding이 유의하게 증가.&#39;,
+    conclusion: &#39;High-risk PE에서 생명구조 효과와 출혈 위험을 동시에 고려해야 하며, ECMO cannulation 전후 출혈 위험 평가가 중요하다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/24917641/&#39;
+  },
+  vaecmo_reperf2026: {
+    label: &#39;Multicenter International Cohort&#39;,
+    title: &#39;Early Mechanical Reperfusion in High-Risk PE Supported by V-A ECMO&#39;,
+    journal: &#39;American Journal of Respiratory and Critical Care Medicine&#39;,
+    year: &#39;2026&#39;,
+    author: &#39;International ECMO-PE Investigators&#39;,
+    type: &#39;Observational Cohort&#39;,
+    design: &#39;High-risk PE로 peripheral VA-ECMO를 받은 환자에서 조기 기계적 재관류 치료와 90일 사망률의 연관성 평가.&#39;,
+    result: &#39;대규모 국제 코호트에서 조기 기계적 재관류는 90일 사망률 또는 ECMO 기간 감소와 명확히 연관되지 않았다.&#39;,
+    conclusion: &#39;재관류 전략은 필요하지만 모든 VA-ECMO PE 환자에게 동일하게 적용하기보다 혈전 위치, RV 회복, 시술 가능성, 기관 경험에 따라 선별해야 한다.&#39;,
+    url: &#39;https://pubmed.ncbi.nlm.nih.gov/41738098/&#39;
+  },
+  surg_embolectomy: {
+    label: &#39;Review&#39;,
+    title: &#39;Surgical Embolectomy for Acute Massive Pulmonary Embolism&#39;,
+    journal: &#39;State-of-the-art Review&#39;,
+    year: &#39;2018&#39;,
+    author: &#39;Surgical PE Review Authors&#39;,
+    type: &#39;Review&#39;,
+    design: &#39;Massive PE에서 수술적 폐동맥 혈전제거술의 적응증, 병태생리, 수술 성적과 ECMO 보조 역할을 정리.&#39;,
+    result: &#39;혈전용해 금기 또는 실패, cardiogenic shock, impending RV failure에서 수술적 혈전제거술이 대안으로 제시됨.&#39;,
+    conclusion: &#39;수술적 혈전제거술은 확실한 RV unloading을 제공할 수 있으나, 환자 안정화와 팀 경험이 성패를 좌우한다.&#39;,
+    url: &#39;https://pmc.ncbi.nlm.nih.gov/articles/PMC6129933/&#39;
+  },
+  pert: {
+    label: &#39;PERT Framework&#39;,
+    title: &#39;Pulmonary Embolism Response Team Model&#39;,
+    journal: &#39;PERT Consortium / Consensus Practice&#39;,
+    year: &#39;2024-2026&#39;,
+    author: &#39;PERT Consortium&#39;,
+    type: &#39;Multidisciplinary Care Model&#39;,
+    design: &#39;PE 환자에서 중환자의학, 심장내과, 인터벤션, 흉부외과, 영상의학, 응급의학 팀이 빠르게 위험분류와 치료 전략을 결정하는 구조.&#39;,
+    result: &#39;PERT는 고위험 및 중등도-고위험 PE에서 치료 선택, 전원, 시술, ECMO 가능성 판단을 표준화하는 데 사용됨.&#39;,
+    conclusion: &#39;High-risk PE에서 VA-ECMO와 재관류 결정은 단일 진료과가 아니라 PERT 기반으로 내려야 한다.&#39;,
+    url: &#39;https://pertconsortium.org/&#39;
+  }
+};
+
+function switchPart(partId) {
+  document.querySelectorAll(&#39;.part-panel&#39;).forEach(panel =&gt; {
+    panel.classList.toggle(&#39;active&#39;, panel.id === partId);
+  });
+  document.querySelectorAll(&#39;.sidebar-part&#39;).forEach(panel =&gt; {
+    panel.classList.toggle(&#39;active&#39;, panel.id === `sidebar-${partId}`);
+  });
+  document.querySelectorAll(&#39;.part-tab&#39;).forEach(tab =&gt; {
+    tab.classList.toggle(&#39;active&#39;, tab.dataset.target === partId);
+  });
+  window.scrollTo({ top: document.querySelector(&#39;.part-tabs&#39;).offsetTop - 12, behavior: &#39;smooth&#39; });
+}
+
+function openPopup(refKey) {
+  const ref = references[refKey];
+  if (!ref) return;
+  document.getElementById(&#39;popupLabel&#39;).textContent = ref.label;
+  document.getElementById(&#39;popupTitle&#39;).textContent = ref.title;
+  document.getElementById(&#39;popupMeta&#39;).innerHTML = `
+    &lt;span&gt;&lt;span class=&quot;tag&quot;&gt;${ref.type}&lt;/span&gt;&lt;/span&gt;
+    &lt;span&gt;📓 ${ref.journal} ${ref.year}&lt;/span&gt;
+    &lt;span&gt;✍️ ${ref.author}&lt;/span&gt;
+  `;
+  document.getElementById(&#39;popupResult&#39;).innerHTML = `
+    &lt;div class=&quot;popup-result-label&quot;&gt;연구 설계 &amp;amp; 결과&lt;/div&gt;
+    &lt;strong style=&quot;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:12px;color:var(--navy-mid);&quot;&gt;설계:&lt;/strong&gt; ${ref.design}&lt;br&gt;&lt;br&gt;
+    &lt;strong style=&quot;font-family:&#39;Source Sans 3&#39;,sans-serif;font-size:12px;color:var(--navy-mid);&quot;&gt;주요 결과:&lt;/strong&gt; ${ref.result}
+  `;
+  document.getElementById(&#39;popupConclusion&#39;).textContent = ref.conclusion;
+  const link = document.getElementById(&#39;popupLink&#39;);
+  if (ref.url &amp;&amp; ref.url !== &#39;#&#39;) {
+    link.href = ref.url;
+    link.style.display = &#39;inline-flex&#39;;
+  } else {
+    link.style.display = &#39;none&#39;;
+  }
+  document.getElementById(&#39;popupOverlay&#39;).classList.add(&#39;open&#39;);
+  document.body.style.overflow = &#39;hidden&#39;;
+}
+
+function closePopup() {
+  document.getElementById(&#39;popupOverlay&#39;).classList.remove(&#39;open&#39;);
+  document.body.style.overflow = &#39;&#39;;
+}
+
+function closePopupOnBg(e) {
+  if (e.target === document.getElementById(&#39;popupOverlay&#39;)) closePopup();
+}
+
+document.addEventListener(&#39;keydown&#39;, e =&gt; { if (e.key === &#39;Escape&#39;) closePopup(); });
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe></section></main>
+<script>
+function switchTopic(topic) {
+  document.querySelectorAll('.frame-panel').forEach(panel => {
+    panel.classList.toggle('active', panel.id === 'panel-' + topic);
+  });
+  document.querySelectorAll('.topic-tab').forEach(tab => {
+    tab.classList.toggle('active', tab.dataset.target === topic);
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+(function enhanceMobileFrames() {
+  const mobileCss = `
+    @media (max-width: 760px) {
+      html { -webkit-text-size-adjust: 100%; scroll-padding-top: 54px; }
+      body { overflow-x: hidden; font-size: 15px; line-height: 1.65; }
+      .journal-banner { padding: 7px 12px; font-size: 9px; letter-spacing: 1.2px; }
+      .journal-header { padding: 16px 16px 12px; align-items: flex-start; gap: 8px; }
+      .journal-logo { font-size: 22px; line-height: 1.12; }
+      .journal-meta { width: 100%; text-align: left; font-size: 11px; }
+      .hero { padding: 28px 18px 26px; }
+      .hero::before { width: 130px; opacity: 0.65; }
+      .hero-tag { margin-bottom: 12px; font-size: 10px; }
+      .hero h1 { font-size: 26px; line-height: 1.18; letter-spacing: -0.2px; }
+      .hero-subtitle { font-size: 15px; margin-bottom: 18px; }
+      .hero-author { gap: 12px; font-size: 12px; }
+      .summary-box { margin: 0; padding: 16px; }
+      .summary-grid { grid-template-columns: 1fr !important; gap: 10px; }
+      .summary-item { padding: 12px 13px; }
+      .content-body { display: block !important; padding: 0; }
+      article, .article, .main-content, .content-main { width: 100%; max-width: 100%; }
+      .article-section, section { scroll-margin-top: 58px; }
+      .part-tabs { position: sticky; top: 0; z-index: 20; display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch; gap: 8px; padding: 9px 12px; background: rgba(255,255,255,0.96); box-shadow: 0 8px 18px rgba(15,23,42,0.08); }
+      .part-tabs::-webkit-scrollbar { display: none; }
+      .part-tab { flex: 0 0 auto; min-width: max-content; padding: 10px 13px; font-size: 12px; border-radius: 999px; }
+      .part-panel { padding: 18px 16px !important; }
+      h1 { font-size: 28px; }
+      h2 { font-size: 22px; line-height: 1.25; }
+      h3 { font-size: 18px; line-height: 1.3; }
+      p, li { word-break: keep-all; overflow-wrap: anywhere; }
+      .clinical-box, .algorithm-box, .threshold-card, .reference-card, .key-point, .summary-card { margin-left: 0 !important; margin-right: 0 !important; }
+      .algorithm-body { padding: 14px 13px; }
+      .algo-step, .algorithm-step, .threshold-row, .ref-item { align-items: flex-start; gap: 10px; }
+      .algo-num, .step-num, .threshold-icon, .ref-num { flex: 0 0 auto; }
+      .algo-text, .threshold-text, .ref-item-text { min-width: 0; }
+      table, .drug-table { display: block; width: 100%; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
+      .drug-table th, .drug-table td { padding: 9px 10px; font-size: 12px; }
+      .sidebar, aside, .reference-sidebar { position: static !important; width: 100% !important; margin: 18px 0 0 !important; }
+      .popup-overlay.open { align-items: flex-end; padding: 0; }
+      .popup-card { width: 100%; max-width: 100%; max-height: 92dvh; border-radius: 18px 18px 0 0; }
+      .popup-header { padding: 16px 18px; }
+      .popup-body { padding: 16px 18px 22px; }
+      .popup-title { font-size: 20px; line-height: 1.22; }
+      .popup-meta { gap: 8px; font-size: 12px; }
+      footer { padding: 18px 16px; gap: 8px; }
+    }
+  `;
+
+  function apply(frame) {
+    try {
+      const doc = frame.contentDocument;
+      if (!doc || doc.getElementById('codex-mobile-css')) return;
+      const style = doc.createElement('style');
+      style.id = 'codex-mobile-css';
+      style.textContent = mobileCss;
+      doc.head.appendChild(style);
+      doc.documentElement.style.overflowX = 'hidden';
+    } catch (_) {
+      // srcdoc frames are same-origin, but fail silently if a browser blocks access.
+    }
+  }
+
+  document.querySelectorAll('iframe').forEach(frame => {
+    frame.addEventListener('load', () => apply(frame));
+    apply(frame);
+  });
+})();
+</script>
+</body>
+</html>
