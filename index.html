@@ -3877,6 +3877,56 @@ document.addEventListener(&#39;keydown&#39;, e =&gt; { if (e.key === &#39;Escape
     .wrap { padding: 0 18px 40px; }
     .talk h2 { font-size: 20px; }
   }
+
+  /* PART TABS */
+  .part-tabs {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    gap: 10px;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(6px);
+    padding: 14px 36px;
+    border-bottom: 1px solid var(--gray-border);
+    box-shadow: 0 6px 18px rgba(15,23,42,0.05);
+  }
+  .part-tab {
+    flex: 1;
+    border: 2px solid var(--gray-border);
+    background: white;
+    color: var(--gray-mid);
+    padding: 14px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Source Sans 3', sans-serif;
+    text-align: left;
+    transition: all 0.2s;
+  }
+  .part-tab:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(15,23,42,0.08); }
+  .part-tab .pt-num {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--gray-light);
+    margin-bottom: 3px;
+  }
+  .part-tab .pt-title {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.3;
+  }
+  .part-tab.active.red { border-color: var(--red); background: var(--red-light); }
+  .part-tab.active.red .pt-num { color: var(--red); }
+  .part-tab.active.teal { border-color: var(--teal); background: var(--teal-light); }
+  .part-tab.active.teal .pt-num { color: var(--teal); }
+  .part-panel { display: none; }
+  .part-panel.active { display: block; }
+
 &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
@@ -3915,20 +3965,20 @@ document.addEventListener(&#39;keydown&#39;, e =&gt; { if (e.key === &#39;Escape
   &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;div class=&quot;toc&quot;&gt;
-  &lt;a href=&quot;#op2-1&quot; class=&quot;toc-item&quot;&gt;
-    &lt;div class=&quot;num&quot;&gt;▎ OP2-1&lt;/div&gt;
-    &lt;div class=&quot;t&quot;&gt;Role Adaptation and Professional Meaning-Making of ICU APNs&lt;/div&gt;
-    &lt;div class=&quot;a&quot;&gt;Eun Sook Kim · Samsung Medical Center&lt;/div&gt;
-  &lt;/a&gt;
-  &lt;a href=&quot;#op2-4&quot; class=&quot;toc-item cpr&quot;&gt;
-    &lt;div class=&quot;num&quot;&gt;▎ OP2-4&lt;/div&gt;
-    &lt;div class=&quot;t&quot;&gt;Department-specific In-situ Mock Cardiac Arrest Simulation&lt;/div&gt;
-    &lt;div class=&quot;a&quot;&gt;Sulhee Kim · Seoul National University Hospital&lt;/div&gt;
-  &lt;/a&gt;
-&lt;/div&gt;
+&lt;nav class=&quot;part-tabs&quot; role=&quot;tablist&quot; aria-label=&quot;OP2 lectures&quot;&gt;
+  &lt;button class=&quot;part-tab red active&quot; type=&quot;button&quot; data-part=&quot;1&quot; onclick=&quot;showPart(1)&quot;&gt;
+    &lt;span class=&quot;pt-num&quot;&gt;▎ Part 1 · OP2-1&lt;/span&gt;
+    &lt;span class=&quot;pt-title&quot;&gt;APN Role Adaptation&lt;br&gt;&lt;span style=&quot;font-size:12px; font-weight:400; color:var(--gray-mid);&quot;&gt;Phenomenological Study · Samsung Medical Center&lt;/span&gt;&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;button class=&quot;part-tab teal&quot; type=&quot;button&quot; data-part=&quot;2&quot; onclick=&quot;showPart(2)&quot;&gt;
+    &lt;span class=&quot;pt-num&quot;&gt;▎ Part 2 · OP2-4&lt;/span&gt;
+    &lt;span class=&quot;pt-title&quot;&gt;In-situ CPR Simulation&lt;br&gt;&lt;span style=&quot;font-size:12px; font-weight:400; color:var(--gray-mid);&quot;&gt;QI Project · Seoul National University Hospital&lt;/span&gt;&lt;/span&gt;
+  &lt;/button&gt;
+&lt;/nav&gt;
 
 &lt;div class=&quot;wrap&quot;&gt;
+
+&lt;section class=&quot;part-panel active&quot; id=&quot;part-1&quot;&gt;
 
 &lt;!-- ========== OP2-1 ========== --&gt;
 &lt;div class=&quot;talk&quot; id=&quot;op2-1&quot;&gt;
@@ -4048,6 +4098,10 @@ document.addEventListener(&#39;keydown&#39;, e =&gt; { if (e.key === &#39;Escape
   &lt;/div&gt;
 &lt;/div&gt;
 
+
+&lt;/section&gt;&lt;!-- end part-1 --&gt;
+
+&lt;section class=&quot;part-panel&quot; id=&quot;part-2&quot;&gt;
 
 &lt;!-- ========== OP2-4 ========== --&gt;
 &lt;div class=&quot;talk&quot; id=&quot;op2-4&quot;&gt;
@@ -4221,6 +4275,8 @@ document.addEventListener(&#39;keydown&#39;, e =&gt; { if (e.key === &#39;Escape
   &lt;/div&gt;
 &lt;/div&gt;
 
+&lt;/section&gt;&lt;!-- end part-2 --&gt;
+
 &lt;/div&gt;&lt;!-- end wrap --&gt;
 
 &lt;footer&gt;
@@ -4229,6 +4285,18 @@ document.addEventListener(&#39;keydown&#39;, e =&gt; { if (e.key === &#39;Escape
   Compiled with AI assistance · 2026
 &lt;/footer&gt;
 
+
+&lt;script&gt;
+function showPart(n) {
+  document.querySelectorAll('.part-panel').forEach(p =&gt; {
+    p.classList.toggle('active', p.id === 'part-' + n);
+  });
+  document.querySelectorAll('.part-tab').forEach(t =&gt; {
+    t.classList.toggle('active', t.dataset.part === String(n));
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
 "></iframe></section><section class="frame-panel" id="panel-impact"><iframe title="NEXT Phase of IMPACT — K-MIMIC Platform Review" srcdoc="&lt;!DOCTYPE html&gt;
@@ -5008,16 +5076,6 @@ document.addEventListener(&#39;keydown&#39;, e =&gt; { if (e.key === &#39;Escape
   &lt;p&gt;IMPACT는 &lt;strong&gt;&quot;데이터를 모으는 사업&quot;이 아니라 &quot;한국형 중환자 데이터 생태계를 만드는 사업&quot;&lt;/strong&gt;이었다. 5년간 545K+ 환자, 100만+ 영상, 33개 AI-CDSS를 모으면서 동시에 &lt;strong&gt;가명화 표준, 플랫폼 운영구조, 국제 협력 모델&lt;/strong&gt;의 청사진을 그렸다.&lt;br&gt;&lt;br&gt;
   Phase 1의 성과보다 더 중요한 것은 &lt;strong&gt;&quot;데이터를 쌓아도 운영 주체와 제도가 없으면 쓸 수 없다&quot;&lt;/strong&gt;는 교훈이다. NEXT Phase는 KHDP 통합을 통해 그 교훈을 현실 가능한 구조로 전환하는 단계이며, 중환자 임상의·연구자 모두에게 &lt;strong&gt;실사용 가능한 빅데이터 인프라&lt;/strong&gt;로 제공되는 것이 최종 목표다.&lt;br&gt;&lt;br&gt;
   &lt;strong&gt;&quot;방문하셔서 활용해주세요. 데이터는 쓰일 때 비로소 가치를 갖습니다.&quot;&lt;/strong&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;!-- QA --&gt;
-&lt;div class=&quot;qa&quot;&gt;
-  &lt;div class=&quot;qa-head&quot;&gt;▎ Wrap-up · Quiz Session&lt;/div&gt;
-  &lt;div class=&quot;qa-body&quot;&gt;
-    &lt;div class=&quot;qa-item&quot;&gt;
-      &lt;p&gt;강의 마지막에 6문항의 퀴즈 세션 진행 (IMPACT 컨소시엄 규모, 데이터 유형, 공개 순서, 탑재 정보 등). 변별력은 문항 수 한계로 추첨식으로 운영. &lt;strong&gt;핵심 메시지는 &quot;지문에 답이 다 있다 — 관심 있는 사람은 찾을 수 있다&quot;&lt;/strong&gt;는 IMPACT의 운영 철학과 같은 톤이었다.&lt;/p&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;&lt;!-- end wrap --&gt;
