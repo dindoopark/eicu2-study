@@ -13,13 +13,15 @@
   .brand { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; line-height: 1.1; }
   .brand span.red { color: #f4a3a6; }
   .brand span.blue { color: #8cc6ff; }
+  .brand span.green { color: #7fc7c2; }
   .meta { color: rgba(255,255,255,0.68); font-size: 13px; line-height: 1.5; text-align: right; }
   .switcher-wrap { background: white; border-bottom: 1px solid #d7dde6; position: sticky; top: 0; z-index: 10; }
-  .switcher { max-width: 1180px; margin: 0 auto; padding: 12px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .switcher { max-width: 1180px; margin: 0 auto; padding: 12px 28px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
   .topic-tab { border: 1px solid #d7dde6; background: #fff; border-radius: 8px; padding: 13px 16px; cursor: pointer; text-align: left; transition: all 0.18s; }
   .topic-tab:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(15,23,42,0.08); }
   .topic-tab.active.red { border-color: #c1272d; background: #f5e6e7; }
   .topic-tab.active.blue { border-color: #1769aa; background: #e6f1fb; }
+  .topic-tab.active.green { border-color: #0e6b73; background: #e3f0f1; }
   .topic-label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: #667085; margin-bottom: 2px; }
   .topic-title { display: block; font-size: 17px; font-weight: 700; color: #172033; }
   .topic-desc { display: block; color: #667085; font-size: 13px; margin-top: 2px; }
@@ -34,7 +36,7 @@
     .brand { font-size: 21px; }
     .meta { font-size: 11px; }
     .switcher-wrap { top: 0; box-shadow: 0 8px 18px rgba(15,23,42,0.08); }
-    .switcher { grid-template-columns: 1fr 1fr; gap: 8px; padding: 8px 10px; }
+    .switcher { grid-template-columns: 1fr 1fr 1fr; gap: 6px; padding: 8px 8px; }
     .topic-tab { padding: 10px 9px; border-radius: 10px; }
     .topic-label, .topic-desc { display: none; }
     .topic-title { font-size: 14px; text-align: center; }
@@ -43,8 +45,8 @@
 </style>
 </head>
 <body>
-<header class="topbar"><div class="topbar-inner"><div class="brand">KSCCM-ACCC 2026<br><span class="red">Septic Shock</span> &amp; <span class="blue">ECMO</span> Review</div><div class="meta">Integrated final HTML · Red/Blue two-section site<br>Each section contains Part 1-3 lecture tabs, thresholds, and references.</div></div></header>
-<nav class="switcher-wrap"><div class="switcher" role="tablist" aria-label="Critical care topics"><button class="topic-tab red active" type="button" data-target="sepsis" onclick="switchTopic('sepsis')"><span class="topic-label">Red Section</span><span class="topic-title">Septic Shock</span><span class="topic-desc">Echo · Vasopressors · Refractory Shock</span></button><button class="topic-tab blue" type="button" data-target="ecmo" onclick="switchTopic('ecmo')"><span class="topic-label">Blue Section</span><span class="topic-title">ECMO</span><span class="topic-desc">Transfusion · Post-EOLIA VV · VA Rescue</span></button></div></nav>
+<header class="topbar"><div class="topbar-inner"><div class="brand">KSCCM-ACCC 2026<br><span class="red">Septic Shock</span> · <span class="blue">ECMO</span> · <span class="green">OP2 Review</span></div><div class="meta">Integrated 3-section site · Red / Blue / Green<br>Septic Shock · ECMO · Oral Presentation 2 (APN · In-situ CPR Sim)</div></div></header>
+<nav class="switcher-wrap"><div class="switcher" role="tablist" aria-label="Critical care topics"><button class="topic-tab red active" type="button" data-target="sepsis" onclick="switchTopic('sepsis')"><span class="topic-label">Red Section</span><span class="topic-title">Septic Shock</span><span class="topic-desc">Echo · Vasopressors · Refractory Shock</span></button><button class="topic-tab blue" type="button" data-target="ecmo" onclick="switchTopic('ecmo')"><span class="topic-label">Blue Section</span><span class="topic-title">ECMO</span><span class="topic-desc">Transfusion · Post-EOLIA VV · VA Rescue</span></button><button class="topic-tab green" type="button" data-target="op2" onclick="switchTopic('op2')"><span class="topic-label">Green Section</span><span class="topic-title">OP2 Review</span><span class="topic-desc">APN Role · In-situ CPR Sim</span></button></div></nav>
 <main><section class="frame-panel active" id="panel-sepsis"><iframe title="Septic Shock 3-Part Review" srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;ko&quot;&gt;
 &lt;head&gt;
@@ -3435,6 +3437,796 @@ function closePopupOnBg(e) {
 
 document.addEventListener(&#39;keydown&#39;, e =&gt; { if (e.key === &#39;Escape&#39;) closePopup(); });
 &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe></section><section class="frame-panel" id="panel-op2"><iframe title="OP2 APN &amp; CPR Simulation Review" srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+&lt;title&gt;OP2 Session Review — APN Role Adaptation &amp; In-situ CPR Simulation · KSCCM-ACCC 2026&lt;/title&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Source+Serif+4:wght@400;600&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;style&gt;
+  :root {
+    --red: #c1272d;
+    --red-dark: #8b1a1f;
+    --red-light: #f5e6e7;
+    --navy: #1a2744;
+    --navy-mid: #2d3f6b;
+    --teal: #0e6b73;
+    --teal-light: #e3f0f1;
+    --gold: #b8963e;
+    --gold-light: #fdf3e1;
+    --gray-dark: #2c2c2c;
+    --gray-mid: #555;
+    --gray-light: #888;
+    --gray-border: #d0d0d0;
+    --gray-bg: #f7f7f7;
+    --cream: #fdfcfb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--cream);
+    color: var(--gray-dark);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  .banner {
+    background: var(--navy);
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .header {
+    background: white;
+    border-bottom: 3px solid var(--navy);
+    padding: 22px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: -0.4px;
+  }
+  .header .meta {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px;
+    color: var(--gray-light);
+    text-align: right;
+    line-height: 1.55;
+  }
+  .header .meta strong { color: var(--navy); }
+
+  /* SESSION INFO */
+  .session-info {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    color: white;
+    padding: 26px 36px;
+  }
+  .session-info .label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 6px;
+  }
+  .session-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  .session-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+  }
+  .session-grid div {
+    border-left: 2px solid rgba(255,255,255,0.3);
+    padding-left: 12px;
+  }
+  .session-grid .l {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 3px;
+  }
+  .session-grid .v {
+    font-size: 13.5px;
+    color: white;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--gray-bg);
+    border-bottom: 1px solid var(--gray-border);
+    padding: 18px 36px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .toc-item {
+    flex: 1;
+    min-width: 280px;
+    background: white;
+    border-radius: 6px;
+    padding: 14px 18px;
+    border-top: 4px solid var(--red);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .toc-item:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
+  .toc-item.cpr { border-top-color: var(--teal); }
+  .toc-item .num {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--red);
+    margin-bottom: 4px;
+  }
+  .toc-item.cpr .num { color: var(--teal); }
+  .toc-item .t {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 14px;
+    line-height: 1.35;
+    margin-bottom: 4px;
+  }
+  .toc-item .a { font-size: 12px; color: var(--gray-light); }
+
+  /* MAIN */
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 36px 60px; }
+
+  .talk {
+    margin-top: 44px;
+    padding-top: 30px;
+    border-top: 1px solid var(--gray-border);
+  }
+  .talk:first-of-type { border-top: none; padding-top: 24px; }
+
+  .talk-tag {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 12px;
+  }
+  .talk-tag.teal { background: var(--teal); }
+
+  .talk h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: var(--navy);
+    line-height: 1.3;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  .talk .subtitle {
+    font-size: 14px;
+    color: var(--gray-mid);
+    font-style: italic;
+    margin-bottom: 18px;
+  }
+  .talk .author-block {
+    background: var(--gray-bg);
+    border-left: 3px solid var(--navy);
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .talk .author-block strong {
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--navy);
+  }
+
+  /* SUMMARY */
+  .summary {
+    background: var(--red-light);
+    border-left: 4px solid var(--red);
+    padding: 18px 22px;
+    margin: 18px 0 24px;
+  }
+  .summary.teal { background: var(--teal-light); border-left-color: var(--teal); }
+  .summary h3 {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--red-dark);
+    margin-bottom: 10px;
+  }
+  .summary.teal h3 { color: var(--teal); }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+  .summary-item {
+    background: white;
+    border-radius: 4px;
+    padding: 12px 14px;
+    border-top: 3px solid var(--red);
+  }
+  .summary.teal .summary-item { border-top-color: var(--teal); }
+  .summary-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--red);
+  }
+  .summary.teal .summary-num { color: var(--teal); }
+  .summary-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--navy);
+    margin: 2px 0 4px;
+  }
+  .summary-val { font-size: 12.5px; color: var(--gray-mid); line-height: 1.4; }
+
+  /* SECTION */
+  .section { margin: 22px 0; }
+  .section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--navy);
+    border-bottom: 2px solid var(--gray-border);
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+  }
+  .section p { margin-bottom: 10px; font-size: 15px; }
+  .section ul { margin-left: 22px; margin-bottom: 12px; }
+  .section ul li { margin-bottom: 6px; font-size: 14.5px; line-height: 1.6; }
+  .section strong { color: var(--navy); }
+
+  /* THEMES (for APN) */
+  .theme-list { display: grid; gap: 10px; margin: 14px 0; }
+  .theme {
+    display: flex;
+    gap: 14px;
+    background: white;
+    border: 1px solid var(--gray-border);
+    border-left: 4px solid var(--red);
+    border-radius: 4px;
+    padding: 12px 16px;
+  }
+  .theme-num {
+    flex-shrink: 0;
+    width: 30px; height: 30px;
+    background: var(--red);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .theme-text { flex: 1; }
+  .theme-text strong {
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--navy);
+    font-size: 14px;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .theme-text p { font-size: 13.5px; line-height: 1.55; color: var(--gray-mid); margin: 0; }
+
+  /* RESULT TABLE */
+  .result-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin: 14px 0;
+  }
+  .result-table th {
+    background: var(--teal);
+    color: white;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 12px;
+    text-align: left;
+  }
+  .result-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--gray-border);
+  }
+  .result-table tr:nth-child(even) td { background: var(--gray-bg); }
+  .result-table .delta { color: var(--teal); font-weight: 700; font-family: 'Source Sans 3', sans-serif; }
+  .result-table .pval {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 11px;
+    background: var(--teal-light);
+    color: var(--teal);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+
+  /* CALLOUT */
+  .callout {
+    background: var(--gold-light);
+    border: 1px solid #e9d18e;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 14px;
+  }
+  .callout-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .callout p { font-size: 13.5px; line-height: 1.6; color: var(--gray-dark); }
+
+  /* QA */
+  .qa {
+    background: white;
+    border: 1px solid var(--gray-border);
+    border-radius: 6px;
+    margin: 22px 0;
+    overflow: hidden;
+  }
+  .qa-head {
+    background: var(--navy);
+    color: white;
+    padding: 10px 16px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .qa-body { padding: 14px 18px; }
+  .qa-item { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px dashed var(--gray-border); }
+  .qa-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .qa-q, .qa-a {
+    display: flex; gap: 10px;
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 6px;
+  }
+  .qa-q::before, .qa-a::before {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+  }
+  .qa-q::before { content: 'Q'; background: var(--red); }
+  .qa-a::before { content: 'A'; background: var(--teal); }
+
+  /* CONCLUSION */
+  .conclusion {
+    background: var(--navy);
+    color: white;
+    padding: 20px 24px;
+    border-radius: 6px;
+    margin: 22px 0;
+  }
+  .conclusion-label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 8px;
+  }
+  .conclusion p {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.92);
+    font-style: italic;
+  }
+  .conclusion strong { color: #f0a0a3; font-style: normal; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.55);
+    padding: 22px 36px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 760px) {
+    .header, .session-info, .toc, footer { padding-left: 18px; padding-right: 18px; }
+    .wrap { padding: 0 18px 40px; }
+    .talk h2 { font-size: 20px; }
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;banner&quot;&gt;KSCCM-ACCC 2026 · Oral Presentation 2 · Session Review&lt;/div&gt;
+
+&lt;div class=&quot;header&quot;&gt;
+  &lt;h1&gt;OP2 Session Review&lt;br&gt;&lt;span style=&quot;font-size:14px; color:var(--gray-mid); font-family:'Source Serif 4', serif; font-weight:400;&quot;&gt;ICU APN Role Adaptation · In-situ CPR Simulation&lt;/span&gt;&lt;/h1&gt;
+  &lt;div class=&quot;meta&quot;&gt;
+    &lt;strong&gt;KSCCM-ACCC 2026&lt;/strong&gt;&lt;br&gt;
+    제46회 대한중환자의학회 연수강좌&lt;br&gt;
+    April 30, 2026 · Seoul, Korea
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;session-info&quot;&gt;
+  &lt;div class=&quot;label&quot;&gt;Session Information&lt;/div&gt;
+  &lt;h2&gt;Oral Presentation 2 (English Session)&lt;/h2&gt;
+  &lt;div class=&quot;session-grid&quot;&gt;
+    &lt;div&gt;
+      &lt;div class=&quot;l&quot;&gt;일시&lt;/div&gt;
+      &lt;div class=&quot;v&quot;&gt;2026-04-30 (목)&lt;br&gt;13:00–14:30&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;div class=&quot;l&quot;&gt;장소&lt;/div&gt;
+      &lt;div class=&quot;v&quot;&gt;Room 6_206 (2F)&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;div class=&quot;l&quot;&gt;좌장 (Chair)&lt;/div&gt;
+      &lt;div class=&quot;v&quot;&gt;정치량 (성균관대)&lt;br&gt;위 진 (가천대)&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;div class=&quot;l&quot;&gt;발표 수&lt;/div&gt;
+      &lt;div class=&quot;v&quot;&gt;총 11편 (OP2-1 ~ OP2-11)&lt;br&gt;본 자료: 2편 정리&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;toc&quot;&gt;
+  &lt;a href=&quot;#op2-1&quot; class=&quot;toc-item&quot;&gt;
+    &lt;div class=&quot;num&quot;&gt;▎ OP2-1&lt;/div&gt;
+    &lt;div class=&quot;t&quot;&gt;Role Adaptation and Professional Meaning-Making of ICU APNs&lt;/div&gt;
+    &lt;div class=&quot;a&quot;&gt;Eun Sook Kim · Samsung Medical Center&lt;/div&gt;
+  &lt;/a&gt;
+  &lt;a href=&quot;#op2-4&quot; class=&quot;toc-item cpr&quot;&gt;
+    &lt;div class=&quot;num&quot;&gt;▎ OP2-4&lt;/div&gt;
+    &lt;div class=&quot;t&quot;&gt;Department-specific In-situ Mock Cardiac Arrest Simulation&lt;/div&gt;
+    &lt;div class=&quot;a&quot;&gt;Sulhee Kim · Seoul National University Hospital&lt;/div&gt;
+  &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;wrap&quot;&gt;
+
+&lt;!-- ========== OP2-1 ========== --&gt;
+&lt;div class=&quot;talk&quot; id=&quot;op2-1&quot;&gt;
+  &lt;div class=&quot;talk-tag&quot;&gt;▎ OP2-1 · Phenomenological Study&lt;/div&gt;
+  &lt;h2&gt;Role Adaptation and Professional Meaning-Making of ICU Advanced Practice Nurses During Korea's Healthcare Workforce Crisis&lt;/h2&gt;
+  &lt;div class=&quot;subtitle&quot;&gt;한국 의료인력 위기 중 중환자실 전문간호사의 역할 적응과 전문직 의미 형성에 관한 현상학적 연구&lt;/div&gt;
+  &lt;div class=&quot;author-block&quot;&gt;
+    &lt;strong&gt;발표자:&lt;/strong&gt; Eun Sook Kim (김은숙) · &lt;strong&gt;공저자:&lt;/strong&gt; Su Jung Choi (최수정)&lt;br&gt;
+    &lt;strong&gt;소속:&lt;/strong&gt; Intensive Care Unit Advanced Practice Nursing Team, Samsung Medical Center, Korea&lt;br&gt;
+    Graduate School of Clinical Nursing Science, Sungkyunkwan University, Korea
+  &lt;/div&gt;
+
+  &lt;div class=&quot;summary&quot;&gt;
+    &lt;h3&gt;⬛ Three Key Take-Home Messages&lt;/h3&gt;
+    &lt;div class=&quot;summary-grid&quot;&gt;
+      &lt;div class=&quot;summary-item&quot;&gt;
+        &lt;div class=&quot;summary-num&quot;&gt;1&lt;/div&gt;
+        &lt;div class=&quot;summary-label&quot;&gt;구조적 공백 속 적응&lt;/div&gt;
+        &lt;div class=&quot;summary-val&quot;&gt;명확한 역할·평가 체계 부재 상태에서의 능동적 정체성 구성&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;summary-item&quot;&gt;
+        &lt;div class=&quot;summary-num&quot;&gt;2&lt;/div&gt;
+        &lt;div class=&quot;summary-label&quot;&gt;자율성 = 지속의 핵심&lt;/div&gt;
+        &lt;div class=&quot;summary-val&quot;&gt;확장된 임상 자율성·지적 참여가 직업적 성취감의 원천&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;summary-item&quot;&gt;
+        &lt;div class=&quot;summary-num&quot;&gt;3&lt;/div&gt;
+        &lt;div class=&quot;summary-label&quot;&gt;개인 → 구조 전환 필요&lt;/div&gt;
+        &lt;div class=&quot;summary-val&quot;&gt;개인 회복탄력성 의존 모델 → 제도화·평가체계 정비 요구&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;h3&gt;Background — 연구 배경&lt;/h3&gt;
+    &lt;p&gt;2024년 한국 &lt;strong&gt;의료인력 위기(전공의 사직 사태)&lt;/strong&gt; 이후, 중환자실(ICU)에 새롭게 배치된 전문간호사(Advanced Practice Nurses, APN)들은 의사 부족을 보완하고 중환자 케어의 연속성을 유지하는 역할을 맡게 되었다. 이들은 &lt;strong&gt;일차 호출 응대, 약물 조정, 침습적 시술&lt;/strong&gt; 등 확장된 책임을 수행했으나, 명확한 제도적 프레임워크는 부재한 상태였다.&lt;/p&gt;
+    &lt;p&gt;이러한 급변하는 역할이 ICU 시스템 안정성과 직결되는 만큼, 본 연구는 신규 ICU APN의 역할 적응 경험을 탐색하고 그 적응의 본질적 의미를 규명하고자 했다.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;h3&gt;Methods — 연구 방법&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;설계:&lt;/strong&gt; Colaizzi의 현상학적 질적 연구 방법&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;참가자:&lt;/strong&gt; 서울 소재 상급종합병원 ICU APN 11명 (APN 경력 6–24개월)&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;자료 수집:&lt;/strong&gt; 심층 개별 인터뷰 (2025.11 ~ 2026.2)&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;분석:&lt;/strong&gt; Colaizzi 7단계 절차 (의미 단위 도출 → 형식 진술 → 주제·주제군 형성 → 본질 구조 기술)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;h3&gt;Results — 6 Themes / 13 Subthemes&lt;/h3&gt;
+    &lt;div class=&quot;theme-list&quot;&gt;
+      &lt;div class=&quot;theme&quot;&gt;
+        &lt;div class=&quot;theme-num&quot;&gt;1&lt;/div&gt;
+        &lt;div class=&quot;theme-text&quot;&gt;
+          &lt;strong&gt;구조화되지 않은 세계에서의 '되어감(Becoming)'&lt;/strong&gt;
+          &lt;p&gt;외부 표준 부재 속에서 스스로 역할과 전문직 정체성을 정의 — 적응은 완료가 아닌 지속적 과정&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;theme&quot;&gt;
+        &lt;div class=&quot;theme-num&quot;&gt;2&lt;/div&gt;
+        &lt;div class=&quot;theme-text&quot;&gt;
+          &lt;strong&gt;수행을 통한 정당성 입증 (Legitimacy through Performance)&lt;/strong&gt;
+          &lt;p&gt;APN 역할의 정당성이 개인의 수행 능력에 과도하게 의존 — 미래 역할 지속가능성에 대한 압박&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;theme&quot;&gt;
+        &lt;div class=&quot;theme-num&quot;&gt;3&lt;/div&gt;
+        &lt;div class=&quot;theme-text&quot;&gt;
+          &lt;strong&gt;경계 그리기 (Drawing Boundaries)&lt;/strong&gt;
+          &lt;p&gt;명확한 프로토콜·가이드라인 부재 상태에서 임상적 판단 영역을 스스로 설정·평가하며 결과에 대한 책임을 부담&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;theme&quot;&gt;
+        &lt;div class=&quot;theme-num&quot;&gt;4&lt;/div&gt;
+        &lt;div class=&quot;theme-text&quot;&gt;
+          &lt;strong&gt;가시성과 전문성 사이의 긴장&lt;/strong&gt;
+          &lt;p&gt;총체적 환자 중심 케어를 제공하나, 그 기여가 성과 중심 조직 평가체계에서 가시화되기 어려운 지속적 긴장&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;theme&quot;&gt;
+        &lt;div class=&quot;theme-num&quot;&gt;5&lt;/div&gt;
+        &lt;div class=&quot;theme-text&quot;&gt;
+          &lt;strong&gt;경험·성취·확장된 자율성을 통한 역할 지속&lt;/strong&gt;
+          &lt;p&gt;책임감과 불확실성에도 불구하고, 더 큰 자율성과 환자 케어 참여를 통해 강한 성취감 — 자율성을 통한 역량 획득이 역할 유지의 핵심&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;theme&quot;&gt;
+        &lt;div class=&quot;theme-num&quot;&gt;6&lt;/div&gt;
+        &lt;div class=&quot;theme-text&quot;&gt;
+          &lt;strong&gt;안정성 부재 속 의미 구성 (Constructing Meaning)&lt;/strong&gt;
+          &lt;p&gt;전통적 안정성·외부 표준이 부재한 환경을 수동적으로 수용하지 않고, 능동적으로 경험을 재구성하여 자체 실천 기준을 개발 → 확장된 전문직 정체성&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;h3&gt;Discussion — 핵심 통찰&lt;/h3&gt;
+    &lt;p&gt;전통적으로 의사·간호사는 &lt;strong&gt;이미 확립된 시스템&lt;/strong&gt; 안에서 적응했다. 반면 본 연구의 APN은 &lt;strong&gt;불명확하고 취약하며 제도적 지원이 제한적인&lt;/strong&gt; 환경에서, 단순한 적응이 아닌 &lt;strong&gt;역할 자체를 능동적으로 구성&lt;/strong&gt;해야 했다.&lt;/p&gt;
+    &lt;p&gt;참가자들은 가시화되지 않는 기여를 입증해야 한다는 압박 속에서도 정체성을 발전시켰고, 높은 자율성과 지속적 불확실성을 동시에 경험했다. APN 적응은 &lt;strong&gt;단순한 역량 획득이 아니라, 역할 자체가 지속적으로 형성되는 동적 과정&lt;/strong&gt;이다.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;conclusion&quot;&gt;
+    &lt;div class=&quot;conclusion-label&quot;&gt;Conclusion&lt;/div&gt;
+    &lt;p&gt;신규 ICU APN은 의료시스템 붕괴기에 &lt;strong&gt;핵심 안정화 동력(stabilizing agents)&lt;/strong&gt;으로 기능했다. 이들의 적응에는 구조적 도전과 강한 전문직 몰입이 모두 반영되어 있다.&lt;br&gt;&lt;br&gt;지속가능한 ICU 안정화를 위해 APN 역할은 &lt;strong&gt;① 명확하게 제도화&lt;/strong&gt;되어야 하며, &lt;strong&gt;② 의사결정 프레임워크&lt;/strong&gt;로 뒷받침되고, &lt;strong&gt;③ 중환자 케어 결과를 반영하는 의미 있는 성과 지표&lt;/strong&gt;와 정렬되어야 한다. 핵심 메시지: &lt;strong&gt;&quot;개인적 부담에서 구조적 지원으로의 전환(from individual heritage to structural support).&quot;&lt;/strong&gt;&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;qa&quot;&gt;
+    &lt;div class=&quot;qa-head&quot;&gt;▎ Q&amp;A · Floor Discussion&lt;/div&gt;
+    &lt;div class=&quot;qa-body&quot;&gt;
+      &lt;div class=&quot;qa-item&quot;&gt;
+        &lt;div class=&quot;qa-q&quot;&gt;&lt;span&gt;전공의 복귀 후, 향후 APN과 전공의 간 업무 분담은 어떻게 이루어질 것으로 보는가?&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;qa-a&quot;&gt;&lt;span&gt;현재 APN과 전공의 간 역할에 큰 차이를 두지 않는 분위기. 일부 시술(procedure)은 APN에게 부담이 되어 별도 교육 시스템을 마련 중이며, APN과 전공의가 함께 수행할 수 있는 체계로 운영되고 있다.&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;!-- ========== OP2-4 ========== --&gt;
+&lt;div class=&quot;talk&quot; id=&quot;op2-4&quot;&gt;
+  &lt;div class=&quot;talk-tag teal&quot;&gt;▎ OP2-4 · Quality Improvement&lt;/div&gt;
+  &lt;h2&gt;Impact of Department-specific In-situ Mock Cardiac Arrest Simulation on Emergency Response Competency&lt;/h2&gt;
+  &lt;div class=&quot;subtitle&quot;&gt;부서 특화 현장(In-situ) 모의 심정지 시뮬레이션이 응급대응 역량에 미치는 영향 — 3년 QI 프로젝트&lt;/div&gt;
+  &lt;div class=&quot;author-block&quot;&gt;
+    &lt;strong&gt;발표자:&lt;/strong&gt; Sulhee Kim (김설희) · &lt;strong&gt;공저자:&lt;/strong&gt; Sang Hoon Na, Eunhye Kim, Sang Min Lee&lt;br&gt;
+    &lt;strong&gt;소속:&lt;/strong&gt; Rapid Response Team, Seoul National University Hospital&lt;br&gt;
+    Internal Medicine, SNU College of Medicine · AHA ACLS Training Site Director, SNUH&lt;br&gt;
+    Nursing, SNUH · Critical Care Medicine, SNUH
+  &lt;/div&gt;
+
+  &lt;div class=&quot;summary teal&quot;&gt;
+    &lt;h3&gt;⬛ Three Key Take-Home Messages&lt;/h3&gt;
+    &lt;div class=&quot;summary-grid&quot;&gt;
+      &lt;div class=&quot;summary-item&quot;&gt;
+        &lt;div class=&quot;summary-num&quot;&gt;1&lt;/div&gt;
+        &lt;div class=&quot;summary-label&quot;&gt;현장 시뮬레이션의 힘&lt;/div&gt;
+        &lt;div class=&quot;summary-val&quot;&gt;강의실이 아닌 &lt;strong&gt;실제 임상 공간에서&lt;/strong&gt; 부서별 시나리오로 시행&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;summary-item&quot;&gt;
+        &lt;div class=&quot;summary-num&quot;&gt;2&lt;/div&gt;
+        &lt;div class=&quot;summary-label&quot;&gt;시스템 표준화 동시 진행&lt;/div&gt;
+        &lt;div class=&quot;summary-val&quot;&gt;2022년 병원 전체 &lt;strong&gt;E-cart 표준화&lt;/strong&gt; (라벨·레이아웃·체크리스트)&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;summary-item&quot;&gt;
+        &lt;div class=&quot;summary-num&quot;&gt;3&lt;/div&gt;
+        &lt;div class=&quot;summary-label&quot;&gt;파일럿 → 정규 프로그램&lt;/div&gt;
+        &lt;div class=&quot;summary-val&quot;&gt;2025년부터 SNUH &lt;strong&gt;공식 정규 CPR 교육&lt;/strong&gt;으로 채택&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;h3&gt;Background — 연구 배경&lt;/h3&gt;
+    &lt;p&gt;심정지의 &lt;strong&gt;조기 인지와 협응적 팀 대응&lt;/strong&gt;은 효과적인 심폐소생술(CPR)의 핵심이다. CPR 교육은 광범위하게 시행되고 있으나, 다수의 프로그램이 &lt;strong&gt;실제 임상 환경과 다른 강의실 환경&lt;/strong&gt;에서 진행되어 현장 적용성에 한계가 있었다.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;현장(In-situ) 시뮬레이션&lt;/strong&gt;은 실제 근무 공간에서 시행되어 개인 역량과 팀 기반 대응을 동시에 향상시킬 수 있는 효과적 전략으로 제시된다. 본 연구는 부서 특화 현장 모의 심정지 시뮬레이션이 의료진의 응급대응 역량을 향상시키는지 평가했다.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;h3&gt;Methods — QI 3단계 프로세스&lt;/h3&gt;
+    &lt;p&gt;&lt;strong&gt;대상기관:&lt;/strong&gt; 서울대학교병원 (1,385병상 상급종합병원) · &lt;strong&gt;기간:&lt;/strong&gt; 2021–2023&lt;/p&gt;
+    &lt;div class=&quot;theme-list&quot;&gt;
+      &lt;div class=&quot;theme&quot; style=&quot;border-left-color: var(--teal);&quot;&gt;
+        &lt;div class=&quot;theme-num&quot; style=&quot;background: var(--teal);&quot;&gt;1&lt;/div&gt;
+        &lt;div class=&quot;theme-text&quot;&gt;
+          &lt;strong&gt;Preparation — 준비 단계&lt;/strong&gt;
+          &lt;p&gt;부서별 응급대응 프로토콜 개발. 각 부서가 &lt;strong&gt;자체 고위험 사례&lt;/strong&gt;를 기반으로 시나리오를 직접 작성 → 참여 극대화&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;theme&quot; style=&quot;border-left-color: var(--teal);&quot;&gt;
+        &lt;div class=&quot;theme-num&quot; style=&quot;background: var(--teal);&quot;&gt;2&lt;/div&gt;
+        &lt;div class=&quot;theme-text&quot;&gt;
+          &lt;strong&gt;Execution — 실행 단계&lt;/strong&gt;
+          &lt;p&gt;임상 현장에서 baseline 시뮬레이션 → debriefing → 즉시 재시뮬레이션 (2회차) 시행&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;theme&quot; style=&quot;border-left-color: var(--teal);&quot;&gt;
+        &lt;div class=&quot;theme-num&quot; style=&quot;background: var(--teal);&quot;&gt;3&lt;/div&gt;
+        &lt;div class=&quot;theme-text&quot;&gt;
+          &lt;strong&gt;System Optimization — 시스템 최적화&lt;/strong&gt;
+          &lt;p&gt;식별된 시스템 오류·안전 위협을 즉시 개선 → &lt;strong&gt;2022년 병원 전체 E-cart 표준화 프로젝트&lt;/strong&gt; 시행 (실링 통일, 외부 라벨, 레이아웃, 체크리스트 표준화)&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p style=&quot;font-size:14px; margin-top:10px;&quot;&gt;&lt;strong&gt;총 47회 시뮬레이션 세션&lt;/strong&gt;이 다양한 임상 부서에서 시행됨. 사전·사후 5점 Likert 척도 설문(자신감·임상 수행능력·팀 역할 인식·CPR 순서 이해 4개 도메인) 비교.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;section&quot;&gt;
+    &lt;h3&gt;Results — 주요 결과&lt;/h3&gt;
+    &lt;p&gt;&lt;strong&gt;① 주관적 역량 평가 (5점 Likert · 사전 159명 / 사후 171명)&lt;/strong&gt;&lt;/p&gt;
+    &lt;table class=&quot;result-table&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;도메인&lt;/th&gt;
+          &lt;th&gt;사전 (Pre)&lt;/th&gt;
+          &lt;th&gt;사후 (Post)&lt;/th&gt;
+          &lt;th&gt;변화&lt;/th&gt;
+          &lt;th&gt;유의성&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;응급대응 자신감 (Confidence)&lt;/td&gt;
+          &lt;td&gt;3.48&lt;/td&gt;
+          &lt;td&gt;4.34&lt;/td&gt;
+          &lt;td class=&quot;delta&quot;&gt;+0.86&lt;/td&gt;
+          &lt;td&gt;&lt;span class=&quot;pval&quot;&gt;p &amp;lt; 0.001&lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;임상 수행능력 (Execution)&lt;/td&gt;
+          &lt;td&gt;3.63&lt;/td&gt;
+          &lt;td&gt;4.47&lt;/td&gt;
+          &lt;td class=&quot;delta&quot;&gt;+0.84&lt;/td&gt;
+          &lt;td&gt;&lt;span class=&quot;pval&quot;&gt;p &amp;lt; 0.001&lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;팀 역할 인식 (Team Role)&lt;/td&gt;
+          &lt;td&gt;3.71&lt;/td&gt;
+          &lt;td&gt;4.47&lt;/td&gt;
+          &lt;td class=&quot;delta&quot;&gt;+0.76&lt;/td&gt;
+          &lt;td&gt;&lt;span class=&quot;pval&quot;&gt;p &amp;lt; 0.001&lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;CPR 순서 이해 (Sequence)&lt;/td&gt;
+          &lt;td&gt;3.62&lt;/td&gt;
+          &lt;td&gt;4.36&lt;/td&gt;
+          &lt;td class=&quot;delta&quot;&gt;+0.74&lt;/td&gt;
+          &lt;td&gt;&lt;span class=&quot;pval&quot;&gt;p &amp;lt; 0.001&lt;/span&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+
+    &lt;p style=&quot;margin-top:18px;&quot;&gt;&lt;strong&gt;② 객관적 수행시간 단축 (강의 본문 발표)&lt;/strong&gt;&lt;/p&gt;
+    &lt;table class=&quot;result-table&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;지표&lt;/th&gt;
+          &lt;th&gt;사전&lt;/th&gt;
+          &lt;th&gt;사후&lt;/th&gt;
+          &lt;th&gt;개선&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;첫 흉부압박 시작 (Time to First Compression)&lt;/td&gt;
+          &lt;td&gt;23.8 초&lt;/td&gt;
+          &lt;td&gt;17.7 초&lt;/td&gt;
+          &lt;td class=&quot;delta&quot;&gt;−6.1초 단축&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;첫 제세동 (Time to First Shock)&lt;/td&gt;
+          &lt;td&gt;52.7 초&lt;/td&gt;
+          &lt;td&gt;37.2 초&lt;/td&gt;
+          &lt;td class=&quot;delta&quot;&gt;−15.5초 단축&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;strong&gt;3분 이내 제세동 성공률&lt;/strong&gt;&lt;/td&gt;
+          &lt;td&gt;43%&lt;/td&gt;
+          &lt;td&gt;86%&lt;/td&gt;
+          &lt;td class=&quot;delta&quot;&gt;2배 ↑&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+
+    &lt;div class=&quot;callout&quot;&gt;
+      &lt;div class=&quot;callout-title&quot;&gt;⚠ 참가자 구성 — Multidisciplinary&lt;/div&gt;
+      &lt;p&gt;총 171명 참여 / &lt;strong&gt;65% 이상이 임상경력 10년 이상&lt;/strong&gt;의 다학제 인력. 간호사 중심이지만 &lt;strong&gt;의사 및 보조 인력의 능동적 참여&lt;/strong&gt;로 시스템 분석에 견고한 다학제 기반 확보.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;callout&quot;&gt;
+      &lt;div class=&quot;callout-title&quot;&gt;📌 시스템 개선 사례 — E-cart 표준화 (2022)&lt;/div&gt;
+      &lt;p&gt;시뮬레이션 중 발견된 &lt;strong&gt;부서 간 응급카트 구성·배치의 비일관성&lt;/strong&gt;이 주요 위험 요인으로 확인됨. 병원 전체 차원에서 &lt;strong&gt;실링 방식, 내부·외부 라벨, 레이아웃, 체크리스트&lt;/strong&gt;를 통일 → 응급 상황에서의 인지 부하(cognitive load) 감소, 즉각적 도구 접근성 확보.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;conclusion&quot; style=&quot;background: var(--teal);&quot;&gt;
+    &lt;div class=&quot;conclusion-label&quot;&gt;Conclusion&lt;/div&gt;
+    &lt;p&gt;부서 특화 현장 모의 심정지 시뮬레이션은 의료진의 &lt;strong&gt;응급대응 역량&lt;/strong&gt;을 모든 도메인에서 유의하게 향상시켰다(p&amp;lt;0.001). 정기적 현장 시뮬레이션 프로그램의 시행은 &lt;strong&gt;심정지 사건에 대한 소생술 수행능력과 시스템 준비도&lt;/strong&gt;를 강화할 수 있다.&lt;br&gt;&lt;br&gt;본 QI 활동은 2025년부터 SNUH 공식 정규 CPR 교육 프로그램으로 채택되어, &lt;strong&gt;&quot;명확한 프로토콜과 표준화된 하드웨어가 시간을 절약하고, 절약된 시간이 생명을 살린다&quot;&lt;/strong&gt;는 결론을 임상 현장에 정착시켰다.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;qa&quot;&gt;
+    &lt;div class=&quot;qa-head&quot;&gt;▎ Q&amp;A · Floor Discussion&lt;/div&gt;
+    &lt;div class=&quot;qa-body&quot;&gt;
+      &lt;div class=&quot;qa-item&quot;&gt;
+        &lt;div class=&quot;qa-q&quot;&gt;&lt;span&gt;주관적 점수(자신감·수행능력) 외에 &lt;strong&gt;실제 환자에서의 CPR time 단축, ROSC 빈도 증가&lt;/strong&gt; 등 객관적 임상 결과 데이터는 있는가? — 좌장 (RRT 디렉터, 한국심폐소생협회 faculty)&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;qa-a&quot;&gt;&lt;span&gt;2023년까지 데이터를 현재 분석 중이며, 객관적 임상 결과(ROSC rate, 심정지 발견-소생술 시작 시간 단축 등) 분석을 향후 발표 예정. 좌장 코멘트: &lt;em&gt;&quot;compression time·shock time 단축은 당연히 좋은 지표이지만, 궁극적으로는 ROSC 빈도와 같은 최종 결과를 보여주는 것이 핵심이므로 그러한 분석부터 진행하면 더 의미 있을 것&quot;&lt;/em&gt;이라는 피드백.&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;&lt;!-- end wrap --&gt;
+
+&lt;footer&gt;
+  &lt;strong style=&quot;color:white;&quot;&gt;KSCCM-ACCC 2026 Oral Presentation 2 Review&lt;/strong&gt; · OP2-1, OP2-4 강의 정리&lt;br&gt;
+  본 자료는 학술 교육 목적으로 제작되었으며, 초록집 및 강의 녹음 전사를 기반으로 합니다.&lt;br&gt;
+  Compiled with AI assistance · 2026
+&lt;/footer&gt;
+
 &lt;/body&gt;
 &lt;/html&gt;
 "></iframe></section></main>
